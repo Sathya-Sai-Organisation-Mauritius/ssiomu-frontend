@@ -23,6 +23,9 @@
                     <li class="mr-6">
                         <nuxt-link class="text-blue-500 text-3xl hover:text-blue-800" to="/information">Informations</nuxt-link>
                     </li>
+                     <li class="mr-6">
+                        <nuxt-link class="text-blue-500 text-3xl hover:text-blue-800" to="/Upcomingevents">test</nuxt-link>
+                    </li>
                 </ul>
 
             </div>
