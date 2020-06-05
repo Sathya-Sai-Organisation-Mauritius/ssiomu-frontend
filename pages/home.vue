@@ -540,18 +540,18 @@
       </div>
     </div>
 
-    <Footer />
+    <SiteFooter />
   </div>
 </template>
 
 <script>
 import SiteHeader from '~/components/SiteHeader.vue'
-import Footer from '~/components/Footer.vue'
+import SiteFooter from '~/components/SiteFooter.vue'
 
 export default {
   components: {
     SiteHeader,
-    Footer
+    SiteFooter
   }
 }
 </script>

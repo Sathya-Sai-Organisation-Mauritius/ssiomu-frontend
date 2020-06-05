@@ -37,22 +37,19 @@
                 <a href="/publications">Publications</a>
               </li>
               <li class="pr-4">
-                <a href="/" title="" class="is-active">Regions</a>
+                <a href="/regions" title="" class="is-active">Regions</a>
               </li>
               <li class="pr-4">
-                <a href="/" title="" class="is-active">Wings</a>
+                <a href="/wings" title="" class="is-active">Wings</a>
               </li>
               <li class="pr-4">
-                <a href="/" title="" class="is-active">Events</a>
+                <a href="/events" title="" class="is-active">Events</a>
               </li>
               <li class="pr-4">
                 <a href="/" title="" class="is-active">Resources</a>
               </li>
               <li class="pr-4">
                 <a href="/" title="" class="is-active">Contact Us</a>
-              </li>
-              <li class="pr-4">
-                <a href="/" class="is-active">Home</a>
               </li>
             </ul>
           </nav>
