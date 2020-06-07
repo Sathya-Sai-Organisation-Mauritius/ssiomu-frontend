@@ -8,7 +8,7 @@
           </h2>
 
           <div class="grid grid-cols-3 gap-8 text-blue-500">
-            <EventBox
+            <UpcomingEventBox
               v-for="(description, index) in descriptions"
               :myvalues="description"
             />
@@ -20,10 +20,11 @@
 </template>
 
 <script>
-import EventBox from '../components/EventBox'
+import UpcomingEventBox from '../components/UpcomingEventBox'
+
 export default {
   components: {
-    EventBox
+    UpcomingEventBox
   },
   data: () => {
     return {
