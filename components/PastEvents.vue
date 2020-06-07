@@ -13,12 +13,6 @@
         >
           {{ subtitle }}
         </p>
-        <!-- <p
-          class="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-700 sm:mt-4"
-        >
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero
-          labore natus atque, ducimus sed.
-        </p> -->
       </div>
       <div class="bg-white shadow overflow-hidden sm:rounded-md">
         <ul>
@@ -40,6 +34,7 @@ export default {
   },
   data: () => {
     return {
+      subtitle: false,
       pasteventdescriptions: [
         {
           eventname: 'Event Name',
