@@ -27,28 +27,30 @@
         <div>
           <nav role="navigation">
             <ul class="flex pl-4">
-              <li class="pr-4">
-                <a href="/" class="is-active">Home</a>
+              <li class="pr-4 hover:text-orange-600">
+                <a href="/" class="is-active ">Home</a>
               </li>
-              <li class="pr-4">
+              <li class="pr-4 hover:text-orange-600 ">
                 <a href="/" title="" class="is-active">About</a>
               </li>
-              <li class="pr-4">
-                <a href="/publications">Publications</a>
+              <li class="pr-4 hover:text-orange-600 ">
+                <a href="/publicationsPage">Publications</a>
               </li>
-              <li class="pr-4">
+
+              <li class="pr-4 hover:text-orange-600">
                 <a href="/regions" title="" class="is-active">Regions</a>
               </li>
-              <li class="pr-4">
+
+              <li class="pr-4 hover:text-orange-600">
                 <a href="/wings" title="" class="is-active">Wings</a>
               </li>
-              <li class="pr-4">
+              <li class="pr-4 hover:text-orange-600">
                 <a href="/events" title="" class="is-active">Events</a>
               </li>
-              <li class="pr-4">
+              <li class="pr-4 hover:text-orange-600">
                 <a href="/" title="" class="is-active">Resources</a>
               </li>
-              <li class="pr-4">
+              <li class="pr-4 hover:text-orange-600">
                 <a href="/" title="" class="is-active">Contact Us</a>
               </li>
             </ul>

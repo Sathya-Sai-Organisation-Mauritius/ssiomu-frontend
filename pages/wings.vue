@@ -2,10 +2,10 @@
   <div>
     <SiteHeader />
 
-    <div class="container mx-auto">
-      <div class="wing-details space-y-12 py-10">
-        <div class="wing-title font-bold flex space-x-2 items-center">
-          <h1 class="text-6xl">Devotion Wing</h1>
+    <div class="container mx-auto ">
+      <div class=" wing-details space-y-12 py-20 text-center">
+        <div class="wing-title font-bold space-x-2 items-center">
+          <h1 class="font-serif text-6xl text-center">Devotion Wing</h1>
         </div>
 
         <div class="wing-description space-y-3">
@@ -53,13 +53,14 @@
 
     <UpcomingEvents />
 
-    <div class="container mx-auto">
-      <div class="wing-details space-y-12 py-10">
-        <PastEvents />
+    <PastEvents
+      :subtitle="'My Wing Subtitle'"
+      :color="'bg-gray-200'"
+      :textalign="'text-center'"
+      :textcolor="'text-blue-500'"
+    />
 
-        <UpcomingPublications />
-      </div>
-    </div>
+    <FeaturedPublications :textalign="'text-center'" />
 
     <SiteFooter />
   </div>
@@ -69,7 +70,7 @@
 import SiteHeader from '~/components/SiteHeader.vue'
 import SiteFooter from '~/components/SiteFooter.vue'
 import UpcomingEvents from '~/components/UpcomingEvents.vue'
-import UpcomingPublications from '~/components/UpcomingPublications.vue'
+import FeaturedPublications from '~/components/FeaturedPublications.vue'
 import PastEvents from '~/components/PastEvents.vue'
 
 export default {
@@ -77,14 +78,10 @@ export default {
     SiteHeader,
     SiteFooter,
     UpcomingEvents,
-    UpcomingPublications,
+    FeaturedPublications,
     PastEvents
   }
 }
 </script>
 
-<style>
-.gradient-bg {
-  background: linear-gradient(90deg, #1c5877, #0d2d3d 100%);
-}
-</style>
+<style></style>

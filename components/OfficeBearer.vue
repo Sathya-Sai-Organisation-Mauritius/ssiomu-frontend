@@ -39,6 +39,7 @@
               <OfficeBearerBox
                 v-for="(officeBearer, index) in officeBearers"
                 :officebearervalues="officeBearer"
+                :key="index"
               />
               <!-- <tr class="bg-white">
                 <td

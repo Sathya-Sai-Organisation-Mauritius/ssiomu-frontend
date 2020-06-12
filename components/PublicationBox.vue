@@ -1,5 +1,5 @@
 <<template>
-  <div class="flex flex-col shadow-lg overflow-hidden">
+  <div class="flex flex-col shadow-lg overflow-hidden mb-4">
     <div class="flex-shrink-0">
       <img class="h-48 w-full object-cover" :src="pubvalues.url" alt="" />
     </div>
@@ -10,7 +10,7 @@
             {{ pubvalues.purpose }}
           </a>
         </p>
-        <a href="#" class="">
+        <a :href="pubvalues.titleUrl" class="">
           <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
             {{ pubvalues.title }}
           </h3>

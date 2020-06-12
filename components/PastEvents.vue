@@ -1,16 +1,13 @@
 <<template>
   <div class="bg-gray-200">
     <div class="container mx-auto relative pt-12 pb-24 px-4 sm:px-6 lg:px-8">
-      <div class="text-center pb-12">
+      <div class="pb-12" :class="textalign">
         <h2
-          class="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10"
+          class="font-serif text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10"
         >
           Past events
         </h2>
-        <p
-          v-if="subtitle"
-          class="mt-3 max-w-2xl text-xl leading-7 text-gray-700 sm:mt-4"
-        >
+        <p v-if="subtitle" class="mt-3 text-xl leading-7 text-gray-700 sm:mt-4">
           {{ subtitle }}
         </p>
       </div>
@@ -19,6 +16,7 @@
           <PastEventBox
             v-for="(pasteventdescription, index) in pasteventdescriptions"
             :pasteventvalues="pasteventdescription"
+            :key="index"
           />
         </ul>
       </div>
@@ -32,9 +30,10 @@ export default {
   components: {
     PastEventBox
   },
+  props: ['subtitle', 'color', 'textalign', 'textcolor'],
   data: () => {
     return {
-      subtitle: false,
+      // subtitle: false,
       pasteventdescriptions: [
         {
           eventname: 'Event Name',

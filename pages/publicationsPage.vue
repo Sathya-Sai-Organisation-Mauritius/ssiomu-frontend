@@ -1,9 +1,7 @@
 <<template>
   <div>
     <SiteHeader />
-
-    <RegionsComponent />
-
+    <AllPublications :textalign="'text-center'" />
     <SiteFooter />
   </div>
 </template>
@@ -11,19 +9,17 @@
 <script>
 import SiteHeader from '~/components/SiteHeader.vue'
 import SiteFooter from '~/components/SiteFooter.vue'
-import RegionsComponent from '~/components/RegionsComponent.vue'
+import FeaturedPublications from '~/components/FeaturedPublications.vue'
+import AllPublications from '~/components/AllPublications.vue'
 
 export default {
   components: {
     SiteHeader,
     SiteFooter,
-    RegionsComponent
+    AllPublications,
+    FeaturedPublications
   }
 }
 </script>
 
-<style>
-.gradient-bg {
-  background: linear-gradient(90deg, #1c5877, #0d2d3d 100%);
-}
-</style>
+<style></style>

@@ -14,7 +14,7 @@
             <li class="mr-6">
               <nuxt-link
                 class="text-blue-500 text-3xl hover:text-blue-800"
-                to="/publications"
+                to="/regionPublications"
                 >Publications</nuxt-link
               >
             </li>

@@ -10,7 +10,9 @@
           <div
             class="event-title font-bold flex col-span-2 space-x-2 items-center"
           >
-            <h1 class="text-5xl">National Day Celebration - Savanne</h1>
+            <h1 class="font-serif text-5xl">
+              National Day Celebration - Savanne
+            </h1>
           </div>
           <div class="relative col-span-1" style="margin-top: 0;">
             <div
@@ -109,7 +111,7 @@
     <div class="event-events-gallery gradient-bg py-8">
       <div class="container mx-auto space-y-4">
         <h2
-          class="text-white text-3xl leading-9 tracking-tight font-extrabold sm:text-4xl sm:leading-10"
+          class="font-serif text-white text-3xl leading-9 tracking-tight font-extrabold sm:text-4xl sm:leading-10"
         >
           Gallery
         </h2>
@@ -181,10 +183,4 @@ export default {
 }
 </script>
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-</style>
+<style></style>

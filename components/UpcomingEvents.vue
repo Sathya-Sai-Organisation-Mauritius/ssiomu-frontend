@@ -1,15 +1,19 @@
 <<template>
   <div>
-    <div class="gradient-bg py-20">
+    <div class="py-20 gradient-bg">
       <div class="container mx-auto">
         <div>
-          <h2 class="text-3xl font-bold text-white pb-8">
+          <h2
+            class="font-serif text-4xl font-bold text-white pb-8"
+            :class="textalign"
+          >
             Upcoming Events
           </h2>
 
-          <div class="grid grid-cols-3 gap-8 text-blue-500">
+          <div class="grid grid-cols-3 gap-8 text-blue-600">
             <UpcomingEventBox
               v-for="(description, index) in descriptions"
+              :key="index"
               :myvalues="description"
             />
           </div>
@@ -26,6 +30,7 @@ export default {
   components: {
     UpcomingEventBox
   },
+  props: ['color', 'textalign', 'textcolor'],
   data: () => {
     return {
       descriptions: [

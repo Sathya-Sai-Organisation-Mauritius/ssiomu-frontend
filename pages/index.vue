@@ -6,7 +6,7 @@
       <div
         class="container mx-auto py-20 flex flex-col justify-center text-blue-500"
       >
-        <h1 class="text-5xl font-black leading-none">
+        <h1 class="text-5xl font-black leading-none font-serif">
           Sathya Sai <br />
           International <br />
           Organisation
@@ -23,11 +23,17 @@
 
     <BreakingNews />
 
-    <UpcomingEvents />
+    <UpcomingEvents :color="'gradient-bg'" :textcolor="'text-blue-600'" />
 
-    <UpcomingPublications />
+    <FeaturedPublications :textalign="'text-center'" />
 
-    <PastEvents />
+    <PastEvents
+      :subtitle="
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.'
+      "
+      :textalign="'text-center'"
+      :textcolor="'text-blue-600'"
+    />
 
     <SiteFooter />
   </div>
@@ -38,7 +44,7 @@ import SiteHeader from '~/components/SiteHeader.vue'
 import SiteFooter from '~/components/SiteFooter.vue'
 import Announcements from '~/components/Announcements.vue'
 import UpcomingEvents from '~/components/UpcomingEvents.vue'
-import UpcomingPublications from '~/components/UpcomingPublications.vue'
+import FeaturedPublications from '~/components/FeaturedPublications.vue'
 import PastEvents from '~/components/PastEvents.vue'
 import BreakingNews from '~/components/BreakingNews.vue'
 
@@ -48,7 +54,7 @@ export default {
     SiteFooter,
     Announcements,
     UpcomingEvents,
-    UpcomingPublications,
+    FeaturedPublications,
     PastEvents,
     BreakingNews
   }

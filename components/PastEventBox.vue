@@ -6,7 +6,10 @@
     >
       <div class="px-4 py-4 sm:px-6">
         <div class="flex items-center justify-between">
-          <div class="text-lg leading-5 font-bold text-blue-600 truncate">
+          <div
+            class="text-lg leading-5 font-bold text-blue-600 truncate"
+            :class="textcolor"
+          >
             {{ pasteventvalues.eventname }}
           </div>
           <div class="ml-2 flex-shrink-0 flex">
@@ -74,7 +77,7 @@
 
 <script>
 export default {
-  props: ['pasteventvalues']
+  props: ['pasteventvalues', 'textcolor']
 }
 </script>
 
