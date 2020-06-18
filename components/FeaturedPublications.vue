@@ -22,12 +22,23 @@
           </p>
         </div>
 
-        <div class="mt-12 grid gap-5 mx-auto lg:grid-cols-3">
-          <PublicationBox
-            v-for="(pubDescription, index) in myResult.data"
-            :pubvalues="pubDescription"
-            :key="index"
-          />
+        <div
+          v-if="errors"
+          class="bg-red-900 p-3 text-xl text-red-500 text-center"
+        >
+          {{ errors }}
+        </div>
+        <div v-else>
+          <div class="mt-12 grid gap-5 mx-auto lg:grid-cols-3" v-if="myResult">
+            <PublicationBox
+              v-for="(pubDescription, index) in myResult.data"
+              :pubvalues="pubDescription"
+              :key="index"
+            />
+          </div>
+          <div v-else class="text-2xl text-black text-center py-8">
+            Publications are loading. Please wait....
+          </div>
         </div>
       </div>
     </div>
@@ -44,48 +55,18 @@ export default {
   props: ['subtitle', 'color', 'textalign', 'maxheight'],
   data: () => {
     return {
-      myResult: [],
-      pubDescriptions: [
-        {
-          url:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-          purpose: 'Service',
-          titleUrl: '/savannePublications',
-          title: 'Boost your conversion rate ',
-          number: '6',
-          region: 'Region 6',
-          time: 'Mar 16, 2020'
-        },
-
-        {
-          url:
-            'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-          purpose: 'Education',
-          titleUrl: '/savannePublications',
-          title: 'How to use search engine optimization to drive sales',
-          number: '3',
-          region: 'Region 3',
-          time: 'Mar 16, 2020'
-        },
-
-        {
-          url:
-            'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-          purpose: 'Youth Wing',
-          titleUrl: '/savannePublications',
-
-          title: 'Improve your customer experience',
-          number: '1',
-          region: 'Region 1',
-          time: 'Mar 16, 2020'
-        }
-      ]
+      myResult: false,
+      errors: false
     }
   },
 
   methods: {
     getJson(response) {
       return response.json()
+    },
+    handleError(error) {
+      console.log(error)
+      this.errors = 'An error occured. Please try again later.'
     },
 
     displayData(result) {
@@ -98,6 +79,8 @@ export default {
         .then(this.getJson)
 
         .then(this.displayData)
+
+        .catch(this.handleError)
     }
   },
   mounted() {

@@ -11,14 +11,28 @@
           {{ subtitle }}
         </p>
       </div>
-      <div class="bg-white shadow overflow-hidden sm:rounded-md">
-        <ul>
-          <PastEventBox
-            v-for="(pasteventdescription, index) in myResult.data"
-            :pasteventvalues="pasteventdescription"
-            :key="index"
-          />
-        </ul>
+      <div
+        v-if="errors"
+        class="bg-red-900 p-3 text-xl text-red-500 text-center"
+      >
+        {{ errors }}
+      </div>
+      <div v-else>
+        <div
+          class="bg-white shadow overflow-hidden sm:rounded-md"
+          v-if="myResult"
+        >
+          <ul>
+            <PastEventBox
+              v-for="(pasteventdescription, index) in myResult.data"
+              :pasteventvalues="pasteventdescription"
+              :key="index"
+            />
+          </ul>
+        </div>
+        <div v-else class="text-2xl py-8 text-black text-center">
+          Past events loading, please wait..
+        </div>
       </div>
     </div>
   </div>
@@ -33,7 +47,8 @@ export default {
   props: ['subtitle', 'color', 'textalign', 'textcolor'],
   data: () => {
     return {
-      myResult: [],
+      errors: false,
+      myResult: false,
       // subtitle: false,
       pasteventdescriptions: [
         {
@@ -66,6 +81,11 @@ export default {
       return response.json()
     },
 
+    handleError(error) {
+      console.log(error)
+      this.errors = 'An error occured, please try again later.'
+    },
+
     displayData(result) {
       console.log(result)
       this.myResult = result
@@ -79,7 +99,7 @@ export default {
 
         .then(this.displayData)
 
-        .then(this.pastEvents)
+        .catch(this.handleError)
     }
   },
   mounted() {

@@ -19,12 +19,22 @@
           </p>
         </div>
 
-        <div class="mt-12 grid gap-5 mx-auto lg:grid-cols-3">
+        <div
+          v-if="errors"
+          class="bg-red-900 p-3 text-xl text-red-500 text-center"
+        >
+          {{ errors }}
+        </div>
+
+        <div class="mt-12 grid gap-5 mx-auto lg:grid-cols-3" v-if="myResult">
           <PublicationBox
-            v-for="(pubDescription, index) in myResult.data"
+            v-for="(pubDescription, index) in myResult"
             :key="index"
             :pubvalues="pubDescription"
           />
+        </div>
+        <div v-else class="text-2xl text-black text-center py-8">
+          Publications are loading, please wait...
         </div>
       </div>
     </div>
@@ -41,7 +51,8 @@ export default {
   props: ['subtitle', 'color', 'textalign'],
   data: () => {
     return {
-      myResult: [],
+      errors: false,
+      myResult: false,
       pubDescriptions: [
         {
           url:
@@ -164,10 +175,14 @@ export default {
     getJson(response) {
       return response.json()
     },
+    handleError(error) {
+      console.log(error)
+      this.errors = 'An error occured. Please try again later.'
+    },
 
     displayData(result) {
       console.log(result)
-      this.myResult = result
+      this.myResult = result.data
     },
 
     fetchData() {
@@ -175,6 +190,8 @@ export default {
         .then(this.getJson)
 
         .then(this.displayData)
+
+        .catch(this.handleError)
     }
   },
   mounted() {

@@ -1,0 +1,231 @@
+<template>
+  <div>
+    <SiteHeader />
+    <div v-if="errors" class="bg-red-900 p-3 text-xl text-red-500 text-center">
+      {{ errors }}
+    </div>
+    <div v-else>
+      <div v-if="myResult">
+        <div class="container mx-auto">
+          <div class="event-details space-y-12 py-10 m-8 lg:m-0">
+            <div
+              class="event-details grid gap-1 grid-cols-3 space-y-12 py-10 border-b border-gray-20"
+            >
+              <div
+                class="event-title font-bold flex col-span-2 space-x-2 items-center"
+              >
+                <h1 class="font-serif text-5xl">
+                  {{ myResult.name }}
+                </h1>
+              </div>
+              <div class="relative col-span-1" style="margin-top: 0;">
+                <div
+                  class="absolute text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-3 px-10 font-black"
+                >
+                  Region {{ myResult.region }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container mx-auto">
+          <div class="event-details space-y-12 pb-10 m-8 lg:m-0">
+            <div class="md:grid grid-cols-2">
+              <div class="event-description">
+                <h2
+                  class="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10 mb-4"
+                >
+                  Description
+                </h2>
+                <div
+                  class="description-body space-y-2"
+                  v-html="myResult.description"
+                ></div>
+              </div>
+
+              <div class="m-4 lg:m-0 lg:ml-8 event-schedule">
+                <h2
+                  class="  mb-4 text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-3xl sm:leading-10"
+                >
+                  Schedule
+                </h2>
+                <div class="serif">
+                  <div class="flex flex-col ">
+                    <div
+                      class=" justify-center rounded-md border border-transparent py-2 bg-blue-600 text-base leading-6 font-medium text-center text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                    >
+                      From
+                    </div>
+                    <div class="text-center text-xl font-bold py-4">
+                      {{ formatDate(myResult.from) }}
+                    </div>
+                    <div
+                      class=" justify-center rounded-md border border-transparent py-2 bg-orange-600 text-base leading-6 font-medmium text-center text-white shadow-sm hover:bg-orange-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                    >
+                      To
+                    </div>
+                    <div class="text-center text-xl font-bold py-4">
+                      {{ formatDate(myResult.to) }}
+                    </div>
+                  </div>
+
+                  <div class="lg:flex contact mt-4 ">
+                    <h3
+                      class=" flex items-center justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent py-4 px-8 bg-blue-600 text-base leading-6 font-medium text-center text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-xl sm:leading-5"
+                    >
+                      Organisers
+                    </h3>
+
+                    <div
+                      class="lg:flex font-medium rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 px-4 py-4 w-full"
+                    >
+                      <div>Contact: Gavin - 57971326</div>
+                      <span class="px-2"> - </span>
+                      <div>Region {{ myResult.region }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-events-gallery gradient-bg py-8">
+          <div class="container mx-auto space-y-4">
+            <h2
+              class="font-serif text-white text-3xl leading-9 tracking-tight font-extrabold sm:text-4xl sm:leading-10"
+            >
+              Gallery
+            </h2>
+            <p class="text-white max-w-2xl text-xl leading-7">
+              Images of what happened during the event
+            </p>
+            <div class="text-white">
+              <div class="grid grid-cols-4 gap-3">
+                <PastEventBox
+                  v-for="(pasteventdescription, index) in myResult.data"
+                  :pasteventvalues="pasteventdescription"
+                  :key="index"
+                />
+                <Gallery
+                  v-for="(gallery, index) in myResult.data"
+                  :galleryvalues="gallery"
+                  :key="index"
+                />
+                <div>
+                  <img
+                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <img
+                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <img
+                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <img
+                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <img
+                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <img
+                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <img
+                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-else class=" text-2xl py-12 text-black text-center">
+        Event loading, please wait..
+      </div>
+    </div>
+
+    <SiteFooter />
+  </div>
+</template>
+
+<script>
+import SiteHeader from '~/components/SiteHeader.vue'
+import SiteFooter from '~/components/SiteFooter.vue'
+import Gallery from '~/components/Gallery.vue'
+
+export default {
+  components: {
+    SiteHeader,
+    SiteFooter,
+    Gallery
+  },
+
+  data() {
+    return {
+      pageId: this.$route.params.id,
+      myResult: false,
+      errors: false
+    }
+  },
+
+  methods: {
+    getJson(response) {
+      return response.json()
+    },
+
+    displayData(result) {
+      console.log(result)
+      this.myResult = result.data
+    },
+
+    handleError(error) {
+      console.log(error)
+      this.errors = 'An error occured. Please try again later.'
+    },
+
+    formatDate(param) {
+      let temporaryDate = new Date(param)
+      let month = temporaryDate.toLocaleString('default', { month: 'long' })
+      let day = temporaryDate.toLocaleString('default', { day: 'numeric' })
+      let year = temporaryDate.toLocaleString('default', { year: 'numeric' })
+
+      let fullDate = `${month} ${day}, ${year}`
+      return fullDate
+    },
+
+    fetchData() {
+      fetch('http://localhost:4444/_/items/event/' + this.pageId)
+        .then(this.getJson)
+
+        .then(this.displayData)
+        .catch(this.handleError)
+    }
+  },
+  mounted() {
+    this.fetchData()
+  }
+}
+</script>
+
+<style></style>

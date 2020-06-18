@@ -1,6 +1,6 @@
 <<template>
   <div class="flex flex-col shadow-lg overflow-hidden mb-4">
-    <a href="">
+    <a :href="'/publication/' + pubvalues.id">
       <div class="flex-shrink-0">
         <img
           class="h-48 w-full object-cover"

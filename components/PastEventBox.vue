@@ -1,7 +1,7 @@
 <<template>
   <li>
     <a
-      href="#"
+      :href="'/event/' + pasteventvalues.id"
       class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
     >
       <div class="px-4 py-4 sm:px-6">

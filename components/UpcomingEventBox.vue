@@ -1,6 +1,6 @@
 <template>
   <div class="description">
-    <a :href="myvalues.url">
+    <a :href="'/event/' + myvalues.id">
       <div class="views-row bg-white p-8 mx-4 md:m-2">
         <div class="grid  md:grid-cols-4 gap-4">
           <div

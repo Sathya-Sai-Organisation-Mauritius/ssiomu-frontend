@@ -28,7 +28,7 @@
               />
             </div>
             <div v-else class="text-2xl text-white text-center py-8">
-              Events are loding. Please wait....
+              Upcoming events are loading. Please wait....
             </div>
           </div>
         </div>
@@ -44,19 +44,12 @@ export default {
   components: {
     UpcomingEventBox
   },
+
   props: ['color', 'textalign', 'textcolor'],
   data: () => {
     return {
       myResult: false,
-      errors: false,
-      descriptions: [
-        { date: '18 May', title: 'TITLE', content: 'REGION CONTENT' },
-        { date: '19 May', title: 'TITLE', content: 'REGION CONTENT' },
-        { date: '18 May', title: 'TITLE', content: 'REGION CONTENT' },
-        { date: '18 May', title: 'TITLE', content: 'REGION CONTENT' },
-        { date: '18 May', title: 'TITLE', content: 'REGION CONTENT' },
-        { date: '18 May', title: 'TITLE', content: 'REGION CONTENT' }
-      ]
+      errors: false
     }
   },
 
@@ -64,14 +57,17 @@ export default {
     getJson(response) {
       return response.json()
     },
+
     handleError(error) {
       console.log(error)
       this.errors = 'An error occured. Please try again later.'
     },
+
     displayData(result) {
       console.log(result)
       this.myResult = result.data
     },
+
     fetchData() {
       fetch('http://localhost:4444/_/items/event?filter[from][gt]=now')
         .then(this.getJson)
@@ -79,6 +75,7 @@ export default {
         .catch(this.handleError)
     }
   },
+
   mounted() {
     this.fetchData()
   }
