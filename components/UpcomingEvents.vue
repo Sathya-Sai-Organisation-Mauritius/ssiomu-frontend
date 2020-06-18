@@ -10,12 +10,26 @@
             Upcoming Events
           </h2>
 
-          <div class="grid md:grid-cols-3 gap-8 text-blue-600">
-            <UpcomingEventBox
-              v-for="(description, index) in myResult.data"
-              :key="index"
-              :myvalues="description"
-            />
+          <div
+            v-if="errors"
+            class="bg-red-900 p-3 text-xl text-red-500 text-center"
+          >
+            {{ errors }}
+          </div>
+          <div v-else>
+            <div
+              class="grid md:grid-cols-3 gap-8 text-blue-600"
+              v-if="myResult"
+            >
+              <UpcomingEventBox
+                v-for="(description, index) in myResult"
+                :key="index"
+                :myvalues="description"
+              />
+            </div>
+            <div v-else class="text-2xl text-white text-center py-8">
+              Events are loding. Please wait....
+            </div>
           </div>
         </div>
       </div>
@@ -33,7 +47,8 @@ export default {
   props: ['color', 'textalign', 'textcolor'],
   data: () => {
     return {
-      myResult: [],
+      myResult: false,
+      errors: false,
       descriptions: [
         { date: '18 May', title: 'TITLE', content: 'REGION CONTENT' },
         { date: '19 May', title: 'TITLE', content: 'REGION CONTENT' },
@@ -49,16 +64,19 @@ export default {
     getJson(response) {
       return response.json()
     },
-
+    handleError(error) {
+      console.log(error)
+      this.errors = 'An error occured. Please try again later.'
+    },
     displayData(result) {
       console.log(result)
-      this.myResult = result
+      this.myResult = result.data
     },
-
     fetchData() {
       fetch('http://localhost:4444/_/items/event?filter[from][gt]=now')
         .then(this.getJson)
         .then(this.displayData)
+        .catch(this.handleError)
     }
   },
   mounted() {
