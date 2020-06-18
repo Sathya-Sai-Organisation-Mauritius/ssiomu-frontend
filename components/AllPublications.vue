@@ -21,7 +21,7 @@
 
         <div class="mt-12 grid gap-5 mx-auto lg:grid-cols-3">
           <PublicationBox
-            v-for="(pubDescription, index) in pubDescriptions"
+            v-for="(pubDescription, index) in myResult.data"
             :key="index"
             :pubvalues="pubDescription"
           />
@@ -41,6 +41,7 @@ export default {
   props: ['subtitle', 'color', 'textalign'],
   data: () => {
     return {
+      myResult: [],
       pubDescriptions: [
         {
           url:
@@ -157,6 +158,27 @@ export default {
         }
       ]
     }
+  },
+
+  methods: {
+    getJson(response) {
+      return response.json()
+    },
+
+    displayData(result) {
+      console.log(result)
+      this.myResult = result
+    },
+
+    fetchData() {
+      fetch('http://localhost:4444/_/items/publication?fields=*,photo.*')
+        .then(this.getJson)
+
+        .then(this.displayData)
+    }
+  },
+  mounted() {
+    this.fetchData()
   }
 }
 </script>

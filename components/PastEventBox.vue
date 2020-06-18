@@ -10,13 +10,13 @@
             class="text-lg leading-5 font-bold text-blue-600 truncate"
             :class="textcolor"
           >
-            {{ pasteventvalues.eventname }}
+            {{ pasteventvalues.name }}
           </div>
           <div class="ml-2 flex-shrink-0 flex">
             <span
               class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800"
             >
-              {{ pasteventvalues.region }}
+              Region {{ pasteventvalues.region.id }}
             </span>
           </div>
         </div>
@@ -32,7 +32,7 @@
                   d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
                 />
               </svg>
-              {{ pasteventvalues.wingname }}
+              {{ pasteventvalues.wing.name }}
             </div>
             <div
               class="mt-2 flex items-center text-sm leading-5 text-gray-600 sm:mt-0"
@@ -48,7 +48,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              {{ pasteventvalues.center }}
+              {{ pasteventvalues.group.name }}
             </div>
           </div>
           <div
@@ -66,7 +66,9 @@
               />
             </svg>
             <span>
-              <time datetime="2020-01-07">{{ pasteventvalues.time }}</time>
+              <time datetime="2020-01-07">{{
+                formatDate(pasteventvalues.from)
+              }}</time>
             </span>
           </div>
         </div>
@@ -77,7 +79,19 @@
 
 <script>
 export default {
-  props: ['pasteventvalues', 'textcolor']
+  props: ['pasteventvalues', 'textcolor'],
+
+  methods: {
+    formatDate(param) {
+      let temporaryDate = new Date(param)
+      let month = temporaryDate.toLocaleString('default', { month: 'long' })
+      let day = temporaryDate.toLocaleString('default', { day: 'numeric' })
+      let year = temporaryDate.toLocaleString('default', { year: 'numeric' })
+
+      let fullDate = `${month} ${day}, ${year}`
+      return fullDate
+    }
+  }
 }
 </script>
 

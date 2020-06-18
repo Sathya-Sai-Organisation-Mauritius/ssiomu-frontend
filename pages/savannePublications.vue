@@ -12,6 +12,7 @@
             <h1 class="text-4xl">
               Publication Sai Newsletter -Echoes from Region 1 savanne(Vol 4 ISS
               1) - Savanne
+              <!-- {{ myResult.data }} -->
             </h1>
           </div>
           <div class="relative col-span-1" style="margin-top: 0;">
@@ -78,6 +79,33 @@ export default {
   components: {
     SiteHeader,
     SiteFooter
+  },
+  data: () => {
+    return {
+      myResult: []
+    }
+  },
+
+  methods: {
+    getJson(response) {
+      return response.json()
+    },
+
+    displayData(result) {
+      console.log(result)
+      this.myResult = result
+    },
+
+    fetchData() {
+      // fetch('http://localhost:4444/_/items/publication?fields=*')
+      fetch('http://localhost:4444/_/items/:publication/:1')
+        .then(this.getJson)
+
+        .then(this.displayData)
+    }
+  },
+  mounted() {
+    this.fetchData()
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <<template>
   <div class="announcement-details bg-orange-100 ">
     <div
-      class="container mx-auto py-10 flex flex-col justify-center text-blue-500 "
+      class="container mx-auto px-4 md:px-0 py-10 flex flex-col justify-center text-blue-500 "
     >
       <div class="text-center pb-10">
         <h2
@@ -18,8 +18,7 @@
           >
             <ul>
               <AnnouncementBox
-                v-for="(announcementdescription,
-                index) in announcementdescriptions"
+                v-for="(announcementdescription, index) in myResult.data"
                 :key="index"
                 :announcmentvalues="announcementdescription"
               />
@@ -45,8 +44,11 @@ export default {
   },
 
   props: ['subtitle', 'color'],
+
   data: () => {
     return {
+      myResult: [],
+
       announcementdescriptions: [
         {
           title: 'Announcement 1',
@@ -81,6 +83,27 @@ export default {
         }
       ]
     }
+  },
+
+  methods: {
+    getJson(response) {
+      return response.json()
+    },
+
+    displayData(result) {
+      console.log(result)
+      this.myResult = result
+    },
+
+    fetchData() {
+      fetch('http://localhost:4444/_/items/annoucement')
+        .then(this.getJson)
+
+        .then(this.displayData)
+    }
+  },
+  mounted() {
+    this.fetchData()
   }
 }
 </script>

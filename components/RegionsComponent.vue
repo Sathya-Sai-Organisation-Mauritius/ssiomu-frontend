@@ -3,11 +3,13 @@
     <div class="py-20 ">
       <div class="container mx-auto">
         <div>
-          <h2 class="font-serif text-4xl font-bold text-black pb-8">
+          <h2
+            class="font-serif text-4xl font-bold text-black pb-8 text-center md:text-left"
+          >
             All regions
           </h2>
 
-          <div class="grid grid-cols-2 gap-4 ">
+          <div class="grid md:grid-cols-2 gap-4 ">
             <RegionsComponentBox
               v-for="(description, index) in descriptions"
               :key="index"

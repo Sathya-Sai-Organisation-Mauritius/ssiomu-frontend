@@ -1,18 +1,18 @@
 <<template>
-  <div class="description mb-4">
+  <div class="description mb-8 mx-4 md:mx-0">
     <div
-      class="views-row bg-white  px-4 pt-2 rounded shadow-lg border-b-4 border-blue-900 "
+      class="views-row bg-white  px-4 pt-2 rounded shadow-lg border-b-4 border-blue-700 "
     >
-      <div class="flex  grid grid-cols-5 gap-4">
+      <div class="flex items-center grid grid-cols-5 gap-4">
         <div
-          class="circ-num text-2xl sm:text-4xl text-center font-medium text-blue-600"
+          class=" circ-num text-md md:text-xl lg:text-4xl text-center sm:font-medium text-blue-600"
         >
           <span class="">#</span>
           {{ myvalues.number }}
         </div>
 
         <div
-          class="flex items-center col-span-3 font-semibold text-xl lg:text-3xl text-blue-900"
+          class="flex col-span-3 font-semibold text-sm md:text-xl lg:text-3xl text-blue-900"
         >
           <nuxt-link class="hover:underline" :to="myvalues.url">
             {{ myvalues.region }}</nuxt-link

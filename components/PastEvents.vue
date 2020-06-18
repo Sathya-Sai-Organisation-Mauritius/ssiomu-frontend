@@ -14,7 +14,7 @@
       <div class="bg-white shadow overflow-hidden sm:rounded-md">
         <ul>
           <PastEventBox
-            v-for="(pasteventdescription, index) in pasteventdescriptions"
+            v-for="(pasteventdescription, index) in myResult.data"
             :pasteventvalues="pasteventdescription"
             :key="index"
           />
@@ -33,6 +33,7 @@ export default {
   props: ['subtitle', 'color', 'textalign', 'textcolor'],
   data: () => {
     return {
+      myResult: [],
       // subtitle: false,
       pasteventdescriptions: [
         {
@@ -58,6 +59,31 @@ export default {
         }
       ]
     }
+  },
+
+  methods: {
+    getJson(response) {
+      return response.json()
+    },
+
+    displayData(result) {
+      console.log(result)
+      this.myResult = result
+    },
+
+    fetchData() {
+      fetch(
+        'http://localhost:4444/_/items/event?filter[from][lt]=now&fields=*.*'
+      )
+        .then(this.getJson)
+
+        .then(this.displayData)
+
+        .then(this.pastEvents)
+    }
+  },
+  mounted() {
+    this.fetchData()
   }
 }
 </script>

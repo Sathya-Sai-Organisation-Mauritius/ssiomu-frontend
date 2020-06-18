@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="main-menu-wrapper">
+    <div class="main-menu-wrapper relative z-10 ">
       <div class="container flex items-center mx-auto">
         <div>
           <div id="block-tailwindcss-branding">
@@ -26,32 +26,244 @@
         </div>
         <div>
           <nav role="navigation">
-            <ul class="flex pl-4">
-              <li class="pr-4 hover:text-orange-600">
-                <a href="/" class="is-active ">Home</a>
-              </li>
-              <li class="pr-4 hover:text-orange-600 ">
-                <a href="/" title="" class="is-active">About</a>
-              </li>
-              <li class="pr-4 hover:text-orange-600 ">
-                <a href="/publicationsPage">Publications</a>
+            <ul class=" flex ml-4">
+              <a href="">
+                <li
+                  class="py-5 px-4   hover:bg-orange-600 hover:font-semibold "
+                >
+                  Home
+                </li>
+              </a>
+
+              <a href="/publicationsPage">
+                <li class="py-5 px-4   hover:bg-orange-600 hover:font-semibold">
+                  About
+                </li>
+              </a>
+
+              <a href="/publicationsPage">
+                <li class="py-5 px-4   hover:bg-orange-600 hover:font-semibold">
+                  Publications
+                </li>
+              </a>
+
+              <li
+                class=" relative py-5 hover:bg-orange-500 hover:font-semibold"
+              >
+                <div class="dropdown ">
+                  <a
+                    href="/regions"
+                    class="  px-4 rounded inline-flex items-center"
+                  >
+                    <span class="mr-1">Regions</span>
+                    <svg
+                      class="fill-current h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                      />
+                    </svg>
+                  </a>
+                  <ul
+                    class="dropdown-menu absolute block left-0 hidden block text-white-700 pt-3 shadow-xl "
+                  >
+                    <li class="">
+                      <a
+                        class="rounded-t bg-orange-600 hover:bg-orange-500 py-3 px-4 block whitespace-no-wrap"
+                        href="/LowerPlaineWilhems"
+                        style="margin-bottom:0px;"
+                        >Savanne</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class="bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="#"
+                        >Grand Port</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class=" bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="#"
+                        >Moka/Flacq</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class=" bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="#"
+                        >Upper Plaine Wilhems</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class=" bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="/LowerPlaineWilhems"
+                        >Lower Plaine Wilhems</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class="bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="#"
+                        >Port Louis</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class=" bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="#"
+                        >Pamplemouses</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class="rounded-b bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="#"
+                        >Riviere du rempart</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </li>
 
-              <li class="pr-4 hover:text-orange-600">
-                <a href="/regions" title="" class="is-active">Regions</a>
+              <li
+                class=" relative py-5 hover:bg-orange-500 hover:font-semibold"
+              >
+                <div class="dropdown ">
+                  <a
+                    href="/wings"
+                    class="  px-4 rounded inline-flex items-center"
+                  >
+                    <span class="mr-1">Wings</span>
+                    <svg
+                      class="fill-current h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                      />
+                    </svg>
+                  </a>
+                  <ul
+                    class="dropdown-menu absolute left-0 hidden block text-white-700 pt-3 shadow-xl"
+                  >
+                    <li class="">
+                      <a
+                        class="rounded-t bg-orange-600 hover:bg-orange-500 py-3 px-4 block whitespace-no-wrap"
+                        href="#"
+                        style="margin-bottom:0px;"
+                        >Devotions</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class="bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="#"
+                        >Educations(SSE)</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class="rounded-b bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        href="#"
+                        style="margin-bottom:0px;"
+                        >Services</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </li>
 
-              <li class="pr-4 hover:text-orange-600">
-                <a href="/wings" title="" class="is-active">Wings</a>
+              <a href="/events" title="" class="is-active">
+                <li class="py-5 px-4   hover:bg-orange-600 hover:font-semibold">
+                  Events
+                </li>
+              </a>
+
+              <li
+                class=" relative py-5 hover:bg-orange-500 hover:font-semibold"
+              >
+                <div class="dropdown ">
+                  <a href="/" class="  px-4 rounded inline-flex items-center">
+                    <span class="mr-1">Resources</span>
+                    <svg
+                      class="fill-current h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                      />
+                    </svg>
+                  </a>
+                  <ul
+                    class="dropdown-menu absolute left-0 hidden block text-white-700 pt-3 shadow-xl "
+                  >
+                    <li class="">
+                      <a
+                        class="rounded-t bg-orange-600 hover:bg-orange-500 py-3 px-4 block whitespace-no-wrap"
+                        href="#"
+                        style="margin-bottom:0px;"
+                        >Sai shop</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class="bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="#"
+                        >Guidelines</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class=" bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="#"
+                        >Links</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class="bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        style="margin-bottom:0px;"
+                        href="#"
+                        >PWS resources</a
+                      >
+                    </li>
+                    <li class="">
+                      <a
+                        class="rounded-b bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        href="#"
+                        style="margin-bottom:0px;"
+                        >Pre World Conference Videos</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </li>
-              <li class="pr-4 hover:text-orange-600">
-                <a href="/events" title="" class="is-active">Events</a>
-              </li>
-              <li class="pr-4 hover:text-orange-600">
-                <a href="/" title="" class="is-active">Resources</a>
-              </li>
-              <li class="pr-4 hover:text-orange-600">
-                <a href="/" title="" class="is-active">Contact Us</a>
+
+              <a href="/" title="" class="is-active">
+                <li class="py-5 px-4   hover:bg-orange-600 hover:font-semibold">
+                  Contact Us
+                </li>
+              </a>
+
+              <li class="py-5 px-4   hover:bg-orange-600 hover:font-semibold">
+                <a href="/test" title="" class="is-active">GET REQUEST</a>
               </li>
             </ul>
           </nav>
@@ -65,4 +277,8 @@
 export default {}
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+</style>
