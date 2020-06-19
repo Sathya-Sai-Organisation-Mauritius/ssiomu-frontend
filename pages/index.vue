@@ -40,6 +40,7 @@
       "
       :textalign="'text-center'"
       :textcolor="'text-blue-600'"
+      fetchURL="/_/items/event?filter[from][lt]=now&fields=*.*"
     />
 
     <SiteFooter />

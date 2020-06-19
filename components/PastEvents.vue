@@ -45,51 +45,19 @@ export default {
     PastEventBox
   },
   props: ['subtitle', 'color', 'textalign', 'textcolor', 'fetchURL'],
-  data: () => {
+  data() {
     return {
       pastevents: [],
-      apiEndPoint: 'http://localhost:4444'
+      apiEndpoint: 'http://localhost:4444'
     }
   },
-  mounted() {
-    console.log(this.fetchURL)
-  },
-
   async fetch() {
-    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
+    let url = `${this.apiEndpoint}${this.fetchURL}`
+    console.log(url)
+    const result = await this.$http.$get(url)
     console.log(result)
     this.pastevents = result.data
-  },
-  fetchOnServer: false
-  // methods: {
-  //   getJson(response) {
-  //     return response.json()
-  //   },
-
-  //   handleError(error) {
-  //     console.log(error)
-  //     this.errors = 'An error occured, please try again later.'
-  //   },
-
-  //   displayData(result) {
-  //     console.log(result)
-  //     this.myResult = result
-  //   },
-
-  //   fetchData() {
-  //     fetch(
-  //       'http://localhost:4444/_/items/event?filter[from][lt]=now&fields=*.*'
-  //     )
-  //       .then(this.getJson)
-
-  //       .then(this.displayData)
-
-  //       .catch(this.handleError)
-  //   }
-  // },
-  // mounted() {
-  //   this.fetchData()
-  // }
+  }
 }
 </script>
 
