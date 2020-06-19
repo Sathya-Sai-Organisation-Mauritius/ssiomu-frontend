@@ -1,11 +1,13 @@
 <template>
   <div>
     <SiteHeader />
-    <div v-if="errors" class="bg-red-900 p-3 text-xl text-red-500 text-center">
-      {{ errors }}
-    </div>
-    <div v-else>
-      <div v-if="myResult">
+    <div>
+      <p v-if="$fetchState.pending">Fetching posts...</p>
+      <p v-else-if="$fetchState.error">
+        Error while fetching posts: {{ $fetchState.error.message }}
+      </p>
+
+      <div v-else>
         <div class="container mx-auto">
           <div class="event-details space-y-12 py-10 m-8 md:m-0">
             <div
@@ -14,8 +16,8 @@
               <div
                 class="event-title font-bold flex md:col-span-2 space-x-2 items-center justify-center md:justify-start"
               >
-                <h1 class="font-serif text-5xl">
-                  {{ myResult.name }}
+                <h1 class="font-serif md:text-4xl lg:text-5xl">
+                  {{ events.name }}
                 </h1>
               </div>
               <div
@@ -25,7 +27,7 @@
                 <div
                   class="text-center lg:absolute lg:text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-2 md:p-3 px-4 md:px-10 font-black"
                 >
-                  Region {{ myResult.region.number }}
+                  Region {{ events.region.number }}
                 </div>
               </div>
             </div>
@@ -43,7 +45,7 @@
                 </h2>
                 <div
                   class="description-body space-y-2"
-                  v-html="myResult.description"
+                  v-html="events.description"
                 ></div>
               </div>
 
@@ -63,7 +65,7 @@
                     <div
                       class="text-center text-xl text-gray-600 font-bold py-4"
                     >
-                      {{ formatDate(myResult.from) }}
+                      {{ formatDate(events.from) }}
                     </div>
                     <div
                       class="mx-12 justify-center rounded-md border border-transparent py-2 bg-orange-600 text-base leading-6 font-medmium text-center text-white shadow-sm hover:bg-orange-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
@@ -73,7 +75,7 @@
                     <div
                       class="text-center text-xl text-gray-600 font-bold py-4"
                     >
-                      {{ formatDate(myResult.to) }}
+                      {{ formatDate(events.to) }}
                     </div>
                   </div>
 
@@ -89,7 +91,7 @@
                     >
                       <div>Contact: Gavin - 57971326</div>
                       <span class="px-2"> - </span>
-                      <div>Region {{ myResult.region.number }}</div>
+                      <div>Region {{ events.region.number }}</div>
                     </div>
                   </div>
                 </div>
@@ -111,12 +113,12 @@
             <div class="text-white">
               <div class="grid grid-cols-4 gap-3">
                 <PastEventBox
-                  v-for="(pasteventdescription, index) in myResult.data"
+                  v-for="(pasteventdescription, index) in events.data"
                   :pasteventvalues="pasteventdescription"
                   :key="index"
                 />
                 <Gallery
-                  v-for="(gallery, index) in myResult.data"
+                  v-for="(gallery, index) in events.data"
                   :galleryvalues="gallery"
                   :key="index"
                 />
@@ -167,9 +169,6 @@
           </div>
         </div>
       </div>
-      <div v-else class=" text-2xl py-12 text-black text-center">
-        Event loading, please wait..
-      </div>
     </div>
 
     <SiteFooter />
@@ -187,30 +186,25 @@ export default {
     SiteFooter,
     Gallery
   },
-
+  //     fetch(
+  //       'http://localhost:4444/_/items/event' +
+  //         '?filter[slug][eq]=' +
+  //         this.pageId +
+  //         '&single' +
+  //         '&fields=*, region.number'
+  //     )
   data() {
     return {
-      pageId: this.$route.params.id,
-      myResult: false,
-      errors: false
+      eventId: this.$route.params.id,
+      events: [],
+      apiEndpoint: 'http://localhost:4444',
+      fetchURL: '/_/items/event',
+      filter: '?filter[slug][eq]=',
+      single: '&single',
+      fields: '&fields=*, region.number'
     }
   },
-
   methods: {
-    getJson(response) {
-      return response.json()
-    },
-
-    displayData(result) {
-      console.log(result)
-      this.myResult = result.data[0]
-    },
-
-    handleError(error) {
-      console.log(error)
-      this.errors = 'An error occured. Please try again later.'
-    },
-
     formatDate(param) {
       let temporaryDate = new Date(param)
       let month = temporaryDate.toLocaleString('default', { month: 'long' })
@@ -219,25 +213,66 @@ export default {
 
       let fullDate = `${month} ${day}, ${year}`
       return fullDate
-    },
-
-    fetchData() {
-      fetch(
-        'http://localhost:4444/_/items/event' +
-          '?filter[slug][eq]=' +
-          this.pageId +
-          '&single' +
-          '&fields=*, region.number'
-      )
-        .then(this.getJson)
-
-        .then(this.displayData)
-        .catch(this.handleError)
     }
   },
-  mounted() {
-    this.fetchData()
+
+  async fetch() {
+    let url = `${this.apiEndpoint}${this.fetchURL}${this.filter}${this.eventId}${this.single}${this.fields}`
+    console.log(url)
+    const result = await this.$http.$get(url)
+    console.log(result)
+    this.events = result.data[0]
   }
+  // data() {
+  //   return {
+  //     pageId: this.$route.params.id,
+  //     myResult: false,
+  //     errors: false
+  //   }
+  // },
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result.data[0]
+  //   },
+
+  //   handleError(error) {
+  //     console.log(error)
+  //     this.errors = 'An error occured. Please try again later.'
+  //   },
+
+  //   formatDate(param) {
+  //     let temporaryDate = new Date(param)
+  //     let month = temporaryDate.toLocaleString('default', { month: 'long' })
+  //     let day = temporaryDate.toLocaleString('default', { day: 'numeric' })
+  //     let year = temporaryDate.toLocaleString('default', { year: 'numeric' })
+
+  //     let fullDate = `${month} ${day}, ${year}`
+  //     return fullDate
+  //   },
+
+  //   fetchData() {
+  //     fetch(
+  //       'http://localhost:4444/_/items/event' +
+  //         '?filter[slug][eq]=' +
+  //         this.pageId +
+  //         '&single' +
+  //         '&fields=*, region.number'
+  //     )
+  //       .then(this.getJson)
+
+  //       .then(this.displayData)
+  //       .catch(this.handleError)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 
