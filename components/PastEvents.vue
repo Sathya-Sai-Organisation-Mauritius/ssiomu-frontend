@@ -11,27 +11,27 @@
           {{ subtitle }}
         </p>
       </div>
-      <div
+      <!-- <div
         v-if="errors"
         class="bg-red-900 p-3 text-xl text-red-500 text-center"
       >
         {{ errors }}
-      </div>
-      <div v-else>
-        <div
-          class="bg-white shadow overflow-hidden sm:rounded-md"
-          v-if="myResult"
-        >
+      </div> -->
+      <!-- {{ $fetchState }} -->
+      <div>
+        <p v-if="$fetchState.pending">Fetching posts...</p>
+        <p v-else-if="$fetchState.error">
+          Error while fetching posts: {{ $fetchState.error.message }}
+        </p>
+
+        <div class="bg-white shadow overflow-hidden sm:rounded-md" v-else>
           <ul>
             <PastEventBox
-              v-for="(pasteventdescription, index) in myResult.data"
+              v-for="(pasteventdescription, index) in pastevents"
               :pasteventvalues="pasteventdescription"
               :key="index"
             />
           </ul>
-        </div>
-        <div v-else class="text-2xl py-8 text-black text-center">
-          Past events loading, please wait..
         </div>
       </div>
     </div>
@@ -44,67 +44,52 @@ export default {
   components: {
     PastEventBox
   },
-  props: ['subtitle', 'color', 'textalign', 'textcolor'],
+  props: ['subtitle', 'color', 'textalign', 'textcolor', 'fetchURL'],
   data: () => {
     return {
-      errors: false,
-      myResult: false,
-      // subtitle: false,
-      pasteventdescriptions: [
-        {
-          eventname: 'Event Name',
-          wingname: 'Wing Name',
-          center: 'Devotional Group / Center',
-          region: 'Region 6',
-          time: 'January 7, 2020'
-        },
-        {
-          eventname: 'Event Name',
-          wingname: 'Wing Name',
-          center: 'Devotional Group / Center',
-          region: 'Region 3',
-          time: 'January 7, 2020'
-        },
-        {
-          eventname: 'Event Name',
-          wingname: 'Wing Name',
-          center: 'Devotional Group / Center',
-          region: 'Region 5',
-          time: 'January 7, 2020'
-        }
-      ]
-    }
-  },
-
-  methods: {
-    getJson(response) {
-      return response.json()
-    },
-
-    handleError(error) {
-      console.log(error)
-      this.errors = 'An error occured, please try again later.'
-    },
-
-    displayData(result) {
-      console.log(result)
-      this.myResult = result
-    },
-
-    fetchData() {
-      fetch(
-        'http://localhost:4444/_/items/event?filter[from][lt]=now&fields=*.*'
-      )
-        .then(this.getJson)
-
-        .then(this.displayData)
-
-        .catch(this.handleError)
+      pastevents: [],
+      apiEndPoint: 'http://localhost:4444'
     }
   },
   mounted() {
-    this.fetchData()
-  }
+    console.log(this.fetchURL)
+  },
+
+  async fetch() {
+    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
+    console.log(result)
+    this.pastevents = result.data
+  },
+  fetchOnServer: false
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+
+  //   handleError(error) {
+  //     console.log(error)
+  //     this.errors = 'An error occured, please try again later.'
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result
+  //   },
+
+  //   fetchData() {
+  //     fetch(
+  //       'http://localhost:4444/_/items/event?filter[from][lt]=now&fields=*.*'
+  //     )
+  //       .then(this.getJson)
+
+  //       .then(this.displayData)
+
+  //       .catch(this.handleError)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 

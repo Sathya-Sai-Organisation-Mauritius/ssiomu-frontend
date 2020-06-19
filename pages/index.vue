@@ -29,7 +29,10 @@
       fetchURL="/_/items/event?filter[from][gt]=now"
     />
 
-    <FeaturedPublications :textalign="'text-center'" />
+    <FeaturedPublications
+      :textalign="'text-center'"
+      fetchURL="/_/items/publication?fields=*,photo.*"
+    />
 
     <PastEvents
       :subtitle="

@@ -52,7 +52,6 @@ export default {
   },
   async fetch() {
     const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
-    console.log(result)
     this.events = result.data
   },
   fetchDelay: 2000

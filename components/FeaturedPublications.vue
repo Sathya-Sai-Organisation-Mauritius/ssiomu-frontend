@@ -22,22 +22,23 @@
           </p>
         </div>
 
-        <div
+        <!-- <div
           v-if="errors"
           class="bg-red-900 p-3 text-xl text-red-500 text-center"
         >
           {{ errors }}
-        </div>
-        <div v-else>
-          <div class="mt-12 grid gap-5 mx-auto lg:grid-cols-3" v-if="myResult">
+        </div> -->
+        <div>
+          <p v-if="$fetchState.pending">Fetching posts...</p>
+          <p v-else-if="$fetchState.error">
+            Error while fetching posts: {{ $fetchState.error.message }}
+          </p>
+          <div class="mt-12 grid gap-5 mx-auto lg:grid-cols-3" v-else>
             <PublicationBox
-              v-for="(pubDescription, index) in myResult.data"
+              v-for="(pubDescription, index) in publications"
               :pubvalues="pubDescription"
               :key="index"
             />
-          </div>
-          <div v-else class="text-2xl text-black text-center py-8">
-            Publications are loading. Please wait....
           </div>
         </div>
       </div>
@@ -52,40 +53,44 @@ export default {
   components: {
     PublicationBox
   },
-  props: ['subtitle', 'color', 'textalign', 'maxheight'],
+  props: ['subtitle', 'color', 'textalign', 'maxheight', 'fetchURL'],
   data: () => {
     return {
-      myResult: false,
-      errors: false
+      publications: [],
+      apiEndpoint: 'http://localhost:4444'
     }
   },
-
-  methods: {
-    getJson(response) {
-      return response.json()
-    },
-    handleError(error) {
-      console.log(error)
-      this.errors = 'An error occured. Please try again later.'
-    },
-
-    displayData(result) {
-      console.log(result)
-      this.myResult = result
-    },
-
-    fetchData() {
-      fetch('http://localhost:4444/_/items/publication?fields=*,photo.*')
-        .then(this.getJson)
-
-        .then(this.displayData)
-
-        .catch(this.handleError)
-    }
-  },
-  mounted() {
-    this.fetchData()
+  async fetch() {
+    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
+    this.publications = result.data
   }
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+  //   handleError(error) {
+  //     console.log(error)
+  //     this.errors = 'An error occured. Please try again later.'
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result
+  //   },
+
+  //   fetchData() {
+  //     fetch('http://localhost:4444/_/items/publication?fields=*,photo.*')
+  //       .then(this.getJson)
+
+  //       .then(this.displayData)
+
+  //       .catch(this.handleError)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 
