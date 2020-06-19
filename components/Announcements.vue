@@ -1,20 +1,19 @@
 <<template>
-  <div class="announcement-details bg-orange-100 ">
+  <div class="announcement-details bg-orange-100 border-t-4 border-orange-500 ">
     <div
       class="container mx-auto px-4 md:px-0 py-10 flex flex-col justify-center text-blue-500 "
     >
-      <div class="text-center pb-10">
-        <h2
-          class="font-serif text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10"
-        >
-          Announcements
-        </h2>
-      </div>
-
-      <div class="lg:flex mb-4">
-        <div class=" w-2/2 lg:w-1/2  lg:mr-4">
+      <div class="lg:flex mb-4 items-center space-x-10">
+        <div class=" w-2/2 lg:w-1/2  lg:mr-4 ">
+          <div class="text-center pb-10">
+            <h2
+              class="font-serif text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10"
+            >
+              Announcements
+            </h2>
+          </div>
           <div
-            class="bg-white shadow overflow-hidden sm:rounded-md border-t-8 border-orange-500"
+            class="bg-white shadow overflow-hidden sm:rounded-md border-t-8 border-orange-500 "
           >
             <ul>
               <AnnouncementBox
