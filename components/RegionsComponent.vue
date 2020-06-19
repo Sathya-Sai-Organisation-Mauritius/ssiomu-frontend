@@ -8,13 +8,25 @@
           >
             All regions
           </h2>
-
-          <div class="grid md:grid-cols-2 gap-4 ">
-            <RegionsComponentBox
-              v-for="(description, index) in myResult"
-              :key="index"
-              :myvalues="description"
-            />
+          <div
+            v-if="errors"
+            class="bg-red-900 p-3 text-xl text-red-500 text-center"
+          >
+            {{ errors }}
+          </div>
+          <div v-else>
+            <div v-if="myResult">
+              <div class="grid md:grid-cols-2 gap-4 ">
+                <RegionsComponentBox
+                  v-for="(description, index) in myResult"
+                  :key="index"
+                  :myvalues="description"
+                />
+              </div>
+            </div>
+            <div v-else class="text-2xl py-8 text-black text-center">
+              Regions loading, please wait...
+            </div>
           </div>
         </div>
       </div>
