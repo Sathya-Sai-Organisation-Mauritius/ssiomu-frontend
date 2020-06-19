@@ -38,14 +38,9 @@ export default {
       // Simple GET request using fetch
       fetch('http://localhost:4444/_/items/event')
         .then(this.getJson)
-        //   function(response) {
-        //   return response.json()
-        // })
+       
         .then(this.displayData)
-      //   data => {
-      //   console.log(data)
-      //   this.myResult = data
-      // })
+     
     }
   },
   mounted() {
