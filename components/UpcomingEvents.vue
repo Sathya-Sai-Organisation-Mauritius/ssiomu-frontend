@@ -10,25 +10,23 @@
             Upcoming Events
           </h2>
 
-          <div
+          <!-- <div
             v-if="errors"
             class="bg-red-900 p-3 text-xl text-red-500 text-center"
           >
             {{ errors }}
-          </div>
-          <div v-else>
-            <div
-              class="grid md:grid-cols-3 gap-8 text-blue-600"
-              v-if="myResult"
-            >
+          </div> -->
+          <div>
+            <p v-if="$fetchState.pending">Fetching posts...</p>
+            <p v-else-if="$fetchState.error">
+              Error while fetching posts: {{ $fetchState.error.message }}
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 text-blue-600" v-else>
               <UpcomingEventBox
-                v-for="(description, index) in myResult"
+                v-for="(description, index) in events"
                 :key="index"
                 :myvalues="description"
               />
-            </div>
-            <div v-else class="text-2xl text-white text-center py-8">
-              Upcoming events are loading. Please wait....
             </div>
           </div>
         </div>
@@ -48,38 +46,16 @@ export default {
   props: ['color', 'textalign', 'textcolor', 'fetchURL'],
   data: () => {
     return {
-      myResult: false,
-      errors: false,
+      events: [],
       apiEndpoint: 'http://localhost:4444'
     }
   },
-
-  methods: {
-    getJson(response) {
-      return response.json()
-    },
-
-    handleError(error) {
-      console.log(error)
-      this.errors = 'An error occured. Please try again later.'
-    },
-
-    displayData(result) {
-      console.log(result)
-      this.myResult = result.data
-    },
-
-    fetchData() {
-      fetch(this.apiEndpoint + this.fetchURL)
-        .then(this.getJson)
-        .then(this.displayData)
-        .catch(this.handleError)
-    }
+  async fetch() {
+    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
+    console.log(result)
+    this.events = result.data
   },
-
-  mounted() {
-    this.fetchData()
-  }
+  fetchDelay: 2000
 }
 </script>
 
