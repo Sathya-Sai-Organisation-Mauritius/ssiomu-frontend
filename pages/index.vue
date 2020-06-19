@@ -21,7 +21,7 @@
 
     <Announcements fetchURL="/_/items/annoucement" />
 
-    <BreakingNews />
+    <BreakingNews fetchURL="/_/items/breaking_news" />
 
     <UpcomingEvents
       :color="'gradient-bg'"
@@ -60,11 +60,11 @@ export default {
   components: {
     SiteHeader,
     SiteFooter,
+    BreakingNews,
     Announcements,
     UpcomingEvents,
     FeaturedPublications,
-    PastEvents,
-    BreakingNews
+    PastEvents
   }
 }
 </script>
