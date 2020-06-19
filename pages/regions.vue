@@ -2,7 +2,7 @@
   <div>
     <SiteHeader />
 
-    <RegionsComponent />
+    <RegionsComponent fetchURL="/_/items/region?fields=*.*" />
 
     <SiteFooter />
   </div>
