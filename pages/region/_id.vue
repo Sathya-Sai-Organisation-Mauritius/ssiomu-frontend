@@ -8,14 +8,14 @@
           class="region-title font-bold flex col-span-1 space-x-2 items-center"
         >
           <h1 class="font-serif text-5xl">
-            Lower Plaine Wilhems {{ myResult.name }}
+            {{ myResult.name }}
           </h1>
         </div>
         <div class="relative col-span-1" style="margin-top: 0;">
           <div
             class="absolute top-0 right-0 text-2xl text-gray-700 bg-black-100 border-2 border-black-900 rounded-full p-3 px-10 font-black"
           >
-            Region 5
+            Region {{ myResult.number }}
           </div>
         </div>
       </div>
@@ -89,7 +89,9 @@ export default {
 
     fetchData() {
       fetch(
-        'http://localhost:4444/_/items/region/' + this.pageId + '?fields=*.*'
+        'http://localhost:4444/_/items/region/' +
+          this.pageId +
+          '?fields=*.*?filter[region]'
       )
         .then(this.getJson)
 
