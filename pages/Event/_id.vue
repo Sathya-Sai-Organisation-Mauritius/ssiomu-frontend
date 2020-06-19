@@ -203,7 +203,7 @@ export default {
 
     displayData(result) {
       console.log(result)
-      this.myResult = result.data
+      this.myResult = result.data[0]
     },
 
     handleError(error) {
@@ -223,9 +223,11 @@ export default {
 
     fetchData() {
       fetch(
-        'http://localhost:4444/_/items/event/' +
+        'http://localhost:4444/_/items/event' +
+          '?filter[slug][eq]=' +
           this.pageId +
-          '?fields=*, region.number'
+          '&single' +
+          '&fields=*, region.number'
       )
         .then(this.getJson)
 
