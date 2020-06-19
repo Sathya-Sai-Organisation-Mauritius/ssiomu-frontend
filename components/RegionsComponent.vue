@@ -11,7 +11,7 @@
 
           <div class="grid md:grid-cols-2 gap-4 ">
             <RegionsComponentBox
-              v-for="(description, index) in descriptions"
+              v-for="(description, index) in myResult"
               :key="index"
               :myvalues="description"
             />
@@ -30,34 +30,38 @@ export default {
     RegionsComponentBox
   },
 
-  data: () => {
+  data() {
     return {
-      descriptions: [
-        { url: '/LowerPlaineWilhems', number: '1', region: 'Savanne', map: '' },
-        { url: '/GrandPort', number: '2', region: 'Grand Port', map: '' },
-        { url: '/MokaFlacq', number: '3', region: 'Moka/Flacq', map: '' },
-        {
-          url: '/UpperPlaineWilhems',
-          number: '4',
-          region: 'Upper Plaine Wilhems',
-          map: ''
-        },
-        {
-          url: '/LowerPlaineWilhems',
-          number: '5',
-          region: 'Lower Plaine Wilhems',
-          map: ''
-        },
-        { url: '/PortLouis', number: '6', region: 'Port Louis', map: '' },
-        { url: '/Pamplemouses', number: '7', region: 'Pamplemouses', map: '' },
-        {
-          url: '/RiviereDuRempart',
-          number: '8',
-          region: 'Riviere du rempart',
-          map: ''
-        }
-      ]
+      myResult: false,
+      errors: false
     }
+  },
+
+  methods: {
+    getJson(response) {
+      return response.json()
+    },
+
+    displayData(result) {
+      console.log(result)
+      this.myResult = result.data
+    },
+
+    handleError(error) {
+      console.log(error)
+      this.errors = 'An error occured. Please try again later.'
+    },
+
+    fetchData() {
+      fetch('http://localhost:4444/_/items/region?fields=*.*')
+        .then(this.getJson)
+
+        .then(this.displayData)
+        .catch(this.handleError)
+    }
+  },
+  mounted() {
+    this.fetchData()
   }
 }
 </script>
