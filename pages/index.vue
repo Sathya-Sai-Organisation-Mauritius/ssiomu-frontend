@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <Announcements />
+    <Announcements fetchURL="/_/items/annoucement" />
 
     <BreakingNews />
 

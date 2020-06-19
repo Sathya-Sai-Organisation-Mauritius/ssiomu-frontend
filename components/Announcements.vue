@@ -12,16 +12,23 @@
               Announcements
             </h2>
           </div>
-          <div
-            class="bg-white shadow overflow-hidden sm:rounded-md border-t-8 border-orange-500 "
-          >
-            <ul>
-              <AnnouncementBox
-                v-for="(announcementdescription, index) in myResult.data"
-                :key="index"
-                :announcmentvalues="announcementdescription"
-              />
-            </ul>
+          <div>
+            <p v-if="$fetchState.pending">Fetching posts...</p>
+            <p v-else-if="$fetchState.error">
+              Error while fetching posts: {{ $fetchState.error.message }}
+            </p>
+            <div
+              class="bg-white shadow overflow-hidden sm:rounded-md border-t-8 border-orange-500 "
+              v-else
+            >
+              <ul>
+                <AnnouncementBox
+                  v-for="(announcementdescription, index) in announcements"
+                  :key="index"
+                  :announcmentvalues="announcementdescription"
+                />
+              </ul>
+            </div>
           </div>
         </div>
         <div class="w-0 lg:w-1/2 hidden -ml-2 lg:block lg:overflow-hidden ">
@@ -42,68 +49,82 @@ export default {
     AnnouncementBox
   },
 
-  props: ['subtitle', 'color'],
+  props: ['subtitle', 'color', 'fetchURL'],
 
-  data: () => {
+  data() {
     return {
-      myResult: [],
-
-      announcementdescriptions: [
-        {
-          title: 'Announcement 1',
-          region: 'Region 6',
-          time: 'January 7, 2020'
-        },
-        {
-          title: 'Announcement 2',
-          region: 'Region 3',
-          time: 'January 7, 2020'
-        },
-        {
-          title: 'Announcement 3',
-
-          region: 'Region 5',
-          time: ',January 7, 2020'
-        },
-        {
-          title: 'Announcement 1',
-          region: 'Region 6',
-          time: 'January 7, 2020'
-        },
-        {
-          title: 'Announcement 2',
-          region: 'Region 3',
-          time: 'January 7, 2020'
-        },
-        {
-          title: 'Announcement 2',
-          region: 'Region 3',
-          time: 'January 7, 2020'
-        }
-      ]
+      announcements: [],
+      apiEndpoint: 'http://localhost:4444'
     }
   },
-
-  methods: {
-    getJson(response) {
-      return response.json()
-    },
-
-    displayData(result) {
-      console.log(result)
-      this.myResult = result
-    },
-
-    fetchData() {
-      fetch('http://localhost:4444/_/items/annoucement')
-        .then(this.getJson)
-
-        .then(this.displayData)
-    }
-  },
-  mounted() {
-    this.fetchData()
+  async fetch() {
+    let url = `${this.apiEndpoint}${this.fetchURL}`
+    console.log(url)
+    const result = await this.$http.$get(url)
+    console.log(result)
+    this.announcements = result.data
   }
+
+  // data: () => {
+  //   return {
+  //     myResult: [],
+
+  //     announcementdescriptions: [
+  //       {
+  //         title: 'Announcement 1',
+  //         region: 'Region 6',
+  //         time: 'January 7, 2020'
+  //       },
+  //       {
+  //         title: 'Announcement 2',
+  //         region: 'Region 3',
+  //         time: 'January 7, 2020'
+  //       },
+  //       {
+  //         title: 'Announcement 3',
+
+  //         region: 'Region 5',
+  //         time: ',January 7, 2020'
+  //       },
+  //       {
+  //         title: 'Announcement 1',
+  //         region: 'Region 6',
+  //         time: 'January 7, 2020'
+  //       },
+  //       {
+  //         title: 'Announcement 2',
+  //         region: 'Region 3',
+  //         time: 'January 7, 2020'
+  //       },
+  //       {
+  //         title: 'Announcement 2',
+  //         region: 'Region 3',
+  //         time: 'January 7, 2020'
+  //       }
+  //     ]
+  //   }
+  // },
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result
+  //   },
+
+  //   fetchData() {
+  //     fetch('http://localhost:4444/_/items/annoucement')
+  //       .then(this.getJson)
+
+  //       .then(this.displayData)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 
