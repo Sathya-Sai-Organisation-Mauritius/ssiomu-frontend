@@ -25,7 +25,7 @@
                 <div
                   class="text-center lg:absolute lg:text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-2 md:p-3 px-4 md:px-10 font-black"
                 >
-                  Region {{ myResult.region }}
+                  Region {{ myResult.region.number }}
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
                     >
                       <div>Contact: Gavin - 57971326</div>
                       <span class="px-2"> - </span>
-                      <div>Region {{ myResult.region }}</div>
+                      <div>Region {{ myResult.region.number }}</div>
                     </div>
                   </div>
                 </div>
@@ -222,7 +222,11 @@ export default {
     },
 
     fetchData() {
-      fetch('http://localhost:4444/_/items/event/' + this.pageId)
+      fetch(
+        'http://localhost:4444/_/items/event/' +
+          this.pageId +
+          '?fields=*, region.number'
+      )
         .then(this.getJson)
 
         .then(this.displayData)

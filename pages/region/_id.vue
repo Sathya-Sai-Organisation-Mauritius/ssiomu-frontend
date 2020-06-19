@@ -21,7 +21,13 @@
       </div>
     </div>
 
-    <UpcomingEvents :color="'gradient-bg'" :textcolor="'text-blue-600'" />
+    <UpcomingEvents
+      :color="'gradient-bg'"
+      :textcolor="'text-blue-600'"
+      :fetchURL="
+        `/_/items/event?filter[from][gt]=now&filter[region][eq]=${regionId}`
+      "
+    />
 
     <PastEvents />
 
@@ -34,11 +40,11 @@
 </template>
 
 <script>
-import SiteHeader from '~/components/SiteHeader.vue'
-import SiteFooter from '~/components/SiteFooter.vue'
-import UpcomingEvents from '~/components/UpcomingEvents.vue'
-import FeaturedPublications from '~/components/FeaturedPublications.vue'
-import PastEvents from '~/components/PastEvents.vue'
+import SiteHeader from '../../components/SiteHeader.vue'
+import SiteFooter from '../../components/SiteFooter.vue'
+import UpcomingEvents from '../../components/UpcomingEvents.vue'
+import FeaturedPublications from '../../components/FeaturedPublications.vue'
+import PastEvents from '../../components/PastEvents.vue'
 
 export default {
   data: () => {
@@ -56,7 +62,7 @@ export default {
 
   data() {
     return {
-      pageId: this.$route.params.id,
+      regionId: this.$route.params.id,
       myResult: false,
       errors: false
     }
@@ -89,12 +95,9 @@ export default {
 
     fetchData() {
       fetch(
-        'http://localhost:4444/_/items/region/' +
-          this.pageId +
-          '?fields=*.*?filter[region]'
+        'http://localhost:4444/_/items/region/' + this.regionId + '?fields=*.*'
       )
         .then(this.getJson)
-
         .then(this.displayData)
         .catch(this.handleError)
     }

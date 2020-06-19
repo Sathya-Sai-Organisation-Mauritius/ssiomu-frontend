@@ -28,28 +28,24 @@
           <nav role="navigation">
             <ul class=" flex ml-4">
               <a href="">
-                <li
-                  class="py-5 px-4   hover:bg-orange-600 hover:font-semibold "
-                >
+                <li class="py-5 px-4   hover:bg-orange-600 hover ">
                   Home
                 </li>
               </a>
 
               <a href="/publicationsPage">
-                <li class="py-5 px-4   hover:bg-orange-600 hover:font-semibold">
+                <li class="py-5 px-4   hover:bg-orange-600 hover">
                   About
                 </li>
               </a>
 
               <a href="/publicationsPage">
-                <li class="py-5 px-4   hover:bg-orange-600 hover:font-semibold">
+                <li class="py-5 px-4   hover:bg-orange-600 hover">
                   Publications
                 </li>
               </a>
 
-              <li
-                class=" relative py-5 hover:bg-orange-500 hover:font-semibold"
-              >
+              <li class=" relative py-5 hover:bg-orange-500 hover">
                 <div class="dropdown ">
                   <a
                     href="/regions"
@@ -137,9 +133,7 @@
                 </div>
               </li>
 
-              <li
-                class=" relative py-5 hover:bg-orange-500 hover:font-semibold"
-              >
+              <li class=" relative py-5 hover:bg-orange-500 hover">
                 <div class="dropdown ">
                   <a
                     href="/wings"
@@ -188,14 +182,12 @@
               </li>
 
               <a href="/events" title="" class="is-active">
-                <li class="py-5 px-4   hover:bg-orange-600 hover:font-semibold">
+                <li class="py-5 px-4   hover:bg-orange-600 hover">
                   Events
                 </li>
               </a>
 
-              <li
-                class=" relative py-5 hover:bg-orange-500 hover:font-semibold"
-              >
+              <li class=" relative py-5 hover:bg-orange-500 hover">
                 <div class="dropdown ">
                   <a href="/" class="  px-4 rounded inline-flex items-center">
                     <span class="mr-1">Resources</span>
@@ -257,12 +249,12 @@
               </li>
 
               <a href="/" title="" class="is-active">
-                <li class="py-5 px-4   hover:bg-orange-600 hover:font-semibold">
+                <li class="py-5 px-4   hover:bg-orange-600 hover">
                   Contact Us
                 </li>
               </a>
 
-              <li class="py-5 px-4   hover:bg-orange-600 hover:font-semibold">
+              <li class="py-5 px-4   hover:bg-orange-600 hover">
                 <a href="/test" title="" class="is-active">GET REQUEST</a>
               </li>
             </ul>

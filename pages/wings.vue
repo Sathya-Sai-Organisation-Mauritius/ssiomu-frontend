@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <UpcomingEvents />
+    <UpcomingEvents fetchURL="/_/items/event?filter[from][gt]=now" />
 
     <PastEvents
       :subtitle="'My Wing Subtitle'"

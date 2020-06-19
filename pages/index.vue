@@ -23,7 +23,11 @@
 
     <BreakingNews />
 
-    <UpcomingEvents :color="'gradient-bg'" :textcolor="'text-blue-600'" />
+    <UpcomingEvents
+      :color="'gradient-bg'"
+      :textcolor="'text-blue-600'"
+      fetchURL="/_/items/event?filter[from][gt]=now"
+    />
 
     <FeaturedPublications :textalign="'text-center'" />
 

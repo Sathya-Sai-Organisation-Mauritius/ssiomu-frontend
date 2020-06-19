@@ -45,11 +45,12 @@ export default {
     UpcomingEventBox
   },
 
-  props: ['color', 'textalign', 'textcolor'],
+  props: ['color', 'textalign', 'textcolor', 'fetchURL'],
   data: () => {
     return {
       myResult: false,
-      errors: false
+      errors: false,
+      apiEndpoint: 'http://localhost:4444'
     }
   },
 
@@ -69,7 +70,7 @@ export default {
     },
 
     fetchData() {
-      fetch('http://localhost:4444/_/items/event?filter[from][gt]=now')
+      fetch(this.apiEndpoint + this.fetchURL)
         .then(this.getJson)
         .then(this.displayData)
         .catch(this.handleError)
