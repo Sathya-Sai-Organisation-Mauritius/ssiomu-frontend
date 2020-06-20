@@ -32,9 +32,12 @@
                 v-for="menu in menuItems"
                 :key="menu.url"
               >
-                <nuxt-link :to="menu.url">
+                <nuxt-link :to="menu.url" v-if="menu.url !== null">
                   {{ menu.name }}
                 </nuxt-link>
+                <div v-else>
+                  {{ menu.name }}
+                </div>
               </li>
 
               <li class=" relative hover:bg-orange-500 hover" v-if="regions">
@@ -181,10 +184,6 @@ export default {
         {
           url: '/regions/',
           name: 'Regions'
-        },
-        {
-          url: '/wings/',
-          name: 'Wings'
         },
         {
           url: '/events/',
