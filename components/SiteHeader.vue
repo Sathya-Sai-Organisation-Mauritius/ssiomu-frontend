@@ -64,7 +64,7 @@
                   <ul
                     class="dropdown-menu absolute block left-0 hidden block text-white-700 pt-xl "
                   >
-                    <li class="" v-for="region in regions" :key="region.id">
+                    <li class="" v-for="region in regions" :key="region.slug">
                       <nuxt-link
                         class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
                         :to="'/region/' + region.slug"
@@ -92,7 +92,7 @@
                   <ul
                     class="dropdown-menu absolute left-0 hidden block text-white-700 pt-xl"
                   >
-                    <li class="" v-for="wing in wings" :key="wing.id">
+                    <li class="" v-for="wing in wings" :key="wing.slug">
                       <nuxt-link
                         class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
                         :to="'/wing/' + wing.slug"
@@ -153,23 +153,23 @@ export default {
       wings: [],
       menuResources: [
         {
-          url: 'sai-shop',
+          url: '/',
           name: 'Sai shop'
         },
         {
-          url: 'guidelines',
+          url: '/',
           name: 'Guidelines'
         },
         {
-          url: 'links',
+          url: '/',
           name: 'Links'
         },
         {
-          url: 'pws-resources',
+          url: '/',
           name: 'PWS resources'
         },
         {
-          url: 'pre-world-conference-videos',
+          url: '/',
           name: 'Pre World Conference Videos'
         }
       ],

@@ -12,9 +12,9 @@
                   Regions
                 </h4>
                 <ul class="mt-4 gap-5 grid md:grid-cols-2">
-                  <li v-for="region in regions" :key="region.id">
+                  <li v-for="region in regions" :key="region.slug">
                     <nuxt-link
-                      :to="'/region/' + region.id"
+                      :to="'/region/' + region.slug"
                       class="text-base leading-6 text-gray-300 hover:text-white"
                     >
                       {{ region.name }}
@@ -33,7 +33,7 @@
                 <ul class="mt-4 space-y-4">
                   <li v-for="wing in wings" :key="wing.id">
                     <nuxt-link
-                      :to="'/wing/' + wing.id"
+                      :to="'/wing/' + wing.slug"
                       class="text-base leading-6 text-gray-300 hover:text-white"
                     >
                       {{ wing.name }}
@@ -165,27 +165,28 @@ export default {
 
     let filteredRegions = regionData.data.map(region => {
       // pluck properties from object
-      let { name, number, id } = region
+      let { name, number, id, slug } = region
       return {
         name,
         number,
-        id
+        id,
+        slug
       }
     })
 
     let filteredwings = wingData.data.map(wing => {
       // pluck properties from object
-      let { name, number, id } = wing
+      let { name, number, id, slug } = wing
       return {
         name,
         number,
-        id
+        id,
+        slug
       }
     })
 
     this.regions = filteredRegions
     this.wings = filteredwings
-  },
-  fetchOnServer: false
+  }
 }
 </script>
