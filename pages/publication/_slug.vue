@@ -67,7 +67,7 @@ export default {
 
   data() {
     return {
-      publicationId: this.$route.params.id,
+      publicationId: this.$route.params.slug,
       publications: [],
 
       fetchURL: '/_/items/publication/',
@@ -77,9 +77,10 @@ export default {
   },
   async fetch() {
     let url = `${this.fetchURL}${this.filter}${this.publicationId}${this.fields}`
-
+    console.log(url)
     const result = await this.$http.$get(url)
-    this.publications = result.data
+    console.log(result)
+    this.publications = result.data[0]
   }
 }
 </script>

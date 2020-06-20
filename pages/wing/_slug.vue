@@ -60,7 +60,7 @@ export default {
 
   data() {
     return {
-      wingId: this.$route.params.id,
+      wingId: this.$route.params.slug,
       wings: [],
       fetchURL: '/_/items/wing/',
       filter: '?filter[slug][eq]=',

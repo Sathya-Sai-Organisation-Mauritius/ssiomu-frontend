@@ -185,7 +185,7 @@ export default {
 
   data() {
     return {
-      eventId: this.$route.params.id,
+      eventId: this.$route.params.slug,
       events: [],
 
       fetchURL: '/_/items/event',

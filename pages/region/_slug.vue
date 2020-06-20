@@ -73,7 +73,7 @@ export default {
 
   data() {
     return {
-      regionId: this.$route.params.id,
+      regionId: this.$route.params.slug,
       regions: [],
       fetchURL: '/_/items/region/',
       filter: '?filter[slug][eq]=',
