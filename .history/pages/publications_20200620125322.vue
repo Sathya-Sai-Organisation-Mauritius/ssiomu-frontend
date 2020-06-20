@@ -1,9 +1,6 @@
 <<template>
   <div>
-    <AllPublications
-      :textalign="'text-center'"
-      fetchURL="/_/items/publication?fields=*.*,photo.*,wing.name"
-    />
+    <AllPublications :textalign="'text-center'" />
   </div>
 </template>
 

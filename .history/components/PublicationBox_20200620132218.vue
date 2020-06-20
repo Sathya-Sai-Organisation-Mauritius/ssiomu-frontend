@@ -13,11 +13,7 @@
       <div class="flex-1 bg-white p-6 flex flex-col justify-between">
         <div class="flex-1">
           <p class="text-sm leading-5 font-medium text-blue-600">
-            <a
-              :href="'/wing/' + pubvalues.id"
-              class="hover:underline"
-              v-if="pubvalues.wing"
-            >
+            <a href="#" class="hover:underline" v-if="pubvalues.wing">
               {{ pubvalues.wing.name }}
             </a>
           </p>

@@ -14,7 +14,7 @@
         <div class="flex-1">
           <p class="text-sm leading-5 font-medium text-blue-600">
             <a
-              :href="'/wing/' + pubvalues.id"
+              :href="'/wing/' + pubvalues.name"
               class="hover:underline"
               v-if="pubvalues.wing"
             >

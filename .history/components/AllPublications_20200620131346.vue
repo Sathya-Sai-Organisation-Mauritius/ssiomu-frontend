@@ -6,10 +6,7 @@
       <div class="absolute inset-0">
         <div class="bg-white h-1/3 sm:h-2/3"></div>
       </div>
-      <div
-        class="relative max-w-7xl mx-auto overflow-hidden"
-        :class="maxheight"
-      >
+      <div class="relative max-w-7xl mx-auto">
         <div :class="textalign">
           <h2
             class="font-serif text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10"
@@ -29,9 +26,9 @@
           </p>
           <div class="mt-12 grid gap-5 mx-auto lg:grid-cols-3" v-else>
             <PublicationBox
-              v-for="(pubDescription, index) in publications"
-              :pubvalues="pubDescription"
+              v-for="(pubDescription, index) in myResult"
               :key="index"
+              :pubvalues="pubDescription"
             />
           </div>
         </div>
@@ -47,7 +44,8 @@ export default {
   components: {
     PublicationBox
   },
-  props: ['subtitle', 'color', 'textalign', 'maxheight', 'fetchURL'],
+  props: ['subtitle', 'color', 'textalign', 'fetchURL'],
+
   data: () => {
     return {
       publications: [],
@@ -56,9 +54,42 @@ export default {
   },
   async fetch() {
     const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
-    console.log(result)
     this.publications = result.data
   }
+
+  // data: () => {
+  //   return {
+  //     errors: false,
+  //     myResult: false,
+  //   }
+  // },
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+  //   handleError(error) {
+  //     console.log(error)
+  //     this.errors = 'An error occured. Please try again later.'
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result.data
+  //   },
+
+  //   fetchData() {
+  //     fetch('http://localhost:4444/_/items/publication?fields=*,photo.*')
+  //       .then(this.getJson)
+
+  //       .then(this.displayData)
+
+  //       .catch(this.handleError)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 

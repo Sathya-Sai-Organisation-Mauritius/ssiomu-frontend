@@ -22,6 +22,12 @@
           </p>
         </div>
 
+        <!-- <div
+          v-if="errors"
+          class="bg-red-900 p-3 text-xl text-red-500 text-center"
+        >
+          {{ errors }}
+        </div> -->
         <div>
           <p v-if="$fetchState.pending">Fetching posts...</p>
           <p v-else-if="$fetchState.error">
@@ -56,9 +62,35 @@ export default {
   },
   async fetch() {
     const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
-    console.log(result)
     this.publications = result.data
   }
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+  //   handleError(error) {
+  //     console.log(error)
+  //     this.errors = 'An error occured. Please try again later.'
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result
+  //   },
+
+  //   fetchData() {
+  //     fetch('http://localhost:4444/_/items/publication?fields=*,photo.*')
+  //       .then(this.getJson)
+
+  //       .then(this.displayData)
+
+  //       .catch(this.handleError)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 
