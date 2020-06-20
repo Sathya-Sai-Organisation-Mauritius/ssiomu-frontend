@@ -70,9 +70,9 @@ export default {
       publicationId: this.$route.params.slug,
       publications: [],
 
-      fetchURL: '/_/items/publication/',
+      fetchURL: '/_/items/publication',
       filter: '?filter[slug][eq]=',
-      fields: '?fields=*.*'
+      fields: '&fields=*'
     }
   },
   async fetch() {
@@ -80,7 +80,7 @@ export default {
     console.log(url)
     const result = await this.$http.$get(url)
     console.log(result)
-    this.publications = result.data[0]
+    this.publications = result
   }
 }
 </script>
