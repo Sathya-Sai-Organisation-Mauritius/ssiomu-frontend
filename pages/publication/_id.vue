@@ -70,13 +70,9 @@ export default {
     }
   },
   async fetch() {
-<<<<<<< HEAD
     let url = `${this.fetchURL}${this.publicationId}${this.fields}`
     console.log(url)
-=======
-    let url = `${this.query}${this.publicationId}${this.fields}`
-    //console.log(url)
->>>>>>> ddccfbd0088948e5258d4975e3c5d1d6b6ab2a0b
+
     const result = await this.$http.$get(url)
     //console.log(result)
     this.publications = result.data
