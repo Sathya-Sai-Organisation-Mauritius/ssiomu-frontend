@@ -55,6 +55,7 @@
 import UpcomingEvents from '../../components/UpcomingEvents.vue'
 import FeaturedPublications from '../../components/FeaturedPublications.vue'
 import PastEvents from '../../components/PastEvents.vue'
+import OfficeBearer from '../../components/OfficeBearer.vue'
 
 export default {
   data: () => {
@@ -65,7 +66,8 @@ export default {
   components: {
     UpcomingEvents,
     FeaturedPublications,
-    PastEvents
+    PastEvents,
+    OfficeBearer
   },
   props: ['query'],
 

@@ -26,13 +26,17 @@
         </div>
         <div>
           <nav role="navigation">
-            <ul class="flex ml-4 space-x-8">
+            <ul class="flex ml-4">
               <li
-                class="hover:bg-orange-600 hover "
+                class="hover:bg-orange-600 hover"
                 v-for="menu in menuRoot"
                 :key="menu.url"
               >
-                <nuxt-link :to="menu.url" v-if="menu.url !== null">
+                <nuxt-link
+                  :to="menu.url"
+                  v-if="menu.url !== null"
+                  class="py-5 flex px-5"
+                >
                   {{ menu.name }}
                 </nuxt-link>
                 <div v-else>
@@ -42,7 +46,10 @@
 
               <li class=" relative hover:bg-orange-500 hover" v-if="regions">
                 <div class="dropdown ">
-                  <a href="/regions" class="rounded inline-flex items-center">
+                  <nuxt-link
+                    to="/regions"
+                    class="rounded inline-flex items-center py-5 px-5"
+                  >
                     <span class="mr-1">Regions</span>
                     <svg
                       class="fill-current h-4 w-4"
@@ -53,7 +60,7 @@
                         d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
                       />
                     </svg>
-                  </a>
+                  </nuxt-link>
                   <ul
                     class="dropdown-menu absolute block left-0 hidden block text-white-700 pt-xl "
                   >
@@ -70,7 +77,7 @@
 
               <li class=" relative hover:bg-orange-500 hover">
                 <div class="dropdown ">
-                  <div class="rounded inline-flex items-center">
+                  <div class="rounded inline-flex items-center  py-5 px-5">
                     <span class="mr-1">Wings</span>
                     <svg
                       class="fill-current h-4 w-4"
@@ -98,7 +105,7 @@
 
               <li class=" relative hover:bg-orange-500 hover">
                 <div class="dropdown ">
-                  <div class="rounded inline-flex items-center">
+                  <div class="rounded inline-flex items-center  py-5 px-5">
                     <span class="mr-1">Resources</span>
                     <svg
                       class="fill-current h-4 w-4"
