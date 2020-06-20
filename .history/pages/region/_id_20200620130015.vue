@@ -39,11 +39,7 @@
           "
         />
 
-        <FeaturedPublications
-          :fetchURL="
-            `/_/items/publication?filter[region][eq]=${regionId}&fields=*.*`
-          "
-        />
+        <FeaturedPublications />
 
         <OfficeBearer />
       </div>

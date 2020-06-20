@@ -36,7 +36,7 @@
           <div class="ml-3">
             <p class="text-sm leading-5 font-medium text-gray-900">
               <a href="#" class="hover:underline">
-                <span>Region</span> {{ pubvalues.region.number }}
+                <span>Region</span> {{ pubvalues.region.id }}
               </a>
             </p>
             <div class="flex text-sm leading-5 text-gray-600">
