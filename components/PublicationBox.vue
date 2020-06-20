@@ -32,6 +32,7 @@
           <div class="flex-shrink-0">
             <div
               class="h-10 w-10 rounded-full text-center font-bold flex items-center justify-center bg-red-300 text-white text-2xl"
+              v-if="pubvalues.region"
             >
               {{ pubvalues.region.number }}
             </div>

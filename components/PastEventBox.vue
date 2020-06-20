@@ -17,7 +17,7 @@
             {{ pasteventvalues.name }}
           </div>
         </a>
-        <div class="ml-2 flex-shrink-0 flex">
+        <div class="ml-2 flex-shrink-0 flex" v-if="pasteventvalues.region">
           <span
             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800"
           >
@@ -44,6 +44,7 @@
           </div>
           <div
             class="mt-2 flex items-center text-sm leading-5 text-gray-600 sm:mt-0"
+            v-if="pasteventvalues.group"
           >
             <svg
               class="flex-shrink-0 mr-2 h-5 w-5 text-gray-600"
