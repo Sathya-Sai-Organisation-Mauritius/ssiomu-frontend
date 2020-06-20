@@ -1,14 +1,12 @@
 <<template>
   <li class="border-t border-gray-200">
-    <div class="px-4 py-4 sm:px-6">
-      <div class="flex items-center justify-between">
-        <div
-          class="mt-2 flex items-center text-sm leading-5 text-gray-600 sm:mt-0"
-        >
-          <svg
-            class="flex-shrink-0 mr-2 h-5 w-5 text-gray-600"
-            fill="currentColor"
-            viewBox="0 0 20 20"
+    <div
+      class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+    >
+      <div class="px-4 py-4 sm:px-6">
+        <div class="flex items-center justify-between">
+          <div
+            class="mt-2 flex items-center text-sm leading-5 text-gray-600 sm:mt-0"
           >
             <path
               fill-rule="evenodd"
