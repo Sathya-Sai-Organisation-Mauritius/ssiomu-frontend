@@ -15,7 +15,7 @@
               <div
                 class="event-title font-bold flex md:col-span-2 space-x-2 items-center justify-center md:justify-start"
               >
-                <h1 class="font-serif md:text-4xl lg:text-5xl">
+                <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl">
                   {{ events.name }}
                 </h1>
               </div>

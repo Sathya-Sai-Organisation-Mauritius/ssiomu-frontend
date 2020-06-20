@@ -9,24 +9,26 @@
         <div class="container mx-auto">
           <div class="publication-details space-y-12 py-10 ">
             <div
-              class="publication-details grid  gap-1 grid-cols-3 space-y-4 pt-10 pb-2 border-b border-gray-20"
+              class="publications-details grid gap-1 md:grid-cols-3 space-y-4 py-2 border-b border-gray-20"
             >
               <div
-                class="publication-title  font-bold flex col-span-2 space-x-2 items-center"
+                class="publications-title font-bold flex md:col-span-2 space-x-2 items-center justify-center md:justify-start"
               >
-                <h1 class="text-4xl">
+                <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl">
                   {{ publications.title }}
                 </h1>
               </div>
-              <div class="relative col-span-1" style="margin-top: 0;">
+              <div
+                class="relative col-span-1 mx-12 flex items-center justify-center "
+              >
                 <div
-                  class="absolute text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-3 px-10 font-black"
+                  class="text-center lg:absolute lg:text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-2 md:p-3 px-4 md:px-10 font-black"
                   v-if="publications.region"
                 >
                   Region {{ publications.region.number }}
                 </div>
               </div>
-              <div class=" italic ">
+              <div class=" italic flex justify-center md:justify-start">
                 Published on: {{ formatDate(publications.date) }}
               </div>
             </div>
@@ -37,12 +39,12 @@
           <div class="publication-details space-y-12 pb-10">
             <div class="publication-description">
               <div
-                class="description-body space-y-2 "
+                class="description-body space-y-2 flex justify-center md:justify-start  "
                 v-html="publications.body"
               ></div>
             </div>
 
-            <div>
+            <div class="flex flex-col text-center md:text-left">
               <div
                 v-if="publications.wing"
                 class="font-bold text-md lg:text-xl"
@@ -60,7 +62,7 @@
 
               <div
                 v-if="publications.attachments"
-                class="flex flex-col  text-md lg:text-xl font-medium italic my-2 "
+                class="flex items-center md:items-start flex-col  text-md lg:text-xl font-medium italic my-2 "
               >
                 <div>
                   Attachments:
@@ -68,7 +70,7 @@
                 <a
                   :href="publications.attachments.data.full_url"
                   download
-                  class="p-2 w-40 lg:w-48 rounded bg-orange-500 cursor-pointer text-white block"
+                  class="p-2 w-40 lg:w-48 rounded bg-orange-500 cursor-pointer text-white block "
                   >Download {{ publications.attachments.filename_download }}</a
                 >
               </div>
