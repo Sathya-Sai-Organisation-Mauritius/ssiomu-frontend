@@ -73,7 +73,7 @@ export default {
     return {
       regionId: this.$route.params.id,
       regions: [],
-      query: '/_/items/region/',
+      fetchURL: '/_/items/region/',
       field: '?fields=*.*'
     }
   },
@@ -90,7 +90,7 @@ export default {
   },
 
   async fetch() {
-    let url = `${this.query}${this.regionId}${this.field}`
+    let url = `${this.fetchURL}${this.regionId}${this.field}`
     console.log(url)
     const result = await this.$http.$get(url)
     console.log(result)

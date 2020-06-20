@@ -185,7 +185,7 @@ export default {
       eventId: this.$route.params.id,
       events: [],
 
-      query: '/_/items/event',
+      fetchURL: '/_/items/event',
       filter: '?filter[slug][eq]=',
       single: '&single',
       fields: '&fields=*, region.number'
@@ -204,7 +204,7 @@ export default {
   },
 
   async fetch() {
-    let url = `${this.query}${this.filter}${this.eventId}${this.single}${this.fields}`
+    let url = `${this.fetchURL}${this.filter}${this.eventId}${this.single}${this.fields}`
     console.log(url)
     const result = await this.$http.$get(url)
     console.log(result)
