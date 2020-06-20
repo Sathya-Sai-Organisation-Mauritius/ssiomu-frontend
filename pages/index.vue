@@ -1,7 +1,5 @@
 <<template>
   <div>
-    <SiteHeader />
-
     <div class="front-landing">
       <div
         class="container mx-auto py-20 flex flex-col justify-center text-blue-500"
@@ -42,14 +40,10 @@
       :textcolor="'text-blue-600'"
       fetchURL="/_/items/event?filter[from][lt]=now&fields=*.*"
     />
-
-    <SiteFooter />
   </div>
 </template>
 
 <script>
-import SiteHeader from '~/components/SiteHeader.vue'
-import SiteFooter from '~/components/SiteFooter.vue'
 import Announcements from '~/components/Announcements.vue'
 import UpcomingEvents from '~/components/UpcomingEvents.vue'
 import FeaturedPublications from '~/components/FeaturedPublications.vue'
@@ -58,8 +52,6 @@ import BreakingNews from '~/components/BreakingNews.vue'
 
 export default {
   components: {
-    SiteHeader,
-    SiteFooter,
     BreakingNews,
     Announcements,
     UpcomingEvents,

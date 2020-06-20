@@ -1,7 +1,5 @@
 <template>
   <div>
-    <SiteHeader />
-
     <div class="container mx-auto ">
       <div class="information-details space-y-12 py-10">
         <div class="information-title font-bold space-x-2 center">
@@ -97,20 +95,12 @@
         </table>
       </div>
     </div>
-
-    <SiteFooter />
   </div>
 </template>
 
 <script>
-import SiteHeader from '~/components/SiteHeader.vue'
-import SiteFooter from '~/components/SiteFooter.vue'
-
 export default {
-  components: {
-    SiteHeader,
-    SiteFooter
-  }
+  components: {}
 }
 </script>
 

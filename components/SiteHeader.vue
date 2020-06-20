@@ -36,13 +36,13 @@
                 </li>
               </a>
 
-              <a href="/publicationsPage">
+              <a href="/publications">
                 <li class="py-5 px-4   hover:bg-orange-600 hover">
                   About
                 </li>
               </a>
 
-              <a href="/publicationsPage">
+              <a href="/publications">
                 <li class="py-5 px-4   hover:bg-orange-600 hover">
                   Publications
                 </li>

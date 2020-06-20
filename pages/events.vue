@@ -1,7 +1,5 @@
 <template>
   <div>
-    <SiteHeader />
-
     <UpcomingEvents
       :color="'gradient-bg'"
       :textcolor="'text-blue-600'"
@@ -16,21 +14,15 @@
       :textcolor="'text-blue-600'"
       fetchURL="/_/items/event?filter[from][lt]=now&fields=*.*"
     />
-
-    <SiteFooter />
   </div>
 </template>
 
 <script>
-import SiteHeader from '~/components/SiteHeader.vue'
-import SiteFooter from '~/components/SiteFooter.vue'
 import UpcomingEvents from '~/components/UpcomingEvents.vue'
 import PastEvents from '~/components/PastEvents.vue'
 
 export default {
   components: {
-    SiteHeader,
-    SiteFooter,
     UpcomingEvents,
     PastEvents
   }

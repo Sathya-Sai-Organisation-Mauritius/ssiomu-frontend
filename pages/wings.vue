@@ -1,7 +1,5 @@
 <template>
   <div>
-    <SiteHeader />
-
     <div class="container mx-auto ">
       <div class=" wing-details space-y-12 py-20 text-center">
         <div class="wing-title font-bold space-x-2 items-center">
@@ -61,22 +59,16 @@
     />
 
     <FeaturedPublications :textalign="'text-center'" />
-
-    <SiteFooter />
   </div>
 </template>
 
 <script>
-import SiteHeader from '~/components/SiteHeader.vue'
-import SiteFooter from '~/components/SiteFooter.vue'
 import UpcomingEvents from '~/components/UpcomingEvents.vue'
 import FeaturedPublications from '~/components/FeaturedPublications.vue'
 import PastEvents from '~/components/PastEvents.vue'
 
 export default {
   components: {
-    SiteHeader,
-    SiteFooter,
     UpcomingEvents,
     FeaturedPublications,
     PastEvents
