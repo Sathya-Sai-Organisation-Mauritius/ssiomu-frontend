@@ -2,7 +2,7 @@
   <div>
     <div class="front-landing">
       <div
-        class="container mx-auto py-20 flex flex-col justify-center text-blue-500"
+        class="container mx-auto py-20 flex flex-col justify-center text-blue-700"
       >
         <h1 class="text-5xl font-black leading-none font-serif">
           Sathya Sai <br />

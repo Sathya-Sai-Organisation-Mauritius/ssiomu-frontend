@@ -5,7 +5,7 @@
         <nav role="navigation">
           <ul class="flex justify-end text-blue-500 text-sm">
             <li class="p-2">
-              <a href="">Log in</a>
+              <a href="http://localhost:4444" target="_blank">Log in</a>
             </li>
             <li class="p-2">Mauritius / Zone 9A</li>
           </ul>
@@ -48,7 +48,7 @@
                 <div class="dropdown ">
                   <nuxt-link
                     to="/regions"
-                    class="rounded inline-flex items-center py-5 px-5"
+                    class=" inline-flex items-center py-5 px-5"
                   >
                     <span class="mr-1">Regions</span>
                     <svg
@@ -77,7 +77,7 @@
 
               <li class=" relative hover:bg-orange-500 hover">
                 <div class="dropdown ">
-                  <div class="rounded inline-flex items-center  py-5 px-5">
+                  <div class=" inline-flex items-center  py-5 px-5">
                     <span class="mr-1">Wings</span>
                     <svg
                       class="fill-current h-4 w-4"
@@ -105,7 +105,7 @@
 
               <li class=" relative hover:bg-orange-500 hover">
                 <div class="dropdown ">
-                  <div class="rounded inline-flex items-center  py-5 px-5">
+                  <div class=" inline-flex items-center  py-5 px-5">
                     <span class="mr-1">Resources</span>
                     <svg
                       class="fill-current h-4 w-4"
@@ -178,13 +178,17 @@ export default {
           url: '/',
           name: 'Home'
         },
+        // {
+        //   url: '/publications/',
+        //   name: 'About'
+        // },
+        // {
+        //   url: '/publications/',
+        //   name: 'Gallery'
+        // },
         {
           url: '/publications/',
           name: 'Publications'
-        },
-        {
-          url: '/regions/',
-          name: 'Regions'
         },
         {
           url: '/events/',
@@ -232,5 +236,9 @@ export default {
 <style>
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+.nuxt-link-exact-active {
+  background: rgb(237 137 54);
 }
 </style>
