@@ -1,21 +1,23 @@
 <<template>
   <div class="flex flex-col shadow-lg overflow-hidden mb-4">
-    <a :href="'/publication/' + pubvalues.id">
+    <div>
       <div class="flex-shrink-0">
-        <!-- <img
+        <img
           class="h-48 w-full object-cover"
+          v-if="pubvalues.photo"
           :src="pubvalues.photo.data.full_url"
           alt=""
-        /> -->
+        />
+        <img v-else src="https://picsum.photos/400/200" />
       </div>
       <div class="flex-1 bg-white p-6 flex flex-col justify-between">
         <div class="flex-1">
           <p class="text-sm leading-5 font-medium text-blue-600">
-            <a href="#" class="hover:underline">
-              {{ pubvalues.purpose }}
+            <a href="#" class="hover:underline" v-if="pubvalues.wing">
+              {{ pubvalues.wing.name }}
             </a>
           </p>
-          <a :href="pubvalues.titleUrl" class="">
+          <a :href="'/publication/' + pubvalues.id" class="">
             <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
               {{ pubvalues.title }}
             </h3>
@@ -45,7 +47,7 @@
           </div>
         </div>
       </div>
-    </a>
+    </div>
   </div>
 </template>
 

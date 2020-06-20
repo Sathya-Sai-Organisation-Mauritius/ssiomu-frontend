@@ -31,7 +31,7 @@
 
     <FeaturedPublications
       :textalign="'text-center'"
-      fetchURL="/_/items/publication?fields=*,photo.*"
+      fetchURL="/_/items/publication?fields=*,photo.*,wing.name"
     />
 
     <PastEvents

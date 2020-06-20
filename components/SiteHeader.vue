@@ -281,8 +281,7 @@ export default {
   fetch({ store }) {
     console.log('fetching from header')
     store.dispatch('GET_REGIONS')
-  },
-  fetchOnServer: false
+  }
 }
 </script>
 
