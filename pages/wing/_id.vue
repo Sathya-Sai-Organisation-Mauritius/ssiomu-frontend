@@ -69,9 +69,9 @@ export default {
 
   async fetch() {
     let url = `${this.fetchURL}${this.wingId}${this.field}`
-    console.log(url)
+    //console.log(url)
     const result = await this.$http.$get(url)
-    console.log(result)
+    //console.log(result)
     this.wings = result.data
   }
 }

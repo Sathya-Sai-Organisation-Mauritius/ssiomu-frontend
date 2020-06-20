@@ -29,7 +29,7 @@ export default {
     },
 
     displayData(result) {
-      console.log(result)
+      //console.log(result)
       this.myResult = result
     },
 
@@ -38,9 +38,8 @@ export default {
       // Simple GET request using fetch
       fetch('http://localhost:4444/_/items/event')
         .then(this.getJson)
-       
+
         .then(this.displayData)
-     
     }
   },
   mounted() {
