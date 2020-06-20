@@ -42,8 +42,8 @@ export default {
     }
   },
   async fetch() {
-    // const result = await this.$http.$get(this.query)
-    // this.regions = result.data
+    const result = await this.$http.$get(this.query)
+    this.regions = result.data
   }
 }
 </script>

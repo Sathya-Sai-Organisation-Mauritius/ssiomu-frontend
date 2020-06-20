@@ -45,7 +45,7 @@
           "
         />
 
-        <OfficeBearer />
+        <!-- <OfficeBearer /> -->
       </div>
     </div>
   </div>
@@ -68,11 +68,10 @@ export default {
 
   data() {
     return {
-      regionId: this.$route.params.slug,
-      subtitle: 'A list of events in region X ',
       regions: [],
       fetchURL: '/_/items/region',
       filter: '?filter[slug][eq]=',
+      regionId: this.$route.params.slug,
       field: '&fields=*.*'
     }
   },

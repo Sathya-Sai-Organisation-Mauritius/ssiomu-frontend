@@ -47,7 +47,7 @@
               <li class=" relative hover:bg-orange-500 hover" v-if="regions">
                 <div class="dropdown ">
                   <nuxt-link
-                    to="/regions"
+                    :to="'/regions'"
                     class=" inline-flex items-center py-5 px-5"
                   >
                     <span class="mr-1">Regions</span>
@@ -187,11 +187,11 @@ export default {
         //   name: 'Gallery'
         // },
         {
-          url: '/publications/',
+          url: '/publications',
           name: 'Publications'
         },
         {
-          url: '/events/',
+          url: '/events',
           name: 'Events'
         }
       ]
