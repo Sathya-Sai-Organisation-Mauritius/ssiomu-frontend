@@ -65,13 +65,14 @@ export default {
       publicationId: this.$route.params.id,
       publications: [],
 
-      query: '/_/items/publication/',
+      fetchURL: '/_/items/publication/',
       fields: '?fields=*.*'
     }
   },
   async fetch() {
-    let url = `${this.query}${this.publicationId}${this.fields}`
-    //console.log(url)
+    let url = `${this.fetchURL}${this.publicationId}${this.fields}`
+    console.log(url)
+
     const result = await this.$http.$get(url)
     //console.log(result)
     this.publications = result.data
