@@ -51,8 +51,7 @@ export default {
     }
   },
   async fetch() {
-    let url = `${this.query}`
-    const result = await this.$http.$get(url)
+    const result = await this.$http.$get(this.query)
     this.pastevents = result.data
   }
 }

@@ -26,10 +26,10 @@
         </div>
         <div>
           <nav role="navigation">
-            <ul class="flex ml-4 space-x-4">
+            <ul class="flex ml-4 space-x-8">
               <li
-                class="  hover:bg-orange-600 hover "
-                v-for="menu in menuItems"
+                class="hover:bg-orange-600 hover "
+                v-for="menu in menuRoot"
                 :key="menu.url"
               >
                 <nuxt-link :to="menu.url" v-if="menu.url !== null">
@@ -42,7 +42,7 @@
 
               <li class=" relative hover:bg-orange-500 hover" v-if="regions">
                 <div class="dropdown ">
-                  <a href="/regions" class="  rounded inline-flex items-center">
+                  <a href="/regions" class="rounded inline-flex items-center">
                     <span class="mr-1">Regions</span>
                     <svg
                       class="fill-current h-4 w-4"
@@ -55,11 +55,11 @@
                     </svg>
                   </a>
                   <ul
-                    class="dropdown-menu absolute block left-0 hidden block text-white-700 pt-3 shadow-xl "
+                    class="dropdown-menu absolute block left-0 hidden block text-white-700 pt-xl "
                   >
                     <li class="" v-for="region in regions" :key="region.id">
                       <nuxt-link
-                        class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0"
+                        class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
                         :to="'/region/' + region.id"
                         >{{ region.name }}
                       </nuxt-link>
@@ -70,7 +70,7 @@
 
               <li class=" relative hover:bg-orange-500 hover">
                 <div class="dropdown ">
-                  <a href="/wings" class="  rounded inline-flex items-center">
+                  <div class="rounded inline-flex items-center">
                     <span class="mr-1">Wings</span>
                     <svg
                       class="fill-current h-4 w-4"
@@ -81,13 +81,13 @@
                         d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
                       />
                     </svg>
-                  </a>
+                  </div>
                   <ul
-                    class="dropdown-menu absolute left-0 hidden block text-white-700 pt-3 shadow-xl"
+                    class="dropdown-menu absolute left-0 hidden block text-white-700 pt-xl"
                   >
                     <li class="" v-for="wing in wings" :key="wing.id">
                       <nuxt-link
-                        class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0"
+                        class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
                         :to="'/wing/' + wing.id"
                         >{{ wing.name }}
                       </nuxt-link>
@@ -98,7 +98,7 @@
 
               <li class=" relative hover:bg-orange-500 hover">
                 <div class="dropdown ">
-                  <a href="/" class="  rounded inline-flex items-center">
+                  <div class="rounded inline-flex items-center">
                     <span class="mr-1">Resources</span>
                     <svg
                       class="fill-current h-4 w-4"
@@ -109,49 +109,21 @@
                         d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
                       />
                     </svg>
-                  </a>
+                  </div>
                   <ul
-                    class="dropdown-menu absolute left-0 hidden block text-white-700 pt-3 shadow-xl "
+                    class="dropdown-menu absolute left-0 hidden block text-white-700 shadow-xl "
                   >
-                    <li class="">
-                      <a
-                        class="rounded-t bg-orange-600 hover:bg-orange-500 py-3 block whitespace-no-wrap"
-                        href="#"
-                        style="margin-bottom:0px;"
-                        >Sai shop</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class="bg-orange-600 hover:bg-orange-500 py-3  block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="#"
-                        >Guidelines</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class=" bg-orange-600 hover:bg-orange-500 py-3  block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="#"
-                        >Links</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class="bg-orange-600 hover:bg-orange-500 py-3  block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="#"
-                        >PWS resources</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class="rounded-b bg-orange-600 hover:bg-orange-500 py-3  block whitespace-no-wrap"
-                        href="#"
-                        style="margin-bottom:0px;"
-                        >Pre World Conference Videos</a
-                      >
+                    <li
+                      class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
+                      v-for="menu in menuResources"
+                      :key="menu.url"
+                    >
+                      <nuxt-link :to="menu.url" v-if="menu.url !== null">
+                        {{ menu.name }}
+                      </nuxt-link>
+                      <div v-else>
+                        {{ menu.name }}
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -172,7 +144,29 @@ export default {
     return {
       regions: [],
       wings: [],
-      menuItems: [
+      menuResources: [
+        {
+          url: 'sai-shop',
+          name: 'Sai shop'
+        },
+        {
+          url: 'guidelines',
+          name: 'Guidelines'
+        },
+        {
+          url: 'links',
+          name: 'Links'
+        },
+        {
+          url: 'pws-resources',
+          name: 'PWS resources'
+        },
+        {
+          url: 'pre-world-conference-videos',
+          name: 'Pre World Conference Videos'
+        }
+      ],
+      menuRoot: [
         {
           url: '/',
           name: 'Home'
@@ -188,10 +182,6 @@ export default {
         {
           url: '/events/',
           name: 'Events'
-        },
-        {
-          url: '/test/',
-          name: 'Test'
         }
       ]
     }
