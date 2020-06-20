@@ -43,6 +43,12 @@ export default {
   http: {
     baseURL: 'http://localhost:4444'
   },
+  server: {
+    port: 3050 // default: 3000
+  },
+  router: {
+    prefetchLinks: false
+  },
   /*
    ** Build configuration
    */

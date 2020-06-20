@@ -13,19 +13,19 @@
       <div class="flex-1 bg-white p-6 flex flex-col justify-between">
         <div class="flex-1">
           <p class="text-sm leading-5 font-medium text-blue-600">
-            <a
-              :href="'/wing/' + pubvalues.wing.slug"
+            <nuxt-link
+              :to="'/wing/' + pubvalues.wing.slug"
               class="hover:underline"
               v-if="pubvalues.wing"
             >
               {{ pubvalues.wing.name }}
-            </a>
+            </nuxt-link>
           </p>
-          <a :href="'/publication/' + pubvalues.slug" class="">
+          <nuxt-link :to="'/publication/' + pubvalues.slug" class="">
             <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
               {{ pubvalues.title }}
             </h3>
-          </a>
+          </nuxt-link>
         </div>
 
         <div class="flex items-center">

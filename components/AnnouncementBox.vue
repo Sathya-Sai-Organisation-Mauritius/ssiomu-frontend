@@ -1,7 +1,6 @@
 <<template>
   <li class="border-t border-gray-200">
-    <a
-      href="#"
+    <div
       class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
     >
       <div class="px-4 py-4 sm:px-6">
@@ -61,7 +60,7 @@
           </div>
         </div>
       </div>
-    </a>
+    </div>
   </li>
 </template>
 

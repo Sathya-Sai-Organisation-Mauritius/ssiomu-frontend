@@ -1,13 +1,9 @@
 <<template>
   <li>
-    <!-- <a
-      :href="'/event/' + pasteventvalues.slug"
-      class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
-    > -->
     <div class="px-4 py-4 sm:px-6">
       <div class="flex items-center justify-between">
-        <a
-          :href="'/event/' + pasteventvalues.slug"
+        <nuxt-link
+          :to="'/event/' + pasteventvalues.slug"
           class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
         >
           <div
@@ -16,8 +12,11 @@
           >
             {{ pasteventvalues.name }}
           </div>
-        </a>
-        <div class="ml-2 flex-shrink-0 flex" v-if="pasteventvalues.region">
+        </nuxt-link>
+        <div
+          class="ml-2 flex-shrink-0 flex"
+          v-if="pasteventvalues.region !== null"
+        >
           <span
             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800"
           >
@@ -82,7 +81,6 @@
         </div>
       </div>
     </div>
-    <!-- </a> -->
   </li>
 </template>
 
@@ -100,6 +98,9 @@ export default {
       let fullDate = `${month} ${day}, ${year}`
       return fullDate
     }
+  },
+  mounted() {
+    console.log(this.pasteventvalues.region)
   }
 }
 </script>

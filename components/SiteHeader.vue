@@ -18,9 +18,9 @@
         <div>
           <div id="block-tailwingcss-branding">
             <div class="flex items-center">
-              <a href="/" title="Home" rel="home" class="site-logo mr-2">
+              <nuxt-link to="/" title="Home" rel="home" class="site-logo mr-2">
                 <img src="/images/logo.png" alt="Home" />
-              </a>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
                     <li class="" v-for="wing in wings" :key="wing.slug">
                       <nuxt-link
                         class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
-                        :to="'/wing/' + wing.slug"
+                        :to="'/wing/' + wing.slug + '/'"
                         >{{ wing.name }}
                       </nuxt-link>
                     </li>
@@ -241,5 +241,8 @@ export default {
 
 .nuxt-link-exact-active {
   background: rgb(237 137 54);
+}
+.site-logo {
+  background: transparent;
 }
 </style>
