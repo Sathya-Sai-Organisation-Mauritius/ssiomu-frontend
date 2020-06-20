@@ -16,7 +16,7 @@
     <div class="main-menu-wrapper relative z-10 ">
       <div class="container flex items-center mx-auto">
         <div>
-          <div id="block-tailwindcss-branding">
+          <div id="block-tailwingcss-branding">
             <div class="flex items-center">
               <a href="/" title="Home" rel="home" class="site-logo mr-2">
                 <img src="/images/logo.png" alt="Home" />
@@ -26,31 +26,20 @@
         </div>
         <div>
           <nav role="navigation">
-            <ul class=" flex ml-4">
-              <a href="">
-                <li class="py-5 px-4   hover:bg-orange-600 hover ">
-                  Home
-                </li>
-              </a>
+            <ul class="flex ml-4 space-x-4">
+              <li
+                class="  hover:bg-orange-600 hover "
+                v-for="menu in menuItems"
+                :key="menu.url"
+              >
+                <nuxt-link :to="menu.url">
+                  {{ menu.name }}
+                </nuxt-link>
+              </li>
 
-              <a href="/publications">
-                <li class="py-5 px-4   hover:bg-orange-600 hover">
-                  About
-                </li>
-              </a>
-
-              <a href="/publications">
-                <li class="py-5 px-4   hover:bg-orange-600 hover">
-                  Publications
-                </li>
-              </a>
-
-              <li class=" relative py-5 hover:bg-orange-500 hover">
+              <li class=" relative hover:bg-orange-500 hover" v-if="regions">
                 <div class="dropdown ">
-                  <a
-                    href="/regions"
-                    class="  px-4 rounded inline-flex items-center"
-                  >
+                  <a href="/regions" class="  rounded inline-flex items-center">
                     <span class="mr-1">Regions</span>
                     <svg
                       class="fill-current h-4 w-4"
@@ -65,80 +54,20 @@
                   <ul
                     class="dropdown-menu absolute block left-0 hidden block text-white-700 pt-3 shadow-xl "
                   >
-                    <li class="">
-                      <a
-                        class="rounded-t bg-orange-600 hover:bg-orange-500 py-3 px-4 block whitespace-no-wrap"
-                        href="/LowerPlaineWilhems"
-                        style="margin-bottom:0px;"
-                        >Savanne</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class="bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="#"
-                        >Grand Port</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class=" bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="#"
-                        >Moka/Flacq</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class=" bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="#"
-                        >Upper Plaine Wilhems</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class=" bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="/LowerPlaineWilhems"
-                        >Lower Plaine Wilhems</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class="bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="#"
-                        >Port Louis</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class=" bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="#"
-                        >Pamplemouses</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class="rounded-b bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="#"
-                        >Riviere du rempart</a
-                      >
+                    <li class="" v-for="region in regions" :key="region.id">
+                      <nuxt-link
+                        class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0"
+                        :to="'/region/' + region.id"
+                        >{{ region.name }}
+                      </nuxt-link>
                     </li>
                   </ul>
                 </div>
               </li>
 
-              <li class=" relative py-5 hover:bg-orange-500 hover">
+              <li class=" relative hover:bg-orange-500 hover">
                 <div class="dropdown ">
-                  <a
-                    href="/wings"
-                    class="  px-4 rounded inline-flex items-center"
-                  >
+                  <a href="/wings" class="  rounded inline-flex items-center">
                     <span class="mr-1">Wings</span>
                     <svg
                       class="fill-current h-4 w-4"
@@ -153,43 +82,20 @@
                   <ul
                     class="dropdown-menu absolute left-0 hidden block text-white-700 pt-3 shadow-xl"
                   >
-                    <li class="">
-                      <a
-                        class="rounded-t bg-orange-600 hover:bg-orange-500 py-3 px-4 block whitespace-no-wrap"
-                        href="#"
-                        style="margin-bottom:0px;"
-                        >Devotions</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class="bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
-                        style="margin-bottom:0px;"
-                        href="#"
-                        >Educations(SSE)</a
-                      >
-                    </li>
-                    <li class="">
-                      <a
-                        class="rounded-b bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
-                        href="#"
-                        style="margin-bottom:0px;"
-                        >Services</a
-                      >
+                    <li class="" v-for="wing in wings" :key="wing.id">
+                      <nuxt-link
+                        class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0"
+                        :to="'/wing/' + wing.id"
+                        >{{ wing.name }}
+                      </nuxt-link>
                     </li>
                   </ul>
                 </div>
               </li>
 
-              <a href="/events" title="" class="is-active">
-                <li class="py-5 px-4   hover:bg-orange-600 hover">
-                  Events
-                </li>
-              </a>
-
-              <li class=" relative py-5 hover:bg-orange-500 hover">
+              <li class=" relative hover:bg-orange-500 hover">
                 <div class="dropdown ">
-                  <a href="/" class="  px-4 rounded inline-flex items-center">
+                  <a href="/" class="  rounded inline-flex items-center">
                     <span class="mr-1">Resources</span>
                     <svg
                       class="fill-current h-4 w-4"
@@ -206,7 +112,7 @@
                   >
                     <li class="">
                       <a
-                        class="rounded-t bg-orange-600 hover:bg-orange-500 py-3 px-4 block whitespace-no-wrap"
+                        class="rounded-t bg-orange-600 hover:bg-orange-500 py-3 block whitespace-no-wrap"
                         href="#"
                         style="margin-bottom:0px;"
                         >Sai shop</a
@@ -214,7 +120,7 @@
                     </li>
                     <li class="">
                       <a
-                        class="bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        class="bg-orange-600 hover:bg-orange-500 py-3  block whitespace-no-wrap"
                         style="margin-bottom:0px;"
                         href="#"
                         >Guidelines</a
@@ -222,7 +128,7 @@
                     </li>
                     <li class="">
                       <a
-                        class=" bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        class=" bg-orange-600 hover:bg-orange-500 py-3  block whitespace-no-wrap"
                         style="margin-bottom:0px;"
                         href="#"
                         >Links</a
@@ -230,7 +136,7 @@
                     </li>
                     <li class="">
                       <a
-                        class="bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        class="bg-orange-600 hover:bg-orange-500 py-3  block whitespace-no-wrap"
                         style="margin-bottom:0px;"
                         href="#"
                         >PWS resources</a
@@ -238,7 +144,7 @@
                     </li>
                     <li class="">
                       <a
-                        class="rounded-b bg-orange-600 hover:bg-orange-500 py-3  px-4 block whitespace-no-wrap"
+                        class="rounded-b bg-orange-600 hover:bg-orange-500 py-3  block whitespace-no-wrap"
                         href="#"
                         style="margin-bottom:0px;"
                         >Pre World Conference Videos</a
@@ -246,16 +152,6 @@
                     </li>
                   </ul>
                 </div>
-              </li>
-
-              <a href="/" title="" class="is-active">
-                <li class="py-5 px-4   hover:bg-orange-600 hover">
-                  Contact Us
-                </li>
-              </a>
-
-              <li class="py-5 px-4   hover:bg-orange-600 hover">
-                <a href="/test" title="" class="is-active">GET REQUEST</a>
               </li>
             </ul>
           </nav>
@@ -272,13 +168,68 @@ export default {
   data: () => {
     return {
       regions: [],
-      fetchURL: '/_/items/region?fields=*.*'
+      wings: [],
+      menuItems: [
+        {
+          url: '/',
+          name: 'Home'
+        },
+        {
+          url: '/publications/',
+          name: 'Publications'
+        },
+        {
+          url: '/regions/',
+          name: 'Regions'
+        },
+        {
+          url: '/wings/',
+          name: 'Wings'
+        },
+        {
+          url: '/events/',
+          name: 'Events'
+        },
+        {
+          url: '/test/',
+          name: 'Test'
+        }
+      ]
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.fetchURL)
-    this.regions = result.data
-  }
+    // Get Regions
+    const regionQuery = '/_/items/region?fields=*.*'
+    const regionData = await this.$http.$get(regionQuery)
+
+    // Get Wings
+    const wingQuery = '/_/items/wing?fields=*.*'
+    const wingData = await this.$http.$get(wingQuery)
+
+    let filteredRegions = regionData.data.map(region => {
+      // pluck properties from object
+      let { name, number, id } = region
+      return {
+        name,
+        number,
+        id
+      }
+    })
+
+    let filteredwings = wingData.data.map(wing => {
+      // pluck properties from object
+      let { name, number, id } = wing
+      return {
+        name,
+        number,
+        id
+      }
+    })
+
+    this.regions = filteredRegions
+    this.wings = filteredwings
+  },
+  fetchOnServer: false
 }
 </script>
 
