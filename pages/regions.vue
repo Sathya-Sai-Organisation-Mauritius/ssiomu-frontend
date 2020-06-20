@@ -1,6 +1,6 @@
 <<template>
   <div>
-    <RegionsComponent fetchURL="/_/items/region?fields=*.*" />
+    <RegionsComponent query="/_/items/region?fields=*.*" />
   </div>
 </template>
 

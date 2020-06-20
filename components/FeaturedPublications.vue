@@ -47,7 +47,7 @@ export default {
   components: {
     PublicationBox
   },
-  props: ['subtitle', 'color', 'textalign', 'maxheight', 'fetchURL'],
+  props: ['subtitle', 'color', 'textalign', 'maxheight', 'query'],
   data: () => {
     return {
       publications: [],
@@ -55,7 +55,7 @@ export default {
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
+    const result = await this.$http.$get(this.apiEndpoint + this.query)
     console.log(result)
     this.publications = result.data
   }

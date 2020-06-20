@@ -43,15 +43,14 @@ export default {
     UpcomingEventBox
   },
 
-  props: ['color', 'textalign', 'textcolor', 'fetchURL'],
+  props: ['color', 'textalign', 'textcolor', 'query'],
   data: () => {
     return {
-      events: [],
-      apiEndpoint: 'http://localhost:4444'
+      events: []
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
+    const result = await this.$http.$get(this.query)
     this.events = result.data
   }
 }

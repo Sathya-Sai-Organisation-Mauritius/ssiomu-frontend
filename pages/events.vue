@@ -3,7 +3,7 @@
     <UpcomingEvents
       :color="'gradient-bg'"
       :textcolor="'text-blue-600'"
-      fetchURL="/_/items/event?filter[from][gt]=now"
+      query="/_/items/event?filter[from][gt]=now"
     />
 
     <PastEvents
@@ -12,7 +12,7 @@
       "
       :textalign="'text-center'"
       :textcolor="'text-blue-600'"
-      fetchURL="/_/items/event?filter[from][lt]=now&fields=*.*"
+      query="/_/items/event?filter[from][lt]=now&fields=*.*"
     />
   </div>
 </template>

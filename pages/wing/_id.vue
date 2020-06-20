@@ -20,7 +20,7 @@
         </div>
 
         <UpcomingEvents
-          :fetchURL="
+          :query="
             `/_/items/event?filter[from][gt]=now&filter[wing][eq]=${wingId}`
           "
         />
@@ -30,16 +30,14 @@
           :color="'bg-gray-200'"
           :textalign="'text-center'"
           :textcolor="'text-blue-500'"
-          :fetchURL="
+          :query="
             `/_/items/event?filter[from][lt]=now&filter[wing][eq]=${wingId}&fields=*.*`
           "
         />
 
         <FeaturedPublications
           :textalign="'text-center'"
-          :fetchURL="
-            `/_/items/publication?filter[wing][eq]=${wingId}&fields=*.*`
-          "
+          :query="`/_/items/publication?filter[wing][eq]=${wingId}&fields=*.*`"
         />
       </div>
     </div>
@@ -58,7 +56,7 @@ export default {
     PastEvents
   },
 
-  props: ['fetchurl'],
+  props: ['query'],
 
   data() {
     return {
