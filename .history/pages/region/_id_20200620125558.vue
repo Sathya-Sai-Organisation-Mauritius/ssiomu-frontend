@@ -33,17 +33,9 @@
           "
         />
 
-        <PastEvents
-          :fetchURL="
-            `/_/items/event?filter[from][lt]=now&filter[region][eq]=${regionId}&fields=*.*`
-          "
-        />
+        <PastEvents />
 
-        <FeaturedPublications
-          :fetchURL="
-            `/_/items/publication?filter[region][eq]=${regionId}&fields=*.*`
-          "
-        />
+        <FeaturedPublications />
 
         <OfficeBearer />
       </div>
@@ -68,7 +60,13 @@ export default {
     PastEvents
   },
   props: ['fetchurl'],
-
+  // data() {
+  //   return {
+  //     regionId: this.$route.params.id,
+  //     myResult: false,
+  //     errors: false
+  //   }
+  // },
   data() {
     return {
       regionId: this.$route.params.id,

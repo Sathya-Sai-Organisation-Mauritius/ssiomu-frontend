@@ -35,15 +35,11 @@
 
         <PastEvents
           :fetchURL="
-            `/_/items/event?filter[from][lt]=now&filter[region][eq]=${regionId}&fields=*.*`
+            `/_/items/event?filter[from][lt]=now&filter[region][eq]=${regionId}`
           "
         />
 
-        <FeaturedPublications
-          :fetchURL="
-            `/_/items/publication?filter[region][eq]=${regionId}&fields=*.*`
-          "
-        />
+        <FeaturedPublications />
 
         <OfficeBearer />
       </div>
