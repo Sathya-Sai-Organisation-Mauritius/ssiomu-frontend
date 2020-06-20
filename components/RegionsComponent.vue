@@ -36,7 +36,7 @@ export default {
     RegionsComponentBox
   },
 
-  props: ['fetchURL'],
+  props: ['query'],
 
   data: () => {
     return {
@@ -44,7 +44,7 @@ export default {
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.fetchURL)
+    const result = await this.$http.$get(this.apiEndpoint + this.query)
     this.regions = result.data
   }
 }

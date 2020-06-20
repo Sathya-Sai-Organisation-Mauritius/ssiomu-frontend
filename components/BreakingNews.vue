@@ -27,14 +27,14 @@
 
 <script>
 export default {
-  props: ['fetchURL'],
+  props: ['query'],
   data() {
     return {
       news: []
     }
   },
   async fetch() {
-    let url = `${this.apiEndpoint}${this.fetchURL}`
+    let url = `${this.apiEndpoint}${this.query}`
     console.log(url)
     const result = await this.$http.$get(url)
     console.log(result)

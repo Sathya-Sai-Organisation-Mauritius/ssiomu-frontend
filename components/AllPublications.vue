@@ -44,7 +44,7 @@ export default {
   components: {
     PublicationBox
   },
-  props: ['subtitle', 'color', 'textalign', 'fetchURL'],
+  props: ['subtitle', 'color', 'textalign', 'query'],
 
   data: () => {
     return {
@@ -52,7 +52,7 @@ export default {
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.fetchURL)
+    const result = await this.$http.$get(this.apiEndpoint + this.query)
     this.publications = result.data
   }
 }

@@ -43,14 +43,14 @@ export default {
     UpcomingEventBox
   },
 
-  props: ['color', 'textalign', 'textcolor', 'fetchURL'],
+  props: ['color', 'textalign', 'textcolor', 'query'],
   data: () => {
     return {
       events: []
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.fetchURL)
+    const result = await this.$http.$get(this.query)
     this.events = result.data
   }
 }

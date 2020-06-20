@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <UpcomingEvents fetchURL="/_/items/event?filter[from][gt]=now" />
+    <UpcomingEvents query="/_/items/event?filter[from][gt]=now" />
 
     <PastEvents
       :subtitle="'My Wing Subtitle'"

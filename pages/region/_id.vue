@@ -28,19 +28,19 @@
         <UpcomingEvents
           :color="'gradient-bg'"
           :textcolor="'text-blue-600'"
-          :fetchURL="
+          :query="
             `/_/items/event?filter[from][gt]=now&filter[region][eq]=${regionId}`
           "
         />
 
         <PastEvents
-          :fetchURL="
+          :query="
             `/_/items/event?filter[from][lt]=now&filter[region][eq]=${regionId}&fields=*.*`
           "
         />
 
         <FeaturedPublications
-          :fetchURL="
+          :query="
             `/_/items/publication?filter[region][eq]=${regionId}&fields=*.*`
           "
         />
@@ -67,13 +67,13 @@ export default {
     FeaturedPublications,
     PastEvents
   },
-  props: ['fetchurl'],
+  props: ['query'],
 
   data() {
     return {
       regionId: this.$route.params.id,
       regions: [],
-      fetchURL: '/_/items/region/',
+      query: '/_/items/region/',
       field: '?fields=*.*'
     }
   },
@@ -90,7 +90,7 @@ export default {
   },
 
   async fetch() {
-    let url = `${this.apiEndpoint}${this.fetchURL}${this.regionId}${this.field}`
+    let url = `${this.query}${this.regionId}${this.field}`
     console.log(url)
     const result = await this.$http.$get(url)
     console.log(result)

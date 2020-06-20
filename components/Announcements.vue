@@ -49,7 +49,7 @@ export default {
     AnnouncementBox
   },
 
-  props: ['subtitle', 'color', 'fetchURL'],
+  props: ['subtitle', 'color', 'query'],
 
   data() {
     return {
@@ -57,7 +57,7 @@ export default {
     }
   },
   async fetch() {
-    let url = `${this.apiEndpoint}${this.fetchURL}`
+    let url = `${this.apiEndpoint}${this.query}`
     const result = await this.$http.$get(url)
     this.announcements = result.data
   }

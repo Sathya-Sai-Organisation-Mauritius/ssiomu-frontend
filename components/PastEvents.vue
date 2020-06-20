@@ -44,14 +44,14 @@ export default {
   components: {
     PastEventBox
   },
-  props: ['subtitle', 'color', 'textalign', 'textcolor', 'fetchURL'],
+  props: ['subtitle', 'color', 'textalign', 'textcolor', 'query'],
   data() {
     return {
       pastevents: []
     }
   },
   async fetch() {
-    let url = `${this.fetchURL}`
+    let url = `${this.query}`
     const result = await this.$http.$get(url)
     this.pastevents = result.data
   }

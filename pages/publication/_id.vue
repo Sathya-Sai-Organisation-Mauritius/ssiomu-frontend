@@ -64,12 +64,13 @@ export default {
     return {
       publicationId: this.$route.params.id,
       publications: [],
-      fetchURL: '/_/items/publication/',
+
+      query: '/_/items/publication/',
       fields: '?fields=*.*'
     }
   },
   async fetch() {
-    let url = `${this.apiEndpoint}${this.fetchURL}${this.publicationId}${this.fields}`
+    let url = `${this.query}${this.publicationId}${this.fields}`
     console.log(url)
     const result = await this.$http.$get(url)
     console.log(result)

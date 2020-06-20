@@ -17,19 +17,19 @@
       </div>
     </div>
 
-    <Announcements fetchURL="/_/items/annoucement" />
+    <Announcements query="/_/items/annoucement" />
 
-    <!-- <BreakingNews fetchURL="/_/items/breaking_news" /> -->
+    <BreakingNews query="/_/items/breaking_news" />
 
     <UpcomingEvents
       :color="'gradient-bg'"
       :textcolor="'text-blue-600'"
-      fetchURL="/_/items/event?filter[from][gt]=now"
+      query="/_/items/event?filter[from][gt]=now"
     />
 
     <FeaturedPublications
       :textalign="'text-center'"
-      fetchURL="/_/items/publication?fields=*.*,photo.*,wing.name"
+      query="/_/items/publication?fields=*.*,photo.*,wing.name"
     />
 
     <PastEvents
@@ -38,7 +38,7 @@
       "
       :textalign="'text-center'"
       :textcolor="'text-blue-600'"
-      fetchURL="/_/items/event?filter[from][lt]=now&fields=*.*"
+      query="/_/items/event?filter[from][lt]=now&fields=*.*"
     />
   </div>
 </template>
