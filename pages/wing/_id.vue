@@ -63,15 +63,16 @@ export default {
       wingId: this.$route.params.id,
       wings: [],
       fetchURL: '/_/items/wing/',
+      filter: '?filter[slug][eq]=',
       field: '?fields=*.*'
     }
   },
 
   async fetch() {
-    let url = `${this.fetchURL}${this.wingId}${this.field}`
-    //console.log(url)
+    let url = `${this.fetchURL}${this.filter}${this.wingId}${this.field}`
+
     const result = await this.$http.$get(url)
-    //console.log(result)
+
     this.wings = result.data
   }
 }

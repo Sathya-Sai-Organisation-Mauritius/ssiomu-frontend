@@ -14,14 +14,14 @@
         <div class="flex-1">
           <p class="text-sm leading-5 font-medium text-blue-600">
             <a
-              :href="'/wing/' + pubvalues.id"
+              :href="'/wing/' + pubvalues.slug"
               class="hover:underline"
               v-if="pubvalues.wing"
             >
               {{ pubvalues.wing.name }}
             </a>
           </p>
-          <a :href="'/publication/' + pubvalues.id" class="">
+          <a :href="'/publication/' + pubvalues.slug" class="">
             <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
               {{ pubvalues.title }}
             </h3>

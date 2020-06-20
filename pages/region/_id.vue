@@ -74,6 +74,7 @@ export default {
       regionId: this.$route.params.id,
       regions: [],
       fetchURL: '/_/items/region/',
+      filter: '?filter[slug][eq]=',
       field: '?fields=*.*'
     }
   },
@@ -90,10 +91,8 @@ export default {
   },
 
   async fetch() {
-    let url = `${this.fetchURL}${this.regionId}${this.field}`
-    console.log(url)
+    let url = `${this.fetchURL}${this.filter}${this.regionId}${this.field}`
     const result = await this.$http.$get(url)
-    //console.log(result)
     this.regions = result.data
   }
 }

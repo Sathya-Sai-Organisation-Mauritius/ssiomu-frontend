@@ -25,6 +25,7 @@
               >
                 <div
                   class="text-center lg:absolute lg:text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-2 md:p-3 px-4 md:px-10 font-black"
+                  v-if="events.region"
                 >
                   Region {{ events.region.number }}
                 </div>
@@ -90,7 +91,9 @@
                     >
                       <div>Contact: Gavin - 57971326</div>
                       <span class="px-2"> - </span>
-                      <div>Region {{ events.region.number }}</div>
+                      <div v-if="events.region">
+                        Region {{ events.region.number }}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -112,7 +115,7 @@
             <div class="text-white">
               <div class="grid grid-cols-4 gap-3">
                 <PastEventBox
-                  v-for="(pasteventdescription, index) in events.data"
+                  v-for="(pasteventdescription, index) in events"
                   :pasteventvalues="pasteventdescription"
                   :key="index"
                 />
@@ -188,7 +191,7 @@ export default {
       fetchURL: '/_/items/event',
       filter: '?filter[slug][eq]=',
       single: '&single',
-      fields: '&fields=*, region.number'
+      fields: '&fields=*.*, region.number'
     }
   },
   methods: {
@@ -205,10 +208,8 @@ export default {
 
   async fetch() {
     let url = `${this.fetchURL}${this.filter}${this.eventId}${this.single}${this.fields}`
-    console.log(url)
 
     const result = await this.$http.$get(url)
-    //console.log(result)
     this.events = result.data[0]
   }
 }
