@@ -66,4 +66,10 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
+@screen md {
+  .container {
+    @apply px-4;
+  }
+}
 </style>

@@ -95,7 +95,7 @@
                     <li class="" v-for="wing in wings" :key="wing.slug">
                       <nuxt-link
                         class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
-                        :to="'/wing/' + wing.slug + '/'"
+                        :to="{ name: 'wing-slug', params: { slug: wing.slug } }"
                         >{{ wing.name }}
                       </nuxt-link>
                     </li>
