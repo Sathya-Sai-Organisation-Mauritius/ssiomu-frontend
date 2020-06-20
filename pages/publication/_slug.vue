@@ -7,12 +7,12 @@
       </p>
       <div v-else-if="publications">
         <div class="container mx-auto">
-          <div class="publication-details space-y-12 py-10">
+          <div class="publication-details space-y-12 py-10 ">
             <div
-              class="publication-details grid gap-1 grid-cols-3 space-y-12 py-10 border-b border-gray-20"
+              class="publication-details grid  gap-1 grid-cols-3 space-y-4 pt-10 pb-2 border-b border-gray-20"
             >
               <div
-                class="publication-title font-bold flex col-span-2 space-x-2 items-center"
+                class="publication-title  font-bold flex col-span-2 space-x-2 items-center"
               >
                 <h1 class="text-4xl">
                   {{ publications.title }}
@@ -26,6 +26,9 @@
                   Region {{ publications.region.number }}
                 </div>
               </div>
+              <div class=" italic ">
+                Published on: {{ formatDate(publications.date) }}
+              </div>
             </div>
           </div>
         </div>
@@ -34,35 +37,38 @@
           <div class="publication-details space-y-12 pb-10">
             <div class="publication-description">
               <div
-                class="description-body space-y-2"
+                class="description-body space-y-2 "
                 v-html="publications.body"
               ></div>
             </div>
 
             <div>
-              <div v-if="publications.wing">
-                Wing: {{ publications.wing.name }}
+              <div
+                v-if="publications.wing"
+                class="font-bold text-md lg:text-xl"
+              >
+                Wing:
+                {{ publications.wing.name }}
               </div>
 
-              <div v-if="publications.region">
+              <div
+                v-if="publications.region"
+                class="font-bold text-md lg:text-xl"
+              >
                 Region: {{ publications.region.name }}
-              </div>
-
-              <div>
-                {{ publications.date }}
               </div>
 
               <div
                 v-if="publications.attachments"
-                class="flex items-center text-sm space-x-4"
+                class="flex flex-col  text-md lg:text-xl font-medium italic my-2 "
               >
                 <div>
-                  Attachments
+                  Attachments:
                 </div>
                 <a
                   :href="publications.attachments.data.full_url"
                   download
-                  class="p-2 rounded bg-orange-500 cursor-pointer text-white block"
+                  class="p-2 w-40 lg:w-48 rounded bg-orange-500 cursor-pointer text-white block"
                   >Download {{ publications.attachments.filename_download }}</a
                 >
               </div>
@@ -86,6 +92,18 @@ export default {
       fetchURL: '/_/items/publication',
       filter: '?filter[slug][eq]=',
       fields: '&fields=*.*'
+    }
+  },
+
+  methods: {
+    formatDate(param) {
+      let temporaryDate = new Date(param)
+      let month = temporaryDate.toLocaleString('default', { month: 'short' })
+      let day = temporaryDate.toLocaleString('default', { day: 'numeric' })
+      let year = temporaryDate.toLocaleString('default', { year: 'numeric' })
+
+      let fullDate = `${month} ${day}, ${year}`
+      return fullDate
     }
   },
   async fetch() {
