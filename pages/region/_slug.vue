@@ -75,9 +75,9 @@ export default {
     return {
       regionId: this.$route.params.slug,
       regions: [],
-      fetchURL: '/_/items/region/',
+      fetchURL: '/_/items/region',
       filter: '?filter[slug][eq]=',
-      field: '?fields=*.*'
+      field: '&fields=*.*'
     }
   },
   methods: {
@@ -95,7 +95,7 @@ export default {
   async fetch() {
     let url = `${this.fetchURL}${this.filter}${this.regionId}${this.field}`
     const result = await this.$http.$get(url)
-    this.regions = result.data
+    this.regions = result.data[0]
   }
 }
 </script>

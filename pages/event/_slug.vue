@@ -114,11 +114,6 @@
             </p>
             <div class="text-white">
               <div class="grid grid-cols-4 gap-3">
-                <PastEventBox
-                  v-for="(pasteventdescription, index) in events"
-                  :pasteventvalues="pasteventdescription"
-                  :key="index"
-                />
                 <Gallery
                   v-for="(gallery, index) in events.data"
                   :galleryvalues="gallery"

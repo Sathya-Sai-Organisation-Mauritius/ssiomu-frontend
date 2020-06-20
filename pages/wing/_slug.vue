@@ -62,9 +62,9 @@ export default {
     return {
       wingId: this.$route.params.slug,
       wings: [],
-      fetchURL: '/_/items/wing/',
+      fetchURL: '/_/items/wing',
       filter: '?filter[slug][eq]=',
-      field: '?fields=*.*'
+      field: '&fields=*.*'
     }
   },
 
@@ -73,7 +73,7 @@ export default {
 
     const result = await this.$http.$get(url)
 
-    this.wings = result.data
+    this.wings = result.data[0]
   }
 }
 </script>

@@ -5,7 +5,7 @@
       <p v-else-if="$fetchState.error">
         Error while fetching posts: {{ $fetchState.error.message }}
       </p>
-      <div v-else>
+      <div v-else-if="publications">
         <div class="container mx-auto">
           <div class="publication-details space-y-12 py-10">
             <div
@@ -49,9 +49,22 @@
               </div>
 
               <div>
-                Attachment: PDF icon Sai Newletter -
-                {{ publications.date }} LD.pdf {{ publications.attachments }} -
                 {{ publications.date }}
+              </div>
+
+              <div
+                v-if="publications.attachments"
+                class="flex items-center text-sm space-x-4"
+              >
+                <div>
+                  Attachments
+                </div>
+                <a
+                  :href="publications.attachments.data.full_url"
+                  download
+                  class="p-2 rounded bg-orange-500 cursor-pointer text-white block"
+                  >Download {{ publications.attachments.filename_download }}</a
+                >
               </div>
             </div>
           </div>
@@ -72,15 +85,13 @@ export default {
 
       fetchURL: '/_/items/publication',
       filter: '?filter[slug][eq]=',
-      fields: '&fields=*'
+      fields: '&fields=*.*'
     }
   },
   async fetch() {
     let url = `${this.fetchURL}${this.filter}${this.publicationId}${this.fields}`
-    console.log(url)
     const result = await this.$http.$get(url)
-    console.log(result)
-    this.publications = result
+    this.publications = result.data[0]
   }
 }
 </script>

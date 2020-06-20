@@ -29,7 +29,7 @@
         <div class="sm:flex">
           <div
             class="mr-6 flex items-center text-sm leading-5 text-gray-600"
-            v-f="pasteventvalues.wing"
+            v-if="pasteventvalues.wing"
           >
             <svg
               class="flex-shrink-0 mr-2 h-5 w-5 text-gray-600"
