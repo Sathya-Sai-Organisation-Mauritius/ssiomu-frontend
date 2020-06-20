@@ -67,7 +67,7 @@
                     <li class="" v-for="region in regions" :key="region.id">
                       <nuxt-link
                         class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
-                        :to="'/region/' + region.id"
+                        :to="'/region/' + region.slug"
                         >{{ region.name }}
                       </nuxt-link>
                     </li>
@@ -95,7 +95,7 @@
                     <li class="" v-for="wing in wings" :key="wing.id">
                       <nuxt-link
                         class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
-                        :to="'/wing/' + wing.id"
+                        :to="'/wing/' + wing.slug"
                         >{{ wing.name }}
                       </nuxt-link>
                     </li>
@@ -178,10 +178,10 @@ export default {
           url: '/',
           name: 'Home'
         },
-        // {
-        //   url: '/publications/',
-        //   name: 'About'
-        // },
+        {
+          url: '/page/about',
+          name: 'About'
+        },
         // {
         //   url: '/publications/',
         //   name: 'Gallery'
@@ -208,28 +208,29 @@ export default {
 
     let filteredRegions = regionData.data.map(region => {
       // pluck properties from object
-      let { name, number, id } = region
+      let { name, number, id, slug } = region
       return {
         name,
         number,
-        id
+        id,
+        slug
       }
     })
 
     let filteredwings = wingData.data.map(wing => {
       // pluck properties from object
-      let { name, number, id } = wing
+      let { name, number, id, slug } = wing
       return {
         name,
         number,
-        id
+        id,
+        slug
       }
     })
 
     this.regions = filteredRegions
     this.wings = filteredwings
-  },
-  fetchOnServer: false
+  }
 }
 </script>
 

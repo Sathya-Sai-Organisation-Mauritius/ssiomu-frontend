@@ -29,7 +29,7 @@
 
     <FeaturedPublications
       :textalign="'text-center'"
-      query="/_/items/publication?fields=*.*,photo.*,wing.name"
+      query="/_/items/publication?fields=*.*,photo.*,wing.*"
     />
 
     <PastEvents
