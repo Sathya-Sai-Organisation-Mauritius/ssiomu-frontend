@@ -2,11 +2,11 @@
   <div class="flex flex-col shadow-lg overflow-hidden mb-4">
     <a :href="'/publication/' + pubvalues.id">
       <div class="flex-shrink-0">
-        <img
+        <!-- <img
           class="h-48 w-full object-cover"
           :src="pubvalues.photo.data.full_url"
           alt=""
-        />
+        /> -->
       </div>
       <div class="flex-1 bg-white p-6 flex flex-col justify-between">
         <div class="flex-1">
