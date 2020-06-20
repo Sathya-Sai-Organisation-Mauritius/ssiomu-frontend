@@ -21,7 +21,7 @@
 
     <Announcements fetchURL="/_/items/annoucement" />
 
-    <BreakingNews fetchURL="/_/items/breaking_news" />
+    <!-- <BreakingNews fetchURL="/_/items/breaking_news" /> -->
 
     <UpcomingEvents
       :color="'gradient-bg'"
