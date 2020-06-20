@@ -46,7 +46,7 @@ export default {
   },
   props: ['subtitle', 'color', 'textalign', 'query'],
 
-  data: () => {
+  data() {
     return {
       publications: []
     }

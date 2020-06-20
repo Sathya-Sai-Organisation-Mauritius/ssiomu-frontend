@@ -48,7 +48,7 @@ export default {
     PublicationBox
   },
   props: ['subtitle', 'color', 'textalign', 'maxheight', 'query'],
-  data: () => {
+  data() {
     return {
       publications: []
     }

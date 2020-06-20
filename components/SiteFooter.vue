@@ -148,7 +148,7 @@
 
 <script>
 export default {
-  data: () => {
+  data() {
     return {
       regions: [],
       wings: []

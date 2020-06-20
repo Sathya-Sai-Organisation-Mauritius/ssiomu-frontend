@@ -108,9 +108,6 @@ export default {
       let fullDate = `${month} ${day}, ${year}`
       return fullDate
     }
-  },
-  mounted() {
-    console.log(this.pasteventvalues.region)
   }
 }
 </script>

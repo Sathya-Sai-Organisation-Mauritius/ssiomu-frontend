@@ -1,4 +1,4 @@
-<<template>
+<template>
   <div>
     <div class="py-20 ">
       <div class="container mx-auto">
@@ -38,7 +38,7 @@ export default {
 
   props: ['query'],
 
-  data: () => {
+  data() {
     return {
       regions: []
     }

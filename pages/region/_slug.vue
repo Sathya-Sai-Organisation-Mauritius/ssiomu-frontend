@@ -58,11 +58,6 @@ import PastEvents from '../../components/PastEvents.vue'
 import OfficeBearer from '../../components/OfficeBearer.vue'
 
 export default {
-  data: () => {
-    return {
-      subtitle: 'A list of events in region X '
-    }
-  },
   components: {
     UpcomingEvents,
     FeaturedPublications,
@@ -74,6 +69,7 @@ export default {
   data() {
     return {
       regionId: this.$route.params.slug,
+      subtitle: 'A list of events in region X ',
       regions: [],
       fetchURL: '/_/items/region',
       filter: '?filter[slug][eq]=',

@@ -38,7 +38,7 @@ export default {
   },
 
   props: ['color', 'textalign', 'textcolor', 'query'],
-  data: () => {
+  data() {
     return {
       events: []
     }

@@ -135,9 +135,7 @@ export default {
 
   async fetch() {
     let url = `${this.fetchURL}${this.filter}${this.groupId}${this.single}${this.fields}`
-    console.log(url)
     const result = await this.$http.$get(url)
-    console.log(result)
     this.groups = result.data[0]
   }
 }

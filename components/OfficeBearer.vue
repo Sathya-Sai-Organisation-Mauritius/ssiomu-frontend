@@ -69,7 +69,7 @@ export default {
     OfficeBearerBox
   },
 
-  // data: () => {
+  // data() {
   //   return {
   //     officeBearers: [
   //       {
@@ -119,9 +119,7 @@ export default {
 
   async fetch() {
     let url = `${this.fetchURL}${this.filter}${this.memberId}${this.single}${this.fields}`
-    console.log(url)
     const result = await this.$http.$get(url)
-    console.log(result)
     this.members = result.data[0]
   }
 }
