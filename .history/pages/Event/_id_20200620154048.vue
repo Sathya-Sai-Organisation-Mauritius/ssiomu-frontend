@@ -183,7 +183,6 @@ export default {
     return {
       eventId: this.$route.params.id,
       events: [],
-      apiEndpoint: 'http://localhost:4444',
       fetchURL: '/_/items/event',
       filter: '?filter[slug][eq]=',
       single: '&single',

@@ -64,7 +64,6 @@ export default {
     return {
       publicationId: this.$route.params.id,
       publications: [],
-      apiEndpoint: 'http://localhost:4444',
       fetchURL: '/_/items/publication/',
       fields: '?fields=*.*'
     }

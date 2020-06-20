@@ -53,8 +53,7 @@ export default {
 
   data() {
     return {
-      announcements: [],
-      apiEndpoint: 'http://localhost:4444'
+      announcements: []
     }
   },
   async fetch() {

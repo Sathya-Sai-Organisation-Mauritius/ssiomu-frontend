@@ -4,9 +4,6 @@
       <div>
         <nav role="navigation">
           <ul class="flex justify-end text-blue-500 text-sm">
-            <li>
-              {{ getRegions }}
-            </li>
             <li class="p-2">
               <a href="">Log in</a>
             </li>
@@ -272,15 +269,15 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {}
+  data: () => {
+    return {
+      regions: [],
+      fetchURL: '/_/items/region?fields=*.*'
+    }
   },
-  computed: {
-    ...mapGetters(['getRegions'])
-  },
-  fetch({ store }) {
-    console.log('fetching from header')
-    store.dispatch('GET_REGIONS')
+  async fetch() {
+    const result = await this.$http.$get(this.fetchURL)
+    this.regions = result.data
   }
 }
 </script>

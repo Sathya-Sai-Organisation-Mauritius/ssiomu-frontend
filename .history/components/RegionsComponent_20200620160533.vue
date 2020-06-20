@@ -40,12 +40,11 @@ export default {
 
   data: () => {
     return {
-      regions: [],
-      apiEndpoint: 'http://localhost:4444'
+      regions: []
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
+    const result = await this.$http.$get(this.fetchURL)
     this.regions = result.data
   }
 }

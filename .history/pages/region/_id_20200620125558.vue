@@ -71,7 +71,6 @@ export default {
     return {
       regionId: this.$route.params.id,
       regions: [],
-      apiEndpoint: 'http://localhost:4444',
       fetchURL: '/_/items/region/',
       fetchURL2: '?fields=*.*'
     }

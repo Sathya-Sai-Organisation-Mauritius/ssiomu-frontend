@@ -47,8 +47,7 @@ export default {
   props: ['subtitle', 'color', 'textalign', 'textcolor', 'fetchURL'],
   data() {
     return {
-      pastevents: [],
-      apiEndpoint: 'http://localhost:4444'
+      pastevents: []
     }
   },
   async fetch() {

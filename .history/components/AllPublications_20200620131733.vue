@@ -48,12 +48,11 @@ export default {
 
   data: () => {
     return {
-      publications: [],
-      apiEndpoint: 'http://localhost:4444'
+      publications: []
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
+    const result = await this.$http.$get(this.fetchURL)
     this.publications = result.data
   }
 }

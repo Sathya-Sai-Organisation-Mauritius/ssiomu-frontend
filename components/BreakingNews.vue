@@ -30,8 +30,7 @@ export default {
   props: ['fetchURL'],
   data() {
     return {
-      news: [],
-      apiEndpoint: 'http://localhost:4444'
+      news: []
     }
   },
   async fetch() {

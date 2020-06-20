@@ -46,12 +46,11 @@ export default {
   props: ['color', 'textalign', 'textcolor', 'fetchURL'],
   data: () => {
     return {
-      events: [],
-      apiEndpoint: 'http://localhost:4444'
+      events: []
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
+    const result = await this.$http.$get(this.fetchURL)
     this.events = result.data
   }
 }

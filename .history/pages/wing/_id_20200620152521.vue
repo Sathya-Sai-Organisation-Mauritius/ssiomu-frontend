@@ -64,7 +64,6 @@ export default {
     return {
       wingId: this.$route.params.name,
       wings: [],
-      apiEndpoint: 'http://localhost:4444',
       fetchURL: '/_/items/wing/',
       field: '?fields=*.*'
     }
