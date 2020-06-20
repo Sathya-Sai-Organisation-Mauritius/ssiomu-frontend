@@ -34,7 +34,7 @@
         <div class="w-0 lg:w-1/2 hidden -ml-2 lg:block lg:overflow-hidden ">
           <img
             class="h-full w-full overflow-hidden"
-            src="/images/flowers2.jpg"
+            src="/images/sai-art.svg"
           />
         </div>
       </div>
