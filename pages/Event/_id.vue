@@ -191,7 +191,7 @@ export default {
       fetchURL: '/_/items/event',
       filter: '?filter[slug][eq]=',
       single: '&single',
-      fields: '&fields=*.*, region.number'
+      fields: '&fields=*,region.number'
     }
   },
   methods: {
