@@ -8,7 +8,12 @@
           >
             All regions
           </h2>
-
+          <!-- <div
+            v-if="errors"
+            class="bg-red-900 p-3 text-xl text-red-500 text-center"
+          >
+            {{ errors }}
+          </div> -->
           <div>
             <p v-if="$fetchState.pending">Fetching posts...</p>
             <p v-else-if="$fetchState.error">
@@ -48,6 +53,39 @@ export default {
     const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
     this.regions = result.data
   }
+  // data() {
+  //   return {
+  //     myResult: false,
+  //     errors: false
+  //   }
+  // },
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result.data
+  //   },
+
+  //   handleError(error) {
+  //     console.log(error)
+  //     this.errors = 'An error occured. Please try again later.'
+  //   },
+
+  //   fetchData() {
+  //     fetch('http://localhost:4444/_/items/region?fields=*.*')
+  //       .then(this.getJson)
+
+  //       .then(this.displayData)
+  //       .catch(this.handleError)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 

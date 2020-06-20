@@ -179,7 +179,13 @@ export default {
   components: {
     Gallery
   },
-
+  //     fetch(
+  //       'http://localhost:4444/_/items/event' +
+  //         '?filter[slug][eq]=' +
+  //         this.pageId +
+  //         '&single' +
+  //         '&fields=*, region.number'
+  //     )
   data() {
     return {
       eventId: this.$route.params.id,
@@ -210,6 +216,56 @@ export default {
     console.log(result)
     this.events = result.data[0]
   }
+  // data() {
+  //   return {
+  //     pageId: this.$route.params.id,
+  //     myResult: false,
+  //     errors: false
+  //   }
+  // },
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result.data[0]
+  //   },
+
+  //   handleError(error) {
+  //     console.log(error)
+  //     this.errors = 'An error occured. Please try again later.'
+  //   },
+
+  //   formatDate(param) {
+  //     let temporaryDate = new Date(param)
+  //     let month = temporaryDate.toLocaleString('default', { month: 'long' })
+  //     let day = temporaryDate.toLocaleString('default', { day: 'numeric' })
+  //     let year = temporaryDate.toLocaleString('default', { year: 'numeric' })
+
+  //     let fullDate = `${month} ${day}, ${year}`
+  //     return fullDate
+  //   },
+
+  //   fetchData() {
+  //     fetch(
+  //       'http://localhost:4444/_/items/event' +
+  //         '?filter[slug][eq]=' +
+  //         this.pageId +
+  //         '&single' +
+  //         '&fields=*, region.number'
+  //     )
+  //       .then(this.getJson)
+
+  //       .then(this.displayData)
+  //       .catch(this.handleError)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 

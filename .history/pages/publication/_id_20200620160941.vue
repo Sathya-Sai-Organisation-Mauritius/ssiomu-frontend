@@ -76,6 +76,35 @@ export default {
     console.log(result)
     this.publications = result.data
   }
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+  //   handleError(error) {
+  //     console.log(error)
+  //     this.errors = 'An error occured. Please try again later.'
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result.data
+  //   },
+
+  //   fetchData() {
+  //     fetch(
+  //       'http://localhost:4444/_/items/publication/' +
+  //         this.pageId +
+  //         '?fields=*.*'
+  //     )
+  //       .then(this.getJson)
+  //       .then(this.displayData)
+  //       .catch(this.handleError)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 

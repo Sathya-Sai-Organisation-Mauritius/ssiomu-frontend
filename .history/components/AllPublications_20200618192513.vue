@@ -48,154 +48,17 @@ export default {
   components: {
     PublicationBox
   },
-  props: ['subtitle', 'color', 'textalign'],
+  props: ['subtitle', 'color', 'textalign', 'maxheight', 'fetchURL'],
   data: () => {
     return {
-      errors: false,
-      myResult: false,
-      pubDescriptions: [
-        {
-          url:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-          purpose: 'Service',
-          titleUrl: '/savannePublications',
-          title: 'Boost your conversion rate ',
-          number: '6',
-          region: 'Region 6',
-          time: 'Mar 16, 2020'
-        },
-
-        {
-          url:
-            'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-          titleUrl: '/savannePublications',
-          purpose: 'Education',
-          title: 'How to use search engine optimization to drive sales',
-          number: '3',
-          region: 'Region 3',
-          time: 'Mar 16, 2020'
-        },
-
-        {
-          url:
-            'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-          titleUrl: '/savannePublications',
-          purpose: 'Youth Wing',
-          title: 'Improve your customer experience',
-          number: '1',
-          region: 'Region 1',
-          time: 'Mar 16, 2020'
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-          purpose: 'Service',
-          titleUrl: '/savannePublications',
-          title: 'Boost your conversion rate ',
-          number: '6',
-          region: 'Region 6',
-          time: 'Mar 16, 2020'
-        },
-
-        {
-          url:
-            'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-          titleUrl: '/savannePublications',
-          purpose: 'Education',
-          title: 'How to use search engine optimization to drive sales',
-          number: '3',
-          region: 'Region 3',
-          time: 'Mar 16, 2020'
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-          purpose: 'Service',
-          titleUrl: '/savannePublications',
-          title: 'Boost your conversion rate ',
-          number: '6',
-          region: 'Region 6',
-          time: 'Mar 16, 2020'
-        },
-
-        {
-          url:
-            'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-          titleUrl: '/savannePublications',
-          purpose: 'Education',
-          title: 'How to use search engine optimization to drive sales',
-          number: '3',
-          region: 'Region 3',
-          time: 'Mar 16, 2020'
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-          purpose: 'Service',
-          titleUrl: '/savannePublications',
-          title: 'Boost your conversion rate ',
-          number: '6',
-          region: 'Region 6',
-          time: 'Mar 16, 2020'
-        },
-
-        {
-          url:
-            'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-          purpose: 'Education',
-          title: 'How to use search engine optimization to drive sales',
-          number: '3',
-          region: 'Region 3',
-          time: 'Mar 16, 2020'
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-          purpose: 'Service',
-          title: 'Boost your conversion rate ',
-          number: '6',
-          region: 'Region 6',
-          time: 'Mar 16, 2020'
-        },
-
-        {
-          url:
-            'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-          purpose: 'Education',
-          title: 'How to use search engine optimization to drive sales',
-          number: '3',
-          region: 'Region 3',
-          time: 'Mar 16, 2020'
-        }
-      ]
+      publications: [],
+      apiEndpoint: 'http://localhost:4444'
     }
   },
-
-  methods: {
-    getJson(response) {
-      return response.json()
-    },
-    handleError(error) {
-      console.log(error)
-      this.errors = 'An error occured. Please try again later.'
-    },
-
-    displayData(result) {
-      console.log(result)
-      this.myResult = result.data
-    },
-
-    fetchData() {
-      fetch('http://localhost:4444/_/items/publication?fields=*,photo.*')
-        .then(this.getJson)
-
-        .then(this.displayData)
-
-        .catch(this.handleError)
-    }
-  },
-  mounted() {
-    this.fetchData()
+  async fetch() {
+    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
+    console.log(result)
+    this.publications = result.data
   }
 }
 </script>

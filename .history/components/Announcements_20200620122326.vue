@@ -62,6 +62,67 @@ export default {
     const result = await this.$http.$get(url)
     this.announcements = result.data
   }
+
+  // data: () => {
+  //   return {
+  //     myResult: [],
+
+  //     announcementdescriptions: [
+  //       {
+  //         title: 'Announcement 1',
+  //         region: 'Region 6',
+  //         time: 'January 7, 2020'
+  //       },
+  //       {
+  //         title: 'Announcement 2',
+  //         region: 'Region 3',
+  //         time: 'January 7, 2020'
+  //       },
+  //       {
+  //         title: 'Announcement 3',
+
+  //         region: 'Region 5',
+  //         time: ',January 7, 2020'
+  //       },
+  //       {
+  //         title: 'Announcement 1',
+  //         region: 'Region 6',
+  //         time: 'January 7, 2020'
+  //       },
+  //       {
+  //         title: 'Announcement 2',
+  //         region: 'Region 3',
+  //         time: 'January 7, 2020'
+  //       },
+  //       {
+  //         title: 'Announcement 2',
+  //         region: 'Region 3',
+  //         time: 'January 7, 2020'
+  //       }
+  //     ]
+  //   }
+  // },
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result
+  //   },
+
+  //   fetchData() {
+  //     fetch('http://localhost:4444/_/items/annoucement')
+  //       .then(this.getJson)
+
+  //       .then(this.displayData)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 

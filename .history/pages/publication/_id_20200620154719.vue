@@ -1,11 +1,10 @@
 <<template>
   <div>
-    <div>
-      <p v-if="$fetchState.pending">Fetching posts...</p>
-      <p v-else-if="$fetchState.error">
-        Error while fetching posts: {{ $fetchState.error.message }}
-      </p>
-      <div v-else>
+    <div v-if="errors" class="bg-red-900 p-3 text-xl text-red-500 text-center">
+      {{ errors }}
+    </div>
+    <div v-else>
+      <div v-if="publications">
         <div class="container mx-auto">
           <div class="publication-details space-y-12 py-10">
             <div
@@ -15,6 +14,8 @@
                 class="publication-title font-bold flex col-span-2 space-x-2 items-center"
               >
                 <h1 class="text-4xl">
+                  <!-- Publication Sai Newsletter -Echoes from Region 1 savanne(Vol 4 ISS
+              1) - Savanne -->
                   {{ publications.title }}
                 </h1>
               </div>
@@ -52,6 +53,9 @@
           </div>
         </div>
       </div>
+      <div v-else class=" text-2xl py-12 text-black text-center">
+        Publication loading, please wait..
+      </div>
     </div>
   </div>
 </template>
@@ -59,23 +63,56 @@
 <script>
 export default {
   components: {},
-
-  data() {
+  //     fetch(
+  //       'http://localhost:4444/_/items/publication/' +
+  //         this.pageId +
+  //         '?fields=*.*'
+  //     )
+  props: ['subtitle', 'color', 'textalign', 'maxheight', 'fetchURL'],
+  data: () => {
     return {
       publicationId: this.$route.params.id,
+
       publications: [],
       apiEndpoint: 'http://localhost:4444',
-      fetchURL: '/_/items/publication/',
+      fetchURL: '/_/items/publication',
       fields: '?fields=*.*'
     }
   },
   async fetch() {
-    let url = `${this.apiEndpoint}${this.fetchURL}${this.publicationId}${this.fields}`
-    console.log(url)
-    const result = await this.$http.$get(url)
+    const result = await this.$http.$get(this.apiEndpoint + this.fetchURL)
     console.log(result)
     this.publications = result.data
   }
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+  //   handleError(error) {
+  //     console.log(error)
+  //     this.errors = 'An error occured. Please try again later.'
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result.data
+  //   },
+
+  //   fetchData() {
+  //     fetch(
+  //       'http://localhost:4444/_/items/publication/' +
+  //         this.pageId +
+  //         '?fields=*.*'
+  //     )
+  //       .then(this.getJson)
+  //       .then(this.displayData)
+  //       .catch(this.handleError)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 

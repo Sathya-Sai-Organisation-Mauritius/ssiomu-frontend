@@ -179,7 +179,6 @@ export default {
   components: {
     Gallery
   },
-
   data() {
     return {
       eventId: this.$route.params.id,

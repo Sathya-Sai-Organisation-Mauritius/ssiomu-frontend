@@ -22,7 +22,7 @@
                 <div
                   class="absolute text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-3 px-10 font-black"
                 >
-                  Region {{ publications.region.number }}
+                  Region {{ pubvalues.region.number }}
                 </div>
               </div>
             </div>
@@ -60,12 +60,13 @@
 export default {
   components: {},
 
+  props: ['subtitle', 'color', 'textalign', 'maxheight', 'fetchURL'],
   data() {
     return {
       publicationId: this.$route.params.id,
       publications: [],
       apiEndpoint: 'http://localhost:4444',
-      fetchURL: '/_/items/publication/',
+      fetchURL: '/_/items/publication',
       fields: '?fields=*.*'
     }
   },
@@ -74,8 +75,37 @@ export default {
     console.log(url)
     const result = await this.$http.$get(url)
     console.log(result)
-    this.publications = result.data
+    this.events = result.data
   }
+
+  // methods: {
+  //   getJson(response) {
+  //     return response.json()
+  //   },
+  //   handleError(error) {
+  //     console.log(error)
+  //     this.errors = 'An error occured. Please try again later.'
+  //   },
+
+  //   displayData(result) {
+  //     console.log(result)
+  //     this.myResult = result.data
+  //   },
+
+  //   fetchData() {
+  //     fetch(
+  //       'http://localhost:4444/_/items/publication/' +
+  //         this.pageId +
+  //         '?fields=*.*'
+  //     )
+  //       .then(this.getJson)
+  //       .then(this.displayData)
+  //       .catch(this.handleError)
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchData()
+  // }
 }
 </script>
 
