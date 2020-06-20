@@ -3,7 +3,7 @@
     <div
       class="views-row bg-white  px-4 pt-2 rounded shadow-lg border-b-4 border-blue-700 "
     >
-      <nuxt-link class="hover:underline" :to="'/region/' + myvalues.id">
+      <nuxt-link class="hover:underline" :to="'/region/' + myvalues.slug">
         <div class="flex items-center grid grid-cols-5 gap-4">
           <div
             class=" circ-num text-md md:text-xl lg:text-4xl text-center sm:font-medium text-blue-600"

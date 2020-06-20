@@ -21,6 +21,7 @@
               <div class="relative col-span-1" style="margin-top: 0;">
                 <div
                   class="absolute text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-3 px-10 font-black"
+                  v-if="publications.region"
                 >
                   Region {{ publications.region.number }}
                 </div>
@@ -39,9 +40,13 @@
             </div>
 
             <div>
-              <div>Wing: {{ publications.wing.name }}</div>
+              <div v-if="publications.wing">
+                Wing: {{ publications.wing.name }}
+              </div>
 
-              <div>Region: {{ publications.region.name }}</div>
+              <div v-if="publications.region">
+                Region: {{ publications.region.name }}
+              </div>
 
               <div>
                 Attachment: PDF icon Sai Newletter -
@@ -66,15 +71,14 @@ export default {
       publications: [],
 
       fetchURL: '/_/items/publication/',
+      filter: '?filter[slug][eq]=',
       fields: '?fields=*.*'
     }
   },
   async fetch() {
-    let url = `${this.fetchURL}${this.publicationId}${this.fields}`
-    console.log(url)
+    let url = `${this.fetchURL}${this.filter}${this.publicationId}${this.fields}`
 
     const result = await this.$http.$get(url)
-    //console.log(result)
     this.publications = result.data
   }
 }
