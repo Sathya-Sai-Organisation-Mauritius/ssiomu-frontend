@@ -68,7 +68,7 @@ export default {
   },
 
   async fetch() {
-    let url = `${this.apiEndpoint}${this.fetchURL}${this.wingId}${this.field}`
+    let url = `${this.fetchURL}${this.wingId}${this.field}`
     console.log(url)
     const result = await this.$http.$get(url)
     console.log(result)

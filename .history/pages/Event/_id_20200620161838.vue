@@ -203,7 +203,7 @@ export default {
   },
 
   async fetch() {
-    let url = `${this.apiEndpoint}${this.fetchURL}${this.filter}${this.eventId}${this.single}${this.fields}`
+    let url = `${this.fetchURL}${this.filter}${this.eventId}${this.single}${this.fields}`
     console.log(url)
     const result = await this.$http.$get(url)
     console.log(result)
