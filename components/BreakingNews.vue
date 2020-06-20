@@ -35,9 +35,7 @@ export default {
   },
   async fetch() {
     let url = `${this.query}`
-    console.log(url)
     const result = await this.$http.$get(url)
-    console.log(result)
     this.news = result.data[0]
   }
 }

@@ -52,7 +52,7 @@ export default {
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.apiEndpoint + this.query)
+    const result = await this.$http.$get(this.query)
     this.publications = result.data
   }
 }

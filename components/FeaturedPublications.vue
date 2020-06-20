@@ -54,7 +54,7 @@ export default {
     }
   },
   async fetch() {
-    const result = await this.$http.$get(this.apiEndpoint + this.query)
+    const result = await this.$http.$get(this.query)
     console.log(result)
     this.publications = result.data
   }
