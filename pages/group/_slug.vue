@@ -132,17 +132,6 @@ export default {
       fields: '&fields=*.*'
     }
   },
-  methods: {
-    formatDate(param) {
-      let temporaryDate = new Date(param)
-      let month = temporaryDate.toLocaleString('default', { month: 'long' })
-      let day = temporaryDate.toLocaleString('default', { day: 'numeric' })
-      let year = temporaryDate.toLocaleString('default', { year: 'numeric' })
-
-      let fullDate = `${month} ${day}, ${year}`
-      return fullDate
-    }
-  },
 
   async fetch() {
     let url = `${this.fetchURL}${this.filter}${this.groupId}${this.single}${this.fields}`
