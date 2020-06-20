@@ -205,9 +205,9 @@ export default {
 
   async fetch() {
     let url = `${this.query}${this.filter}${this.eventId}${this.single}${this.fields}`
-    console.log(url)
+    //console.log(url)
     const result = await this.$http.$get(url)
-    console.log(result)
+    //console.log(result)
     this.events = result.data[0]
   }
 }

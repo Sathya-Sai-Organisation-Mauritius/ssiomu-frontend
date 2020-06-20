@@ -71,9 +71,9 @@ export default {
   },
   async fetch() {
     let url = `${this.query}${this.publicationId}${this.fields}`
-    console.log(url)
+    //console.log(url)
     const result = await this.$http.$get(url)
-    console.log(result)
+    //console.log(result)
     this.publications = result.data
   }
 }

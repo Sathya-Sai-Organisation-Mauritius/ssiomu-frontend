@@ -91,9 +91,9 @@ export default {
 
   async fetch() {
     let url = `${this.query}${this.regionId}${this.field}`
-    console.log(url)
+    //console.log(url)
     const result = await this.$http.$get(url)
-    console.log(result)
+    //console.log(result)
     this.regions = result.data
   }
 }
