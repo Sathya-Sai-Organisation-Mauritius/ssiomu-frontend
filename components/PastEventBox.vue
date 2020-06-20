@@ -27,38 +27,48 @@
       </div>
       <div class="mt-2 sm:flex sm:justify-between">
         <div class="sm:flex">
-          <div
-            class="mr-6 flex items-center text-sm leading-5 text-gray-600"
-            v-if="pasteventvalues.wing"
+          <a
+            :href="'/wing/' + pasteventvalues.wing.slug"
+            class="hover:underline"
           >
-            <svg
-              class="flex-shrink-0 mr-2 h-5 w-5 text-gray-600"
-              fill="currentColor"
-              viewBox="0 0 20 20"
+            <div
+              class="mr-6 flex items-center text-sm leading-5 text-gray-600"
+              v-if="pasteventvalues.wing"
             >
-              <path
-                d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
-              />
-            </svg>
-            {{ pasteventvalues.wing.name }}
-          </div>
-          <div
-            class="mt-2 flex items-center text-sm leading-5 text-gray-600 sm:mt-0"
-            v-if="pasteventvalues.group"
+              <svg
+                class="flex-shrink-0 mr-2 h-5 w-5 text-gray-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
+                />
+              </svg>
+              {{ pasteventvalues.wing.name }}
+            </div>
+          </a>
+          <a
+            :href="'/group/' + pasteventvalues.group.slug"
+            class="hover:underline"
           >
-            <svg
-              class="flex-shrink-0 mr-2 h-5 w-5 text-gray-600"
-              fill="currentColor"
-              viewBox="0 0 20 20"
+            <div
+              class="mt-2 flex items-center text-sm leading-5 text-gray-600 sm:mt-0"
+              v-if="pasteventvalues.group"
             >
-              <path
-                fill-rule="evenodd"
-                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            {{ pasteventvalues.group.name }}
-          </div>
+              <svg
+                class="flex-shrink-0 mr-2 h-5 w-5 text-gray-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              {{ pasteventvalues.group.name }}
+            </div>
+          </a>
         </div>
         <div
           class="mt-2 flex items-center text-sm leading-5 text-gray-600 sm:mt-0"

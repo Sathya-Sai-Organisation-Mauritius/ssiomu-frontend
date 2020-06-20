@@ -56,29 +56,6 @@
                   Schedule
                 </h2>
                 <div class="serif">
-                  <!-- <div class="flex flex-col ">
-                    <div
-                      class=" mx-12 justify-center rounded-md border border-transparent py-2 bg-blue-600 text-base leading-6 font-medium text-center text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
-                    >
-                      From
-                    </div>
-                    <div
-                      class="text-center text-xl text-gray-600 font-bold py-4"
-                    >
-                      {{ formatDate(events.from) }}
-                    </div>
-                    <div
-                      class="mx-12 justify-center rounded-md border border-transparent py-2 bg-orange-600 text-base leading-6 font-medmium text-center text-white shadow-sm hover:bg-orange-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
-                    >
-                      To
-                    </div>
-                    <div
-                      class="text-center text-xl text-gray-600 font-bold py-4"
-                    >
-                      {{ formatDate(events.to) }}
-                    </div>
-                  </div> -->
-
                   <div class="mx-12 lg:flex contact mt-4 ">
                     <h3
                       class=" flex items-center w-32 justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent py-2  bg-blue-600 text-base leading-6 font-medium text-center text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-xl sm:leading-5"

@@ -10,12 +10,6 @@
             Upcoming Events
           </h2>
 
-          <!-- <div
-            v-if="errors"
-            class="bg-red-900 p-3 text-xl text-red-500 text-center"
-          >
-            {{ errors }}
-          </div> -->
           <div>
             <p v-if="$fetchState.pending">Fetching posts...</p>
             <p v-else-if="$fetchState.error">
