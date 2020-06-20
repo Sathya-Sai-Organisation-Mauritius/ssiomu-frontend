@@ -52,7 +52,7 @@ export default {
     }
   },
   async fetch() {
-    let url = `${this.apiEndpoint}${this.fetchURL}`
+    let url = `${this.fetchURL}`
     const result = await this.$http.$get(url)
     this.pastevents = result.data
   }
