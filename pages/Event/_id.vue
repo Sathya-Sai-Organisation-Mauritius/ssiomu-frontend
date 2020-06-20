@@ -1,6 +1,5 @@
 <template>
   <div>
-    <SiteHeader />
     <div>
       <p v-if="$fetchState.pending">Fetching posts...</p>
       <p v-else-if="$fetchState.error">
@@ -170,20 +169,14 @@
         </div>
       </div>
     </div>
-
-    <SiteFooter />
   </div>
 </template>
 
 <script>
-import SiteHeader from '~/components/SiteHeader.vue'
-import SiteFooter from '~/components/SiteFooter.vue'
 import Gallery from '~/components/Gallery.vue'
 
 export default {
   components: {
-    SiteHeader,
-    SiteFooter,
     Gallery
   },
   //     fetch(

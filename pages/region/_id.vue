@@ -1,6 +1,5 @@
 <template>
   <div>
-    <SiteHeader />
     <div>
       <p v-if="$fetchState.pending">Fetching posts...</p>
       <p v-else-if="$fetchState.error">
@@ -41,14 +40,10 @@
         <OfficeBearer />
       </div>
     </div>
-
-    <SiteFooter />
   </div>
 </template>
 
 <script>
-import SiteHeader from '../../components/SiteHeader.vue'
-import SiteFooter from '../../components/SiteFooter.vue'
 import UpcomingEvents from '../../components/UpcomingEvents.vue'
 import FeaturedPublications from '../../components/FeaturedPublications.vue'
 import PastEvents from '../../components/PastEvents.vue'
@@ -60,8 +55,6 @@ export default {
     }
   },
   components: {
-    SiteHeader,
-    SiteFooter,
     UpcomingEvents,
     FeaturedPublications,
     PastEvents

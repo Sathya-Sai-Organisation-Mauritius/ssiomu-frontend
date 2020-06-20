@@ -40,6 +40,9 @@ export default {
    ** Nuxt.js modules
    */
   modules: ['@nuxt/http'],
+  http: {
+    baseURL: 'http://localhost:4444'
+  },
   /*
    ** Build configuration
    */

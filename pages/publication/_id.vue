@@ -1,6 +1,5 @@
 <<template>
   <div>
-    <SiteHeader />
     <div v-if="errors" class="bg-red-900 p-3 text-xl text-red-500 text-center">
       {{ errors }}
     </div>
@@ -57,20 +56,12 @@
         Publication loading, please wait..
       </div>
     </div>
-
-    <Footer />
   </div>
 </template>
 
 <script>
-import SiteHeader from '~/components/SiteHeader.vue'
-import SiteFooter from '~/components/SiteFooter.vue'
-
 export default {
-  components: {
-    SiteHeader,
-    SiteFooter
-  },
+  components: {},
   data() {
     return {
       pageId: this.$route.params.id,
