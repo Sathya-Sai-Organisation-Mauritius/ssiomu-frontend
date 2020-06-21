@@ -29,7 +29,7 @@
           :color="'gradient-bg'"
           :textcolor="'text-blue-600'"
           :query="
-            `/_/items/event?filter[from][gt]=now&filter[slug][eq]=${regionId}`
+            `/_/items/event?filter[from][gt]=now&filter[region][eq]=${regionId}`
           "
         />
 
@@ -89,8 +89,10 @@ export default {
 
   async fetch() {
     let url = `${this.fetchURL}${this.filter}${this.regionId}${this.field}`
+    console.log(url)
     const result = await this.$http.$get(url)
     this.regions = result.data[0]
+    console.log[result]
   }
 }
 </script>
