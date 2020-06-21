@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="flex flex-col">
     <SiteHeader />
-    <nuxt />
+    <transition name="fade">
+      <nuxt class="flex-grow" />
+    </transition>
     <SiteFooter />
   </div>
 </template>
@@ -29,6 +31,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 *,
@@ -67,9 +70,30 @@ html {
   background-color: #35495e;
 }
 
+.container {
+  @apply px-4;
+}
 @screen md {
   .container {
-    @apply px-4;
+    @apply px-8;
   }
+}
+/*  Page Transitions  */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
 }
 </style>

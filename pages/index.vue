@@ -58,6 +58,7 @@ export default {
     FeaturedPublications,
     PastEvents
   },
+
   async asyncData({ $http }) {
     const announcementsQuery = 'annoucement'
     const breakingNewsQuery = 'breaking_news'

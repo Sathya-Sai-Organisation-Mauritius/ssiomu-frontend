@@ -217,7 +217,7 @@ export default {
   //     regions: regionsData.data
   //   }
   // }
-  // async fetch() {
+  // async   {
   //   // Get Regions
   //   // const regionQuery = 'region?fields=*.*'
   //   // const regionData = await this.$http.$get(regionQuery)
