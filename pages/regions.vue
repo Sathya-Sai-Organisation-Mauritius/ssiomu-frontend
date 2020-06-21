@@ -10,11 +10,13 @@
           </h2>
 
           <div>
-            <p v-if="$fetchState.pending">Fetching posts...</p>
+            <!-- <p v-if="$fetchState.pending">Fetching posts...</p>
             <p v-else-if="$fetchState.error">
               Error while fetching posts: {{ $fetchState.error.message }}
-            </p>
-            <div class="grid md:grid-cols-2 gap-4 " v-else>
+            </p> -->
+            <div class="grid md:grid-cols-2 gap-4 ">
+              {{ regions }}
+
               <RegionsComponentBox
                 v-for="(description, index) in regions"
                 :key="index"
@@ -35,15 +37,16 @@ export default {
   components: {
     RegionsComponentBox
   },
-  data() {
+  async asyncData() {
+    const result = await fetch(
+      'http://localhost:4444/_/items/region?fields=*.*'
+    )
+
+    let res = await result.json()
+
     return {
-      regions: [],
-      query: '/_/items/region?fields=*.*'
+      regions: res.data
     }
-  },
-  async fetch() {
-    const result = await this.$http.$get(this.query)
-    this.regions = result.data
   }
 }
 </script>

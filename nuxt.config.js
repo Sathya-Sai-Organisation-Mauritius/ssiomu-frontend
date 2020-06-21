@@ -47,7 +47,7 @@ export default {
     port: 3050 // default: 3000
   },
   router: {
-    prefetchLinks: false
+    // prefetchLinks: false
   },
   /*
    ** Build configuration
