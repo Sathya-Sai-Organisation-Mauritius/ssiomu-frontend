@@ -1,5 +1,5 @@
 <<template>
-  <div>
+  <div v-if="news.length > 0">
     <div class="announcement-detailsg ">
       <div
         class="container mx-auto px-4 md:px-0 py-10 flex flex-col justify-center "
@@ -13,7 +13,7 @@
           <div
             class="text-center text-sm md:text-2xl lg:text-3xl flex-grow leading-none "
           >
-            {{ news.title }}
+            {{ news[0].title }}
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@ export default {
   props: ['information'],
   data() {
     return {
-      news: this.information[0]
+      news: this.information
     }
   }
 }

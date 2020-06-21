@@ -17,22 +17,24 @@
       </div>
     </div>
 
-    <Announcements :information="announcements" />
-
-    <BreakingNews :information="breakingNews" />
+    <Announcements v-if="announcements" :information="announcements" />
+    <BreakingNews v-if="breakingNews" :information="breakingNews" />
 
     <UpcomingEvents
+      v-if="upcomingEvents"
       :information="upcomingEvents"
       :color="'gradient-bg'"
       :textcolor="'text-blue-600'"
     />
 
     <FeaturedPublications
+      v-if="featuredPublications"
       :information="featuredPublications"
       :textalign="'text-center'"
     />
 
     <PastEvents
+      v-if="pastEvents"
       :information="pastEvents"
       :subtitle="
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.'
