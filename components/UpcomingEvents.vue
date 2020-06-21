@@ -2,7 +2,7 @@
   <div>
     <div class="py-20 gradient-bg">
       <div class="container mx-auto">
-        <div>
+        <div v-if="events.length > 0">
           <h2
             class="font-serif text-4xl font-bold text-white pb-8"
             :class="textalign"
@@ -19,6 +19,14 @@
               />
             </div>
           </div>
+        </div>
+        <div v-else>
+          <h2
+            class="font-serif text-2xl text-center font-bold text-white"
+            :class="textalign"
+          >
+            No upcoming events on this page
+          </h2>
         </div>
       </div>
     </div>

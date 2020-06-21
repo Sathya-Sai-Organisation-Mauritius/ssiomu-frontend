@@ -12,10 +12,9 @@
             <h3 class=" font-bold text-md md:text-sm lg:text-xl">
               {{ myvalues.name }}
             </h3>
-            <div
-              class="font-light text-md md:text-sm lg:text-xl"
-              v-html="myvalues.description"
-            ></div>
+            <div class="font-light text-md md:text-sm lg:text-sm">
+              Region {{ myvalues.region.number }} - {{ myvalues.region.name }}
+            </div>
           </div>
         </div>
       </div>

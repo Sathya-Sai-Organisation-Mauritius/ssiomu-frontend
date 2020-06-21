@@ -13,7 +13,10 @@
       </div>
 
       <div>
-        <div class="bg-white shadow overflow-hidden sm:rounded-md">
+        <div
+          class="bg-white shadow overflow-hidden sm:rounded-md"
+          v-if="pastevents.length > 0"
+        >
           <ul>
             <PastEventBox
               v-for="(pasteventdescription, index) in pastevents"
@@ -21,6 +24,9 @@
               :key="index"
             />
           </ul>
+        </div>
+        <div v-else>
+          No past events to show
         </div>
       </div>
     </div>

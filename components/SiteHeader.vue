@@ -193,7 +193,8 @@ export default {
 .main-menu-wrapper .nuxt-link-exact-active {
   background: rgb(237 137 54);
 }
-.site-logo {
+
+.main-menu-wrapper .site-logo {
   background: transparent;
 }
 </style>

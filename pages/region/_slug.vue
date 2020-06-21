@@ -1,44 +1,43 @@
 <template>
   <div>
-    <div>
-      <div>
-        <div class="container mx-auto">
-          <div class="region-details grid gap-1 grid-cols-2 space-y-12 py-10">
-            <div
-              class="region-title font-bold flex col-span-1 space-x-2 items-center"
-            >
-              <h1 class="font-serif text-5xl">
-                {{ regions.name }}
-              </h1>
-            </div>
-            <div class="relative col-span-1" style="margin-top: 0;">
-              <div
-                class="absolute top-0 right-0 text-2xl text-gray-700 bg-black-100 border-2 border-black-900 rounded-full p-3 px-10 font-black"
-              >
-                <nuxt-link
-                  :to="'/region/' + regions.slug"
-                  class="hover:underline"
-                >
-                  Region {{ regions.number }}
-                </nuxt-link>
-              </div>
-            </div>
+    <div class="container mx-auto">
+      <div class="region-details grid gap-1 grid-cols-2 space-y-12 py-10">
+        <div
+          class="region-title font-bold flex col-span-1 space-x-2 items-center"
+        >
+          <h1 class="font-serif text-5xl">
+            {{ regions.name }}
+          </h1>
+        </div>
+        <div class="relative col-span-1" style="margin-top: 0;">
+          <div
+            class="absolute top-0 right-0 text-2xl text-gray-700 bg-black-100 border-2 border-black-900 rounded-full p-3 px-10 font-black"
+          >
+            <nuxt-link :to="'/region/' + regions.slug" class="hover:underline">
+              Region {{ regions.number }}
+            </nuxt-link>
           </div>
         </div>
-
-        <UpcomingEvents
-          :color="'gradient-bg'"
-          :textcolor="'text-blue-600'"
-          :information="upcomingEvents"
-        />
-
-        <PastEvents :information="pastEvents" />
-
-        <FeaturedPublications :information="featuredPublications" />
-
-        <OfficeBearer :information="regions.member" />
       </div>
     </div>
+
+    <UpcomingEvents
+      :color="'gradient-bg'"
+      :textcolor="'text-blue-600'"
+      :information="upcomingEvents"
+    />
+
+    <PastEvents :information="pastEvents" v-if="pastEvents.length > 0" />
+
+    <FeaturedPublications
+      :information="featuredPublications"
+      v-if="featuredPublications.length > 0"
+    />
+
+    <OfficeBearer
+      :information="regions.member"
+      v-if="regions.member.length > 0"
+    />
   </div>
 </template>
 

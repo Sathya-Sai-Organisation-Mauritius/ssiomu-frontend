@@ -23,11 +23,13 @@
           :textalign="'text-center'"
           :textcolor="'text-blue-500'"
           :information="pastEvents"
+          v-if="pastEvents.length > 0"
         />
 
         <FeaturedPublications
           :textalign="'text-center'"
           :information="featuredPublications"
+          v-if="featuredPublications.length > 0"
         />
       </div>
     </div>

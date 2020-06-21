@@ -92,7 +92,7 @@
                     </div>
                   </div>
 
-                  <div class="mx-12 lg:flex contact mt-1 ">
+                  <!-- <div class="mx-12 lg:flex contact mt-1 ">
                     <h3
                       class=" flex w-50 md:w-64 lg:font-semibold items-center justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent py-2 lg:py-4 bg-orange-600 text-base leading-6 font-medium text-center text-white "
                     >
@@ -102,13 +102,9 @@
                     <div
                       class="lg:flex font-semibold text-gray-600 rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 py-4 w-full"
                     >
+                      {{ events.member }}
                       <div>
-                        Contact:
-                        <nuxt-link
-                          :to="'/member/' + events.slug"
-                          class="hover:underline"
-                          >Gavin</nuxt-link
-                        >
+                        <span>Name</span>
                         - 57971326
                       </div>
                       <span class="px-2"> - </span>
@@ -121,7 +117,7 @@
                         </nuxt-link>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
