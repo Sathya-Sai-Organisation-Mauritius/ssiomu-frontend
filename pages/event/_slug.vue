@@ -103,11 +103,22 @@
                       class="lg:flex font-semibold text-gray-600 rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 py-4 w-full"
                     >
                       <div>
-                        Contact: Gavin - 57971326
+                        Contact:
+                        <nuxt-link
+                          :to="'/member/' + events.slug"
+                          class="hover:underline"
+                          >Gavin</nuxt-link
+                        >
+                        - 57971326
                       </div>
                       <span class="px-2"> - </span>
                       <div v-if="events.region">
-                        Region {{ events.region.number }}
+                        <nuxt-link
+                          :to="'/region/' + events.region.slug"
+                          class="hover:underline"
+                        >
+                          Region {{ events.region.number }}
+                        </nuxt-link>
                       </div>
                     </div>
                   </div>
