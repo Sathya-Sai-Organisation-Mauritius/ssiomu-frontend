@@ -22,6 +22,12 @@ import UpcomingEvents from '~/components/UpcomingEvents.vue'
 import PastEvents from '~/components/PastEvents.vue'
 
 export default {
+  head() {
+    return {
+      title: 'Events',
+      meta: [{ hid: 'description', name: 'description', content: 'All events' }]
+    }
+  },
   components: {
     UpcomingEvents,
     PastEvents

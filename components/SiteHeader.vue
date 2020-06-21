@@ -190,7 +190,7 @@ export default {
   display: block;
 }
 
-.nuxt-link-exact-active {
+.main-menu-wrapper .nuxt-link-exact-active {
   background: rgb(237 137 54);
 }
 .site-logo {

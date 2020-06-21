@@ -35,6 +35,14 @@
 import PublicationBox from '~/components/PublicationBox.vue'
 
 export default {
+  head() {
+    return {
+      title: 'Publications',
+      meta: [
+        { hid: 'description', name: 'description', content: 'All Publication' }
+      ]
+    }
+  },
   components: {
     PublicationBox
   },

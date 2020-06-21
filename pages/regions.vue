@@ -28,6 +28,14 @@
 import RegionsComponentBox from '~/components/RegionsComponentBox.vue'
 
 export default {
+  head() {
+    return {
+      title: 'Regions',
+      meta: [
+        { hid: 'description', name: 'description', content: 'All regions' }
+      ]
+    }
+  },
   components: {
     RegionsComponentBox
   },

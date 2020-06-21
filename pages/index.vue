@@ -53,6 +53,12 @@ import PastEvents from '~/components/PastEvents.vue'
 import BreakingNews from '~/components/BreakingNews.vue'
 
 export default {
+  head() {
+    return {
+      title: 'Homepage',
+      meta: [{ hid: 'description', name: 'description', content: 'SSIOMU' }]
+    }
+  },
   components: {
     BreakingNews,
     Announcements,
