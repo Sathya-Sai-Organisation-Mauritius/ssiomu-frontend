@@ -29,19 +29,19 @@
           :color="'gradient-bg'"
           :textcolor="'text-blue-600'"
           :query="
-            `/_/items/event?filter[from][gt]=now&filter[region][eq]=${regionId}`
+            `/_/items/event?filter[from][gt]=now&filter[slug][eq]=${regionId}`
           "
         />
 
         <PastEvents
           :query="
-            `/_/items/event?filter[from][lt]=now&filter[region][eq]=${regionId}&fields=*.*`
+            `/_/items/event?filter[from][lt]=now&filter[slug][eq]=${regionId}&fields=*.*`
           "
         />
 
         <FeaturedPublications
           :query="
-            `/_/items/publication?filter[region][eq]=${regionId}&fields=*.*`
+            `/_/items/publication?filter[slug][eq]=${regionId}&fields=*.*`
           "
         />
 
