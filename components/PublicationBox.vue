@@ -21,7 +21,10 @@
               {{ pubvalues.wing.name }}
             </nuxt-link>
           </p>
-          <nuxt-link :to="'/publication/' + pubvalues.slug" class="">
+          <nuxt-link
+            :to="'/publication/' + pubvalues.slug"
+            class="hover:underline"
+          >
             <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
               {{ pubvalues.title }}
             </h3>

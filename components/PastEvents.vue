@@ -13,9 +13,15 @@
       </div>
 
       <div>
-        <p v-if="$fetchState.pending">Fetching posts...</p>
-        <p v-else-if="$fetchState.error">
-          Error while fetching posts: {{ $fetchState.error.message }}
+        <p v-if="$fetchState.pending" class="text-center text-black text-xl ">
+          Past events loading...
+        </p>
+        <p
+          v-else-if="$fetchState.error"
+          class="text-center text-red-300 bg-red-900 text-xl p-4 "
+        >
+          Error while loading past events, please try again later.
+          {{ $fetchState.error.message }}
         </p>
 
         <div class="bg-white shadow overflow-hidden sm:rounded-md" v-else>

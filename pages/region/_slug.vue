@@ -35,13 +35,13 @@
 
         <PastEvents
           :query="
-            `/_/items/event?filter[from][lt]=now&filter[region][eq]=${regionId}&fields=*.*`
+            `/_/items/event?filter[from][lt]=now&filter[slug][eq]=${regionId}&fields=*.*`
           "
         />
 
         <FeaturedPublications
           :query="
-            `/_/items/publication?filter[region][eq]=${regionId}&fields=*.*`
+            `/_/items/publication?filter[slug][eq]=${regionId}&fields=*.*`
           "
         />
 
@@ -89,8 +89,10 @@ export default {
 
   async fetch() {
     let url = `${this.fetchURL}${this.filter}${this.regionId}${this.field}`
+    console.log(url)
     const result = await this.$http.$get(url)
     this.regions = result.data[0]
+    console.log[result]
   }
 }
 </script>
