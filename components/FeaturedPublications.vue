@@ -55,7 +55,7 @@ export default {
   },
   async fetch() {
     const result = await this.$http.$get(this.query)
-    //console.log(result)
+    console.log(result)
     this.publications = result.data
   }
 }

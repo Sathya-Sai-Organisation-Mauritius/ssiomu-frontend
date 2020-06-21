@@ -20,6 +20,7 @@
         <p v-else-if="$fetchState.error">
           Error while fetching posts: {{ $fetchState.error.message }}
         </p>
+
         <div class="mt-12 grid gap-5 mx-auto lg:grid-cols-3" v-else>
           <PublicationBox
             v-for="(pubDescription, index) in publications"

@@ -29,7 +29,7 @@
 
     <FeaturedPublications
       :textalign="'text-center'"
-      query="/_/items/publication?fields=*.*,photo.*,wing.*"
+      query="/_/items/publication?filter[featured][nempty]&limit=3&fields=*.*,photo.*,wing.*"
     />
 
     <PastEvents
