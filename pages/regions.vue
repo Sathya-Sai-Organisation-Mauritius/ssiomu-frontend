@@ -32,7 +32,7 @@ export default {
     RegionsComponentBox
   },
   async asyncData({ $http }) {
-    let url = 'region?fields=*.*'
+    let url = 'region?fields=*.*,region.slug'
 
     const res = await $http.get(url)
     const regions = await res.json()
