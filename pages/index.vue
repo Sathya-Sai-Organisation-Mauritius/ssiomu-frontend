@@ -68,7 +68,8 @@ export default {
   },
 
   async asyncData({ $http }) {
-    const announcementsQuery = 'annoucement'
+    const announcementsQuery = 'annoucement?fields=*.*,region.*'
+    console.log(announcementsQuery)
     const breakingNewsQuery = 'breaking_news'
     const upcomingEventsQuery = 'event?filter[from][gt]=now'
     const featuredPublicationsQuery =
@@ -77,6 +78,7 @@ export default {
 
     const announcements = await $http.get(announcementsQuery)
     const announcementsData = await announcements.json()
+    console.log(announcementsData)
 
     const breakingNews = await $http.get(breakingNewsQuery)
     const breakingNewsData = await breakingNews.json()

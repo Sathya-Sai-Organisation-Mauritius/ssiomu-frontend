@@ -64,8 +64,13 @@
                         clip-rule="evenodd"
                       />
                     </svg>
-                    {{ groups.region.name }} - Region
-                    {{ groups.region.number }}
+                    <nuxt-link
+                      :to="'/region/' + groups.region.slug"
+                      class="hover:underline"
+                    >
+                      {{ groups.region.name }} - Region
+                      {{ groups.region.number }}
+                    </nuxt-link>
                   </td>
                 </tr>
                 <tr class="rounded-b-sm">

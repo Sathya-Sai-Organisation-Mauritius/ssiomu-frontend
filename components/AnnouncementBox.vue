@@ -20,12 +20,17 @@
             >
           </span>
         </div>
-        <div class="ml-2 flex-shrink-0 flex" >
+        <div class="ml-2 flex-shrink-0 flex" v-if="announcmentvalues.region">
           
           <span
             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800"
           >
-            Region {{ announcmentvalues.region }}
+            <nuxt-link
+                      :to="'/region/' + announcmentvalues.region.slug"
+                      class="hover:underline"
+                    > 
+            Region {{ announcmentvalues.region.number }}
+             </nuxt-link> 
           </span>
         </div>
       </div>

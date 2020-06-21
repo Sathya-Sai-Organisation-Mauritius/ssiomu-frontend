@@ -10,7 +10,7 @@
           </h2>
 
           <div>
-            <div class="grid md:grid-cols-2 gap-4 ">
+            <div class="grid md:grid-cols-2 gap-4 " v-if="regions">
               <RegionsComponentBox
                 v-for="(description, index) in regions"
                 :key="index"

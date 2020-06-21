@@ -21,7 +21,12 @@
                   class="text-center lg:absolute lg:text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-2 md:p-3 px-4 md:px-10 font-black"
                   v-if="publications.region"
                 >
-                  Region {{ publications.region.number }}
+                  <nuxt-link
+                    :to="'/region/' + publications.region.slug"
+                    class="hover:underline"
+                  >
+                    Region {{ publications.region.number }}
+                  </nuxt-link>
                 </div>
               </div>
               <div class=" italic flex justify-center md:justify-start">
@@ -41,24 +46,27 @@
             </div>
 
             <div class="flex flex-col text-center md:text-left">
-              <div
-                v-if="publications.wing"
-                class="font-bold text-md lg:text-xl"
-              >
+              <div v-if="publications.wing" class="font-medium text-md ">
                 Wing:
-                {{ publications.wing.name }}
+                <nuxt-link
+                  :to="'/wing/' + publications.wing.slug"
+                  class="hover:underline font-bold text-md "
+                  >{{ publications.wing.name }}</nuxt-link
+                >
               </div>
 
-              <div
-                v-if="publications.region"
-                class="font-bold text-md lg:text-xl"
-              >
-                Region: {{ publications.region.name }}
+              <div v-if="publications.region" class="font-medium text-md ">
+                Region:<nuxt-link
+                  :to="'/region/' + publications.region.slug"
+                  class="hover:underline  font-bold text-md "
+                >
+                  {{ publications.region.name }}</nuxt-link
+                >
               </div>
 
               <div
                 v-if="publications.attachments"
-                class="flex items-center md:items-start flex-col  text-md lg:text-xl font-medium italic my-2 "
+                class="flex items-center md:items-start flex-col  text-md  font-medium italic my-2 "
               >
                 <div>
                   Attachments:
@@ -66,7 +74,7 @@
                 <a
                   :href="publications.attachments.data.full_url"
                   download
-                  class="p-2 w-40 lg:w-48 rounded bg-orange-500 cursor-pointer text-white block "
+                  class="p-2 w-40 lg:w-48 text-center rounded bg-orange-500 cursor-pointer text-white block "
                   >Download {{ publications.attachments.filename_download }}</a
                 >
               </div>

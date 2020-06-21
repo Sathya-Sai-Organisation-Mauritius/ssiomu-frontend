@@ -20,9 +20,14 @@
               >
                 <div
                   class="text-center lg:absolute lg:text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-2 md:p-3 px-4 md:px-10 font-black"
-                  v-if="events"
+                  v-if="events.region"
                 >
-                  Region {{ events.region.number }}
+                  <nuxt-link
+                    :to="'/region/' + events.region.slug"
+                    class="hover:underline  font-bold text-md "
+                  >
+                    Region {{ events.region.number }}
+                  </nuxt-link>
                 </div>
               </div>
             </div>
@@ -98,11 +103,22 @@
                       class="lg:flex font-semibold text-gray-600 rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 py-4 w-full"
                     >
                       <div>
-                        Contact: Gavin - 57971326
+                        Contact:
+                        <nuxt-link
+                          :to="'/member/' + events.slug"
+                          class="hover:underline"
+                          >Gavin</nuxt-link
+                        >
+                        - 57971326
                       </div>
                       <span class="px-2"> - </span>
                       <div v-if="events.region">
-                        Region {{ events.region.number }}
+                        <nuxt-link
+                          :to="'/region/' + events.region.slug"
+                          class="hover:underline"
+                        >
+                          Region {{ events.region.number }}
+                        </nuxt-link>
                       </div>
                     </div>
                   </div>
@@ -199,7 +215,7 @@ export default {
     }
   },
   async asyncData({ params, $http }) {
-    let url = `event?filter[slug][eq]=${params.slug}&single&fields=*.*,region.number`
+    let url = `event?filter[slug][eq]=${params.slug}&single&fields=*.*,region.number,region.slug`
     const result = await $http.$get(url)
 
     return {
