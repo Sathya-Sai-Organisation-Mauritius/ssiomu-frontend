@@ -20,7 +20,7 @@
               >
                 <div
                   class="text-center lg:absolute lg:text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-2 md:p-3 px-4 md:px-10 font-black"
-                  v-if="events"
+                  v-if="events.region"
                 >
                   <nuxt-link
                     :to="'/region/' + events.region.slug"

@@ -10,7 +10,7 @@
           </h2>
 
           <div>
-            <div class="grid md:grid-cols-2 gap-4 ">
+            <div class="grid md:grid-cols-2 gap-4 " v-if="regions">
               <RegionsComponentBox
                 v-for="(description, index) in regions"
                 :key="index"
@@ -32,7 +32,7 @@ export default {
     RegionsComponentBox
   },
   async asyncData({ $http }) {
-    let url = 'region?fields=*.*,region.slug'
+    let url = 'region?fields=*.*'
 
     const res = await $http.get(url)
     const regions = await res.json()
