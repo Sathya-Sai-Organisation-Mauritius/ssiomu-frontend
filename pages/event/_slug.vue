@@ -53,13 +53,13 @@
                 <div class="serif">
                   <div class="mx-12 lg:flex contact mt-4 ">
                     <h3
-                      class=" flex items-center w-32 justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent py-2  bg-blue-600 text-base leading-6 font-medium text-center text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-xl sm:leading-5"
+                      class=" flex items-center w-64 lg:font-semibold justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent   bg-blue-600 text-base leading-6 font-medium text-center text-white "
                     >
                       From
                     </h3>
 
                     <div
-                      class="lg:flex font-semibold text-gray-600 rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 px-4 py-2 w-full"
+                      class="lg:flex font-semibold text-gray-600 rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400   w-full"
                     >
                       <div
                         class="text-center text-xl text-gray-600 font-bold py-2"
@@ -69,15 +69,15 @@
                     </div>
                   </div>
 
-                  <div class="mx-12 lg:flex contact mt-2 ">
+                  <div class="mx-12 lg:flex contact mt-1 ">
                     <h3
-                      class=" flex items-center w-32 justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent py-2 text-center bg-blue-600 text-base leading-6 font-medium text-center text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-xl sm:leading-5"
+                      class=" flex items-center w-64 lg:font-semibold justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent  text-center bg-blue-600 text-base leading-6 font-medium text-center text-white "
                     >
                       To
                     </h3>
 
                     <div
-                      class="lg:flex font-semibold text-gray-600 rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 text-center  py-2 w-full"
+                      class="lg:flex font-semibold text-gray-600 rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 text-center w-full"
                     >
                       <div
                         class="text-center text-xl text-gray-600 font-bold py-2"
@@ -87,15 +87,15 @@
                     </div>
                   </div>
 
-                  <div class="mx-12 lg:flex contact mt-4 ">
+                  <div class="mx-12 lg:flex contact mt-1 ">
                     <h3
-                      class=" flex items-center justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent py-4 px-8 bg-orange-600 text-base leading-6 font-medium text-center text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-xl sm:leading-5"
+                      class=" flex w-64 lg:font-semibold items-center justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent py-4 bg-orange-600 text-base leading-6 font-medium text-center text-white "
                     >
                       Organisers
                     </h3>
 
                     <div
-                      class="lg:flex font-semibold text-gray-600 rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 px-4 py-4 w-full"
+                      class="lg:flex font-semibold text-gray-600 rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 py-4 w-full"
                     >
                       <div>Contact: Gavin - 57971326</div>
                       <span class="px-2"> - </span>
