@@ -1,12 +1,7 @@
 <template>
   <div>
     <div>
-      <p v-if="$fetchState.pending">Fetching posts...</p>
-      <p v-else-if="$fetchState.error">
-        Error while fetching posts: {{ $fetchState.error.message }}
-      </p>
-
-      <div v-else>
+      <div>
         <div class="container mx-auto">
           <div class="event-details space-y-12 py-10 m-8 md:m-0">
             <div
@@ -190,18 +185,6 @@ export default {
   components: {
     Gallery
   },
-
-  data() {
-    return {
-      eventId: this.$route.params.slug,
-      events: [],
-
-      fetchURL: '/_/items/event',
-      filter: '?filter[slug][eq]=',
-      single: '&single',
-      fields: '&fields=*.*,region.number'
-    }
-  },
   methods: {
     formatDate(param) {
       let temporaryDate = new Date(param)
@@ -213,10 +196,17 @@ export default {
       return fullDate
     }
   },
-  async fetch() {
-    let url = `${this.fetchURL}${this.filter}${this.eventId}${this.single}${this.fields}`
-    const result = await this.$http.$get(url)
-    this.events = result.data[0]
+  async asyncData({ params, $http }) {
+    let fetchURL = 'event'
+    let filter = '?filter[slug][eq]='
+    let single = '&single'
+    let fields = '&fields=*.*,region.number'
+    let url = `${fetchURL}${filter}${params.slug}${single}${fields}`
+    const result = await $http.$get(url)
+
+    return {
+      events: result.data[0]
+    }
   }
 }
 </script>

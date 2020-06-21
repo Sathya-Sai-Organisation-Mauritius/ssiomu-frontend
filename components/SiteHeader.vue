@@ -44,7 +44,7 @@
                 </div>
               </li>
 
-              <li class=" relative hover:bg-orange-500 hover" v-if="regions">
+              <li class=" relative hover:bg-orange-500 hover">
                 <div class="dropdown ">
                   <nuxt-link
                     :to="'/regions'"
@@ -61,7 +61,7 @@
                       />
                     </svg>
                   </nuxt-link>
-                  <ul
+                  <!-- <ul
                     class="dropdown-menu absolute block left-0 hidden block text-white-700 pt-xl "
                   >
                     <li class="" v-for="region in regions" :key="region.slug">
@@ -71,7 +71,7 @@
                         >{{ region.name }}
                       </nuxt-link>
                     </li>
-                  </ul>
+                  </ul> -->
                 </div>
               </li>
 
@@ -89,7 +89,7 @@
                       />
                     </svg>
                   </div>
-                  <ul
+                  <!-- <ul
                     class="dropdown-menu absolute left-0 hidden block text-white-700 pt-xl"
                   >
                     <li class="" v-for="wing in wings" :key="wing.slug">
@@ -99,7 +99,7 @@
                         >{{ wing.name }}
                       </nuxt-link>
                     </li>
-                  </ul>
+                  </ul> -->
                 </div>
               </li>
 
@@ -149,7 +149,6 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      regions: [],
       wings: [],
       menuResources: [
         {
@@ -196,41 +195,62 @@ export default {
         }
       ]
     }
-  },
-  async fetch() {
-    // Get Regions
-    const regionQuery = '/_/items/region?fields=*.*'
-    const regionData = await this.$http.$get(regionQuery)
-
-    // Get Wings
-    const wingQuery = '/_/items/wing?fields=*.*'
-    const wingData = await this.$http.$get(wingQuery)
-
-    let filteredRegions = regionData.data.map(region => {
-      // pluck properties from object
-      let { name, number, id, slug } = region
-      return {
-        name,
-        number,
-        id,
-        slug
-      }
-    })
-
-    let filteredwings = wingData.data.map(wing => {
-      // pluck properties from object
-      let { name, number, id, slug } = wing
-      return {
-        name,
-        number,
-        id,
-        slug
-      }
-    })
-
-    this.regions = filteredRegions
-    this.wings = filteredwings
   }
+  // async asyncData({ $http }) {
+  //   let url = 'region?fields=*.*'
+
+  //   const res = await $http.get(url)
+  //   const regionsData = await res.json()
+  //   console.log(regionsData)
+  //   // let filteredRegions = regionsData.data.map(region => {
+  //   //   // pluck properties from object
+  //   //   let { name, number, id, slug } = region
+  //   //   return {
+  //   //     name,
+  //   //     number,
+  //   //     id,
+  //   //     slug
+  //   //   }
+  //   // })
+
+  //   return {
+  //     regions: regionsData.data
+  //   }
+  // }
+  // async fetch() {
+  //   // Get Regions
+  //   // const regionQuery = 'region?fields=*.*'
+  //   // const regionData = await this.$http.$get(regionQuery)
+
+  //   // Get Wings
+  //   const wingQuery = 'wing?fields=*.*'
+  //   const wingData = await this.$http.$get(wingQuery)
+
+  //   // let filteredRegions = regionData.data.map(region => {
+  //   //   // pluck properties from object
+  //   //   let { name, number, id, slug } = region
+  //   //   return {
+  //   //     name,
+  //   //     number,
+  //   //     id,
+  //   //     slug
+  //   //   }
+  //   // })
+
+  //   let filteredwings = wingData.data.map(wing => {
+  //     // pluck properties from object
+  //     let { name, number, id, slug } = wing
+  //     return {
+  //       name,
+  //       number,
+  //       id,
+  //       slug
+  //     }
+  //   })
+
+  //   // this.regions = filteredRegions
+  //   this.wings = filteredwings
+  // }
 }
 </script>
 

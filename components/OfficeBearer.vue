@@ -8,12 +8,7 @@
       </h2>
 
       <div>
-        <p v-if="$fetchState.pending">Fetching posts...</p>
-        <p v-else-if="$fetchState.error">
-          Error while fetching posts: {{ $fetchState.error.message }}
-        </p>
-
-        <div class="flex flex-col" v-else>
+        <div class="flex flex-col">
           <div
             class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
           >
@@ -48,7 +43,7 @@
                 <tbody>
                   <OfficeBearerBox
                     v-for="(officeBearer, index) in members"
-                    :officebearervalues="officeBearer"
+                    :officebearervalues="officeBearer.member_id"
                     :key="index"
                   />
                 </tbody>
@@ -68,59 +63,11 @@ export default {
   components: {
     OfficeBearerBox
   },
-
-  // data() {
-  //   return {
-  //     officeBearers: [
-  //       {
-  //         name: ' Bernard Lane ',
-  //         title: 'Director, Human Resources',
-  //         email: ' bernardlane@example.com ',
-  //         role: 'Owner'
-  //       },
-  //       {
-  //         name: ' Bernard Lane ',
-  //         title: 'Director, Human Resources',
-  //         email: ' bernardlane@example.com ',
-  //         role: 'Owner'
-  //       },
-  //       {
-  //         name: ' Bernard Lane ',
-  //         title: 'Director, Human Resources',
-  //         email: ' bernardlane@example.com ',
-  //         role: 'Owner'
-  //       },
-  //       {
-  //         name: ' Bernard Lane ',
-  //         title: 'Director, Human Resources',
-  //         email: ' bernardlane@example.com ',
-  //         role: 'Owner'
-  //       },
-  //       {
-  //         name: ' Bernard Lane ',
-  //         title: 'Director, Human Resources',
-  //         email: ' bernardlane@example.com ',
-  //         role: 'Owner'
-  //       }
-  //     ]
-  //   }
-  // },
+  props: ['information'],
   data() {
     return {
-      memberId: this.$route.params.slug,
-      members: [],
-
-      fetchURL: '/_/items/member',
-      filter: '?filter[slug][eq]=',
-      single: '&single',
-      fields: '&fields=*.*'
+      members: this.information
     }
-  },
-
-  async fetch() {
-    let url = `${this.fetchURL}${this.filter}${this.memberId}${this.single}${this.fields}`
-    const result = await this.$http.$get(url)
-    this.members = result.data[0]
   }
 }
 </script>

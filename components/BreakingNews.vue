@@ -1,10 +1,6 @@
 <<template>
   <div>
-    <p v-if="$fetchState.pending">Fetching posts...</p>
-    <p v-else-if="$fetchState.error">
-      Error while fetching posts: {{ $fetchState.error.message }}
-    </p>
-    <div class="announcement-detailsg " v-else>
+    <div class="announcement-detailsg ">
       <div
         class="container mx-auto px-4 md:px-0 py-10 flex flex-col justify-center "
       >
@@ -27,15 +23,11 @@
 
 <script>
 export default {
-  props: ['query'],
+  props: ['information'],
   data() {
     return {
-      news: []
+      news: this.information[0]
     }
-  },
-  async fetch() {
-    const result = await this.$http.$get(this.query)
-    this.news = result.data[0]
   }
 }
 </script>

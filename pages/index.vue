@@ -17,28 +17,28 @@
       </div>
     </div>
 
-    <Announcements query="/_/items/annoucement" />
+    <Announcements :information="announcements" />
 
-    <BreakingNews query="/_/items/breaking_news" />
+    <BreakingNews :information="breakingNews" />
 
     <UpcomingEvents
+      :information="upcomingEvents"
       :color="'gradient-bg'"
       :textcolor="'text-blue-600'"
-      query="/_/items/event?filter[from][gt]=now"
     />
 
     <FeaturedPublications
+      :information="featuredPublications"
       :textalign="'text-center'"
-      query="/_/items/publication?filter[featured][nempty]&limit=3&fields=*.*,photo.*,wing.*"
     />
 
     <PastEvents
+      :information="pastEvents"
       :subtitle="
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.'
       "
       :textalign="'text-center'"
       :textcolor="'text-blue-600'"
-      query="/_/items/event?filter[from][lt]=now&fields=*.*"
     />
   </div>
 </template>
@@ -57,6 +57,37 @@ export default {
     UpcomingEvents,
     FeaturedPublications,
     PastEvents
+  },
+  async asyncData({ $http }) {
+    const announcementsQuery = 'annoucement'
+    const breakingNewsQuery = 'breaking_news'
+    const upcomingEventsQuery = 'event?filter[from][gt]=now'
+    const featuredPublicationsQuery =
+      'publication?filter[featured][nempty]&limit=3&fields=*.*,photo.*,wing.*'
+    const pastEventsQuery = 'event?filter[from][lt]=now&fields=*.*'
+
+    const announcements = await $http.get(announcementsQuery)
+    const announcementsData = await announcements.json()
+
+    const breakingNews = await $http.get(breakingNewsQuery)
+    const breakingNewsData = await breakingNews.json()
+
+    const upcomingEvents = await $http.get(upcomingEventsQuery)
+    const upcomingEventsData = await upcomingEvents.json()
+
+    const featuredPublications = await $http.get(featuredPublicationsQuery)
+    const featuredPublicationsData = await featuredPublications.json()
+
+    const pastEvent = await $http.get(pastEventsQuery)
+    const pastEventsData = await pastEvent.json()
+
+    return {
+      announcements: announcementsData.data,
+      breakingNews: breakingNewsData.data,
+      upcomingEvents: upcomingEventsData.data,
+      featuredPublications: featuredPublicationsData.data,
+      pastEvents: pastEventsData.data
+    }
   }
 }
 </script>

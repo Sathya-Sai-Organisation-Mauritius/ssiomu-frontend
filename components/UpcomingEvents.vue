@@ -11,20 +11,7 @@
           </h2>
 
           <div>
-            <p
-              v-if="$fetchState.pending"
-              class="text-center text-white text-xl "
-            >
-              Upcoming events loading...
-            </p>
-            <p
-              v-else-if="$fetchState.error"
-              class="text-center text-red-300 bg-red-900 text-xl p-4 "
-            >
-              Error while loading upcoming events, please try again later.
-              {{ $fetchState.error.message }}
-            </p>
-            <div class="grid md:grid-cols-3 gap-8 text-blue-600" v-else>
+            <div class="grid md:grid-cols-3 gap-8 text-blue-600">
               <UpcomingEventBox
                 v-for="(description, index) in events"
                 :key="index"
@@ -46,15 +33,11 @@ export default {
     UpcomingEventBox
   },
 
-  props: ['color', 'textalign', 'textcolor', 'query'],
+  props: ['color', 'textalign', 'textcolor', 'information'],
   data() {
     return {
-      events: []
+      events: this.information
     }
-  },
-  async fetch() {
-    const result = await this.$http.$get(this.query)
-    this.events = result.data
   }
 }
 </script>

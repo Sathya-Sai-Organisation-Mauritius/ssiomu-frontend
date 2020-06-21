@@ -156,11 +156,11 @@ export default {
   },
   async fetch() {
     // Get Regions
-    const regionQuery = '/_/items/region?fields=*.*'
+    const regionQuery = 'region?fields=*.*'
     const regionData = await this.$http.$get(regionQuery)
 
     // Get Wings
-    const wingQuery = '/_/items/wing?fields=*.*'
+    const wingQuery = 'wing?fields=*.*'
     const wingData = await this.$http.$get(wingQuery)
 
     let filteredRegions = regionData.data.map(region => {

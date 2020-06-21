@@ -18,10 +18,10 @@ export const actions = {
   async GET_REGIONS({ commit }) {
     // fetch regions
     // let result = await this.$http.$get(
-    //   'http://localhost:4444/_/items/region?fields=*.*'
+    //   'http://localhost:4444region?fields=*.*'
     // )
 
-    let res = await fetch('http://localhost:4444/_/items/region?fields=*.*')
+    let res = await fetch('http://localhost:4444region?fields=*.*')
     let result = await res.json()
 
     //console.log(result)

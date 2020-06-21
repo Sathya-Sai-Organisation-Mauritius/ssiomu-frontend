@@ -1,11 +1,7 @@
 <template>
   <div>
     <div>
-      <p v-if="$fetchState.pending">Fetching posts...</p>
-      <p v-else-if="$fetchState.error">
-        Error while fetching posts: {{ $fetchState.error.message }}
-      </p>
-      <div v-else>
+      <div v-if="wings">
         <div class="container mx-auto ">
           <div class=" wing-details space-y-12 py-20 text-center">
             <div class="wing-title font-bold space-x-2 items-center">
@@ -19,25 +15,19 @@
           </div>
         </div>
 
-        <UpcomingEvents
-          :query="
-            `/_/items/event?filter[from][gt]=now&filter[wing][eq]=${wingId}`
-          "
-        />
+        <UpcomingEvents :information="upcomingEvents" />
 
         <PastEvents
           :subtitle="'My Wing Subtitle'"
           :color="'bg-gray-200'"
           :textalign="'text-center'"
           :textcolor="'text-blue-500'"
-          :query="
-            `/_/items/event?filter[from][lt]=now&filter[wing][eq]=${wingId}&fields=*.*`
-          "
+          :information="pastEvents"
         />
 
         <FeaturedPublications
           :textalign="'text-center'"
-          :query="`/_/items/publication?filter[wing][eq]=${wingId}&fields=*.*`"
+          :information="featuredPublications"
         />
       </div>
     </div>
@@ -55,25 +45,29 @@ export default {
     FeaturedPublications,
     PastEvents
   },
+  async asyncData({ params, $http }) {
+    let url = `wing?filter[slug][eq]=${params.slug}&fields=*.*`
+    let upcomingEventsQuery = `event?filter[from][gt]=now&filter[wing.slug][eq]=${params.slug}`
+    let pastEventsQuery = `event?filter[from][lt]=now&filter[wing.slug][eq]=${params.slug}&fields=*.*`
+    let featuredPublicationsQuery = `publication?filter[wing.slug][eq]=${params.slug}&fields=*.*`
 
-  props: ['query'],
+    let upcomingEvents = await $http.get(upcomingEventsQuery)
+    let upcomingEventsData = await upcomingEvents.json()
 
-  data() {
+    let pastEvents = await $http.get(pastEventsQuery)
+    let pastEventsData = await pastEvents.json()
+
+    let featuredPublications = await $http.get(featuredPublicationsQuery)
+    let featuredPublicationsData = await featuredPublications.json()
+
+    const result = await $http.$get(url)
+
     return {
-      wingId: this.$route.params.slug,
-      wings: [],
-      fetchURL: '/_/items/wing',
-      filter: '?filter[slug][eq]=',
-      field: '&fields=*.*'
+      upcomingEvents: upcomingEventsData.data,
+      pastEvents: pastEventsData.data,
+      featuredPublications: featuredPublicationsData.data,
+      wings: result.data[0]
     }
-  },
-
-  async fetch() {
-    let url = `${this.fetchURL}${this.filter}${this.wingId}${this.field}`
-
-    const result = await this.$http.$get(url)
-
-    this.wings = result.data[0]
   }
 }
 </script>

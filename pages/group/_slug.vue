@@ -1,12 +1,7 @@
 <<template>
   <div>
     <div>
-      <p v-if="$fetchState.pending">Fetching posts...</p>
-      <p v-else-if="$fetchState.error">
-        Error while fetching posts: {{ $fetchState.error.message }}
-      </p>
-
-      <div v-else>
+      <div>
         <div class="container mx-auto">
           <div class="information-details space-y-12 py-10">
             <div class="information-title font-bold space-x-2 center">
@@ -25,29 +20,6 @@
                 </tr>
               </thead>
               <tbody class="shadow-lg">
-                <tr class="border-b">
-                  <td
-                    class="w-1/6 md:px-6 px-2 md:py-6 py-1 text-sm md:text-lg font-bold text-blue-600 border-r truncate"
-                  >
-                    Contact person
-                  </td>
-                  <td
-                    class="flex border-gray-200 md:px-6 px-2 md:py-6 md:text-lg text-gray-600"
-                  >
-                    <a :href="'/member/' + groups.slug" class="hover:underline">
-                      <svg
-                        class="flex-shrink-0 mr-2 h-5 md:w-5 w-3 text-gray-600"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
-                        />
-                      </svg>
-                      Brother Anerood Bussunt {{ groups.id }}
-                    </a>
-                  </td>
-                </tr>
                 <tr class="border-b">
                   <td
                     class="md:px-6 px-2 md:py-6 py-1 text-sm md:text-lg leading-5 font-bold text-blue-600 border-r truncate"
@@ -121,22 +93,17 @@
 export default {
   components: {},
 
-  data() {
+  async asyncData({ params, $http }) {
+    let fetchURL = 'groups'
+    let filter = '?filter[slug][eq]='
+    let single = '&single'
+    let fields = '&fields=*.*,type.label'
+    let url = `${fetchURL}${filter}${params.slug}${single}${fields}`
+    const result = await $http.$get(url)
+
     return {
-      groupId: this.$route.params.slug,
-      groups: [],
-
-      fetchURL: '/_/items/groups',
-      filter: '?filter[slug][eq]=',
-      single: '&single',
-      fields: '&fields=*.*'
+      groups: result.data[0]
     }
-  },
-
-  async fetch() {
-    let url = `${this.fetchURL}${this.filter}${this.groupId}${this.single}${this.fields}`
-    const result = await this.$http.$get(url)
-    this.groups = result.data[0]
   }
 }
 </script>

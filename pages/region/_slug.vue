@@ -1,11 +1,7 @@
 <template>
   <div>
     <div>
-      <p v-if="$fetchState.pending">Fetching posts...</p>
-      <p v-else-if="$fetchState.error">
-        Error while fetching posts: {{ $fetchState.error.message }}
-      </p>
-      <div v-else>
+      <div>
         <div class="container mx-auto">
           <div class="region-details grid gap-1 grid-cols-2 space-y-12 py-10">
             <div
@@ -28,24 +24,14 @@
         <UpcomingEvents
           :color="'gradient-bg'"
           :textcolor="'text-blue-600'"
-          :query="
-            `/_/items/event?filter[from][gt]=now&filter[region][eq]=${regionId}`
-          "
+          :information="upcomingEvents"
         />
 
-        <PastEvents
-          :query="
-            `/_/items/event?filter[from][lt]=now&filter[slug][eq]=${regionId}&fields=*.*`
-          "
-        />
+        <PastEvents :information="pastEvents" />
 
-        <FeaturedPublications
-          :query="
-            `/_/items/publication?filter[slug][eq]=${regionId}&fields=*.*`
-          "
-        />
+        <FeaturedPublications :information="featuredPublications" />
 
-        <!-- <OfficeBearer /> -->
+        <OfficeBearer :information="regions.member" />
       </div>
     </div>
   </div>
@@ -64,17 +50,7 @@ export default {
     PastEvents,
     OfficeBearer
   },
-  props: ['query'],
 
-  data() {
-    return {
-      regions: [],
-      fetchURL: '/_/items/region',
-      filter: '?filter[slug][eq]=',
-      regionId: this.$route.params.slug,
-      field: '&fields=*.*'
-    }
-  },
   methods: {
     formatDate(param) {
       let temporaryDate = new Date(param)
@@ -86,13 +62,30 @@ export default {
       return fullDate
     }
   },
+  async asyncData({ params, $http }) {
+    let regionsQuery = `region?filter[slug][eq]=${params.slug}&fields=*.*,member.member_id.name,,member.member_id.email,member.member_id.role,member.member_id.phone`
+    let upcomingEventsQuery = `event?filter[from][gt]=now&filter[region.slug][eq]=${params.slug}`
+    let pastEventsQuery = `event?filter[from][lt]=now&filter[region.slug][eq]=${params.slug}&fields=*.*`
+    let featuredPublicationsQuery = `publication?filter[region.slug][eq]=${params.slug}&fields=*.*`
 
-  async fetch() {
-    let url = `${this.fetchURL}${this.filter}${this.regionId}${this.field}`
-    console.log(url)
-    const result = await this.$http.$get(url)
-    this.regions = result.data[0]
-    console.log[result]
+    let region = await $http.get(regionsQuery)
+    let regionDatas = await region.json()
+
+    let upcomingEvents = await $http.get(upcomingEventsQuery)
+    let upcomingEventsData = await upcomingEvents.json()
+
+    let pastEvents = await $http.get(pastEventsQuery)
+    let pastEventsData = await pastEvents.json()
+
+    let featuredPublications = await $http.get(featuredPublicationsQuery)
+    let featuredPublicationsData = await featuredPublications.json()
+
+    return {
+      upcomingEvents: upcomingEventsData.data,
+      pastEvents: pastEventsData.data,
+      featuredPublications: featuredPublicationsData.data,
+      regions: regionDatas.data[0]
+    }
   }
 }
 </script>

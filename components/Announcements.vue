@@ -13,19 +13,14 @@
             </h2>
           </div>
           <div>
-            <p v-if="$fetchState.pending">Fetching posts...</p>
-            <p v-else-if="$fetchState.error">
-              Error while fetching posts: {{ $fetchState.error.message }}
-            </p>
             <div
               class="bg-white shadow overflow-hidden sm:rounded-md border-t-8 border-orange-500 "
-              v-else
             >
               <ul>
                 <AnnouncementBox
-                  v-for="(announcementdescription, index) in announcements"
+                  v-for="(item, index) in information"
                   :key="index"
-                  :announcmentvalues="announcementdescription"
+                  :announcmentvalues="item"
                 />
               </ul>
             </div>
@@ -49,16 +44,12 @@ export default {
     AnnouncementBox
   },
 
-  props: ['subtitle', 'color', 'query'],
+  props: ['subtitle', 'color', 'information'],
 
   data() {
     return {
-      announcements: []
+      announcements: this.information
     }
-  },
-  async fetch() {
-    const result = await this.$http.$get(this.query)
-    this.announcements = result.data
   }
 }
 </script>

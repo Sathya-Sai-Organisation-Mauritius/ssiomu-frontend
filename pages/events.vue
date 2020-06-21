@@ -3,7 +3,7 @@
     <UpcomingEvents
       :color="'gradient-bg'"
       :textcolor="'text-blue-600'"
-      query="/_/items/event?filter[from][gt]=now"
+      :information="upcomingEvents"
     />
 
     <PastEvents
@@ -12,7 +12,7 @@
       "
       :textalign="'text-center'"
       :textcolor="'text-blue-600'"
-      query="/_/items/event?filter[from][lt]=now&fields=*.*"
+      :information="pastEvents"
     />
   </div>
 </template>
@@ -25,6 +25,21 @@ export default {
   components: {
     UpcomingEvents,
     PastEvents
+  },
+  async asyncData({ $http }) {
+    let upcomingEventsQuery = 'event?filter[from][gt]=now'
+    let pastEventsQuery = 'event?filter[from][lt]=now&fields=*.*'
+
+    let upcomingEvents = await $http.get(upcomingEventsQuery)
+    let upcomingEventsData = await upcomingEvents.json()
+
+    let pastEvents = await $http.get(pastEventsQuery)
+    let pastEventsData = await pastEvents.json()
+
+    return {
+      upcomingEvents: upcomingEventsData.data,
+      pastEvents: pastEventsData.data
+    }
   }
 }
 </script>

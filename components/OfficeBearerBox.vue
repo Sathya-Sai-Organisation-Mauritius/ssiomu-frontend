@@ -6,7 +6,7 @@
       {{ officebearervalues.name }}
     </td>
     <td class="px-6 py-4 whitespace-no-wrap text-lg leading-5 text-gray-500">
-      {{ officebearervalues.title }}
+      {{ officebearervalues.phone }}
     </td>
     <td class="px-6 py-4 whitespace-no-wrap text-lg leading-5 text-gray-500">
       {{ officebearervalues.email }}

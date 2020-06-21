@@ -1,11 +1,7 @@
 <template>
   <div>
     <div>
-      <p v-if="$fetchState.pending">Fetching posts...</p>
-      <p v-else-if="$fetchState.error">
-        Error while fetching posts: {{ $fetchState.error.message }}
-      </p>
-      <div v-else>
+      <div>
         <div class="container mx-auto ">
           <div class=" page-details space-y-12 py-20 text-center">
             <div class="page-title font-bold space-x-2 items-center">
@@ -22,24 +18,18 @@
 
 <script>
 export default {
-  components: {},
+  async asyncData({ params, $http }) {
+    let pageId = params.slug
+    let fetchURL = 'page'
+    let filter = '?filter[slug][eq]='
+    let field = '&fields=*.*'
 
-  props: ['query'],
+    let url = `${fetchURL}${filter}${pageId}${field}`
+    const result = await $http.$get(url)
 
-  data() {
     return {
-      pageId: this.$route.params.slug,
-      pages: [],
-      fetchURL: '/_/items/page',
-      filter: '?filter[slug][eq]=',
-      field: '&fields=*.*'
+      pages: result.data[0]
     }
-  },
-
-  async fetch() {
-    let url = `${this.fetchURL}${this.filter}${this.pageId}${this.field}`
-    const result = await this.$http.$get(url)
-    this.pages = result.data[0]
   }
 }
 </script>

@@ -41,7 +41,7 @@ export default {
    */
   modules: ['@nuxt/http'],
   http: {
-    baseURL: 'http://localhost:4444'
+    baseURL: 'http://localhost:4444/_/items/'
   },
   server: {
     port: 3050 // default: 3000

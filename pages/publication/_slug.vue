@@ -1,11 +1,7 @@
 <<template>
   <div>
     <div>
-      <p v-if="$fetchState.pending">Fetching posts...</p>
-      <p v-else-if="$fetchState.error">
-        Error while fetching posts: {{ $fetchState.error.message }}
-      </p>
-      <div v-else-if="publications">
+      <div v-if="publications">
         <div class="container mx-auto">
           <div class="publication-details space-y-12 py-10 ">
             <div
@@ -86,17 +82,6 @@
 export default {
   components: {},
 
-  data() {
-    return {
-      publicationId: this.$route.params.slug,
-      publications: [],
-
-      fetchURL: '/_/items/publication',
-      filter: '?filter[slug][eq]=',
-      fields: '&fields=*.*'
-    }
-  },
-
   methods: {
     formatDate(param) {
       let temporaryDate = new Date(param)
@@ -108,10 +93,20 @@ export default {
       return fullDate
     }
   },
-  async fetch() {
-    let url = `${this.fetchURL}${this.filter}${this.publicationId}${this.fields}`
-    const result = await this.$http.$get(url)
-    this.publications = result.data[0]
+
+  async asyncData({ params, $http }) {
+    let publicationId = params.slug
+    let publications = []
+    let fetchURL = 'publication'
+    let filter = '?filter[slug][eq]='
+    let fields = '&fields=*.*'
+
+    let url = fetchURL + filter + publicationId + fields
+    const result = await $http.$get(url)
+
+    return {
+      publications: result.data[0]
+    }
   }
 }
 </script>
