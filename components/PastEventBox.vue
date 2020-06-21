@@ -13,15 +13,22 @@
             {{ pasteventvalues.name }}
           </div>
         </nuxt-link>
+
         <div
           class="ml-2 flex-shrink-0 flex"
           v-if="pasteventvalues.region !== null"
         >
-          <span
-            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800"
+          <nuxt-link
+            :to="'/region/' + pasteventvalues.region.slug"
+            class="hover:underline"
+            v-if="pasteventvalues.region"
           >
-            Region {{ pasteventvalues.region.number }}
-          </span>
+            <span
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800"
+            >
+              Region {{ pasteventvalues.region.number }}
+            </span>
+          </nuxt-link>
         </div>
       </div>
       <div class="mt-2 sm:flex sm:justify-between">
