@@ -19,12 +19,7 @@
 <script>
 export default {
   async asyncData({ params, $http }) {
-    let pageId = params.slug
-    let fetchURL = 'page'
-    let filter = '?filter[slug][eq]='
-    let field = '&fields=*.*'
-
-    let url = `${fetchURL}${filter}${pageId}${field}`
+    let url = `page?filter[slug][eq]=${params.slug}&fields=*.*`
     const result = await $http.$get(url)
 
     return {

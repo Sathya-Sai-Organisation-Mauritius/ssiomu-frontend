@@ -20,7 +20,7 @@
               >
                 <div
                   class="text-center lg:absolute lg:text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-2 md:p-3 px-4 md:px-10 font-black"
-                  v-if="events.region"
+                  v-if="events"
                 >
                   Region {{ events.region.number }}
                 </div>
@@ -53,7 +53,7 @@
                 <div class="serif">
                   <div class="mx-12 lg:flex contact mt-4 ">
                     <h3
-                      class=" flex items-center w-64 lg:font-semibold justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent   bg-blue-600 text-base leading-6 font-medium text-center text-white "
+                      class=" flex items-center w-50 md:w-64 lg:font-semibold justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent   bg-blue-600 text-base leading-6 font-medium text-center text-white "
                     >
                       From
                     </h3>
@@ -71,7 +71,7 @@
 
                   <div class="mx-12 lg:flex contact mt-1 ">
                     <h3
-                      class=" flex items-center w-64 lg:font-semibold justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent  text-center bg-blue-600 text-base leading-6 font-medium text-center text-white "
+                      class=" flex items-center w-50 md:w-64 lg:font-semibold justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent  text-center bg-blue-600 text-base leading-6 font-medium text-center text-white "
                     >
                       To
                     </h3>
@@ -89,7 +89,7 @@
 
                   <div class="mx-12 lg:flex contact mt-1 ">
                     <h3
-                      class=" flex w-64 lg:font-semibold items-center justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent py-4 bg-orange-600 text-base leading-6 font-medium text-center text-white "
+                      class=" flex w-50 md:w-64 lg:font-semibold items-center justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent py-2 lg:py-4 bg-orange-600 text-base leading-6 font-medium text-center text-white "
                     >
                       Organisers
                     </h3>
@@ -97,7 +97,9 @@
                     <div
                       class="lg:flex font-semibold text-gray-600 rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 py-4 w-full"
                     >
-                      <div>Contact: Gavin - 57971326</div>
+                      <div>
+                        Contact: Gavin - 57971326
+                      </div>
                       <span class="px-2"> - </span>
                       <div v-if="events.region">
                         Region {{ events.region.number }}
@@ -197,11 +199,7 @@ export default {
     }
   },
   async asyncData({ params, $http }) {
-    let fetchURL = 'event'
-    let filter = '?filter[slug][eq]='
-    let single = '&single'
-    let fields = '&fields=*.*,region.number'
-    let url = `${fetchURL}${filter}${params.slug}${single}${fields}`
+    let url = `event?filter[slug][eq]=${params.slug}&single&fields=*.*,region.number`
     const result = await $http.$get(url)
 
     return {

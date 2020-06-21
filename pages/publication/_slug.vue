@@ -95,13 +95,7 @@ export default {
   },
 
   async asyncData({ params, $http }) {
-    let publicationId = params.slug
-    let publications = []
-    let fetchURL = 'publication'
-    let filter = '?filter[slug][eq]='
-    let fields = '&fields=*.*'
-
-    let url = fetchURL + filter + publicationId + fields
+    let url = `publication?filter[slug][eq]=${params.slug}&fields=*.*`
     const result = await $http.$get(url)
 
     return {

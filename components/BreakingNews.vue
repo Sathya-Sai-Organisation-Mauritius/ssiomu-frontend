@@ -11,7 +11,8 @@
             BREAKING NEWS
           </div>
           <div
-            class="text-center text-sm md:text-2xl lg:text-3xl flex-grow leading-none "
+            class="text-center p-2 text-md md:text-2xl lg:text-3xl flex-grow
+             md:leading-none "
           >
             {{ news[0].title }}
           </div>

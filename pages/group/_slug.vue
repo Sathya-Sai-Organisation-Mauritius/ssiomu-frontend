@@ -94,11 +94,7 @@ export default {
   components: {},
 
   async asyncData({ params, $http }) {
-    let fetchURL = 'groups'
-    let filter = '?filter[slug][eq]='
-    let single = '&single'
-    let fields = '&fields=*.*,type.label'
-    let url = `${fetchURL}${filter}${params.slug}${single}${fields}`
+    let url = `groups?filter[slug][eq]=${params.slug}&single&fields=*.*,type.label`
     const result = await $http.$get(url)
 
     return {
