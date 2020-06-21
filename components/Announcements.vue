@@ -18,7 +18,7 @@
             >
               <ul>
                 <AnnouncementBox
-                  v-for="(item, index) in information"
+                  v-for="(item, index) in announcements"
                   :key="index"
                   :announcmentvalues="item"
                 />

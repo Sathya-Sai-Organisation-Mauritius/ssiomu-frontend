@@ -15,7 +15,12 @@
               <div
                 class="absolute top-0 right-0 text-2xl text-gray-700 bg-black-100 border-2 border-black-900 rounded-full p-3 px-10 font-black"
               >
-                Region {{ regions.number }}
+                <nuxt-link
+                  :to="'/region/' + regions.slug"
+                  class="hover:underline"
+                >
+                  Region {{ regions.number }}
+                </nuxt-link>
               </div>
             </div>
           </div>
