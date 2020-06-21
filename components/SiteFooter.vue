@@ -12,7 +12,7 @@
                   Regions
                 </h4>
                 <ul class="mt-4 gap-5 grid md:grid-cols-2">
-                  <li v-for="region in regions" :key="region.slug">
+                  <li v-for="region in getRegions" :key="region.slug">
                     <nuxt-link
                       :to="'/region/' + region.slug"
                       class="text-base leading-6 text-gray-300 hover:text-white"
@@ -31,7 +31,7 @@
                   Wings
                 </h4>
                 <ul class="mt-4 space-y-4">
-                  <li v-for="wing in wings" :key="wing.id">
+                  <li v-for="wing in getWings" :key="wing.id">
                     <nuxt-link
                       :to="'/wing/' + wing.slug"
                       class="text-base leading-6 text-gray-300 hover:text-white"
@@ -45,32 +45,22 @@
                 <h4
                   class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase"
                 >
-                  Section Header
+                  Resources
                 </h4>
                 <ul class="mt-4">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-base leading-6 text-gray-300 hover:text-white"
-                    >
-                      Link
-                    </a>
-                  </li>
-                  <li class="mt-4">
-                    <a
-                      href="#"
-                      class="text-base leading-6 text-gray-300 hover:text-white"
-                    >
-                      Link
-                    </a>
-                  </li>
-                  <li class="mt-4">
-                    <a
-                      href="#"
-                      class="text-base leading-6 text-gray-300 hover:text-white"
-                    >
-                      Link
-                    </a>
+                  <li></li>
+
+                  <li
+                    class="text-base leading-6 text-gray-300 hover:text-white"
+                    v-for="menu in getMenuResources"
+                    :key="menu.url"
+                  >
+                    <nuxt-link :to="menu.url" v-if="menu.url !== null">
+                      {{ menu.name }}
+                    </nuxt-link>
+                    <div v-else>
+                      {{ menu.name }}
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -147,46 +137,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  data() {
-    return {
-      regions: [],
-      wings: []
-    }
-  },
-  async fetch() {
-    // Get Regions
-    const regionQuery = 'region?fields=*.*'
-    const regionData = await this.$http.$get(regionQuery)
-
-    // Get Wings
-    const wingQuery = 'wing?fields=*.*'
-    const wingData = await this.$http.$get(wingQuery)
-
-    let filteredRegions = regionData.data.map(region => {
-      // pluck properties from object
-      let { name, number, id, slug } = region
-      return {
-        name,
-        number,
-        id,
-        slug
-      }
-    })
-
-    let filteredwings = wingData.data.map(wing => {
-      // pluck properties from object
-      let { name, number, id, slug } = wing
-      return {
-        name,
-        number,
-        id,
-        slug
-      }
-    })
-
-    this.regions = filteredRegions
-    this.wings = filteredwings
+  computed: {
+    ...mapGetters(['getRegions', 'getWings', 'getMenuResources'])
   }
 }
 </script>

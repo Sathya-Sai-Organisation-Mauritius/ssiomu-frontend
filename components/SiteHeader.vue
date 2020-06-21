@@ -61,17 +61,21 @@
                       />
                     </svg>
                   </nuxt-link>
-                  <!-- <ul
+                  <ul
                     class="dropdown-menu absolute block left-0 hidden block text-white-700 pt-xl "
                   >
-                    <li class="" v-for="region in regions" :key="region.slug">
+                    <li
+                      class=""
+                      v-for="region in getRegions"
+                      :key="region.slug"
+                    >
                       <nuxt-link
                         class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
                         :to="'/region/' + region.slug"
                         >{{ region.name }}
                       </nuxt-link>
                     </li>
-                  </ul> -->
+                  </ul>
                 </div>
               </li>
 
@@ -89,17 +93,17 @@
                       />
                     </svg>
                   </div>
-                  <!-- <ul
+                  <ul
                     class="dropdown-menu absolute left-0 hidden block text-white-700 pt-xl"
                   >
-                    <li class="" v-for="wing in wings" :key="wing.slug">
+                    <li class="" v-for="wing in getWings" :key="wing.slug">
                       <nuxt-link
                         class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
                         :to="{ name: 'wing-slug', params: { slug: wing.slug } }"
                         >{{ wing.name }}
                       </nuxt-link>
                     </li>
-                  </ul> -->
+                  </ul>
                 </div>
               </li>
 
@@ -122,7 +126,7 @@
                   >
                     <li
                       class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
-                      v-for="menu in menuResources"
+                      v-for="menu in getMenuResources"
                       :key="menu.url"
                     >
                       <nuxt-link :to="menu.url" v-if="menu.url !== null">
@@ -150,28 +154,7 @@ export default {
   data() {
     return {
       wings: [],
-      menuResources: [
-        {
-          url: '/',
-          name: 'Sai shop'
-        },
-        {
-          url: '/',
-          name: 'Guidelines'
-        },
-        {
-          url: '/',
-          name: 'Links'
-        },
-        {
-          url: '/',
-          name: 'PWS resources'
-        },
-        {
-          url: '/',
-          name: 'Pre World Conference Videos'
-        }
-      ],
+
       menuRoot: [
         {
           url: '/',
@@ -195,62 +178,10 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    ...mapGetters(['getRegions', 'getWings', 'getMenuResources'])
   }
-  // async asyncData({ $http }) {
-  //   let url = 'region?fields=*.*'
-
-  //   const res = await $http.get(url)
-  //   const regionsData = await res.json()
-  //   console.log(regionsData)
-  //   // let filteredRegions = regionsData.data.map(region => {
-  //   //   // pluck properties from object
-  //   //   let { name, number, id, slug } = region
-  //   //   return {
-  //   //     name,
-  //   //     number,
-  //   //     id,
-  //   //     slug
-  //   //   }
-  //   // })
-
-  //   return {
-  //     regions: regionsData.data
-  //   }
-  // }
-  // async   {
-  //   // Get Regions
-  //   // const regionQuery = 'region?fields=*.*'
-  //   // const regionData = await this.$http.$get(regionQuery)
-
-  //   // Get Wings
-  //   const wingQuery = 'wing?fields=*.*'
-  //   const wingData = await this.$http.$get(wingQuery)
-
-  //   // let filteredRegions = regionData.data.map(region => {
-  //   //   // pluck properties from object
-  //   //   let { name, number, id, slug } = region
-  //   //   return {
-  //   //     name,
-  //   //     number,
-  //   //     id,
-  //   //     slug
-  //   //   }
-  //   // })
-
-  //   let filteredwings = wingData.data.map(wing => {
-  //     // pluck properties from object
-  //     let { name, number, id, slug } = wing
-  //     return {
-  //       name,
-  //       number,
-  //       id,
-  //       slug
-  //     }
-  //   })
-
-  //   // this.regions = filteredRegions
-  //   this.wings = filteredwings
-  // }
 }
 </script>
 
