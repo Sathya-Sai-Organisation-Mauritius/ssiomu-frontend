@@ -4,7 +4,7 @@
       <div>
         <nav role="navigation">
           <ul class="flex justify-end text-blue-500 text-sm">
-            <li class="p-2">
+            <li class="p-2 hidden md:block">
               <a href="http://localhost:4444" target="_blank">Log in</a>
             </li>
             <li class="p-2">Mauritius / Zone 9A</li>
@@ -14,7 +14,9 @@
     </div>
 
     <div class="main-menu-wrapper relative z-10 ">
-      <div class="container flex items-center mx-auto">
+      <div
+        class="container flex justify-center md:justify-start items-center mx-auto"
+      >
         <div>
           <div id="block-tailwingcss-branding">
             <div class="flex items-center">
@@ -24,7 +26,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="hidden md:block ">
           <nav role="navigation">
             <ul class="flex ml-4">
               <li

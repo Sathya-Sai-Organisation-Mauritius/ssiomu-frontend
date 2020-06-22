@@ -1,21 +1,6 @@
 <<template>
   <div>
-    <div class="front-landing">
-      <div
-        class="container mx-auto py-20 flex flex-col justify-center text-blue-700"
-      >
-        <h1 class="text-5xl font-black leading-none font-serif">
-          Sathya Sai <br />
-          International <br />
-          Organisation
-        </h1>
-        <p class="text-xl w-1/2 pt-5">
-          The main objective of the Sathya Sai Organisation is to help humanity
-          recognize its inherent divinity. It is established to translate the
-          principles of love and nonviolence into daily practice.
-        </p>
-      </div>
-    </div>
+    <HomeHero />
 
     <Announcements v-if="announcements" :information="announcements" />
     <BreakingNews v-if="breakingNews" :information="breakingNews" />
@@ -47,6 +32,7 @@
 
 <script>
 import Announcements from '~/components/Announcements.vue'
+import HomeHero from '~/components/HomeHero.vue'
 import UpcomingEvents from '~/components/UpcomingEvents.vue'
 import FeaturedPublications from '~/components/FeaturedPublications.vue'
 import PastEvents from '~/components/PastEvents.vue'
@@ -61,6 +47,7 @@ export default {
   },
   components: {
     BreakingNews,
+    HomeHero,
     Announcements,
     UpcomingEvents,
     FeaturedPublications,

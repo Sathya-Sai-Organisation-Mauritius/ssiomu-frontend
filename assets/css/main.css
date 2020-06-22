@@ -33,14 +33,6 @@ input {
   top: calc(-60px / 2);
 }
 
-/* Front Landing */
-.front-landing {
-  background-image: url('/images/bg-world.png');
-  background-size: contain;
-  background-position: right bottom;
-  background-repeat: no-repeat;
-}
-
 .gradient-bg {
   background: linear-gradient(90.32deg, #1c5877 0.09%, #0d2d3d 99.9%);
 }
