@@ -39,11 +39,20 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+@screen md {
+  .front-landing {
+    background-image: url('/images/bg-world.png');
+    background-size: auto 200%;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+  }
+}
+
 @screen lg {
   .front-landing {
     background-image: url('/images/bg-world.png');
     background-size: contain;
-    background-position: right bottom;
+    background-position: right top;
     background-repeat: no-repeat;
   }
 }

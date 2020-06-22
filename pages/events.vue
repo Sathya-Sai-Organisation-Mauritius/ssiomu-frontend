@@ -33,8 +33,10 @@ export default {
     PastEvents
   },
   async asyncData({ $http }) {
-    let upcomingEventsQuery = 'event?filter[from][gt]=now'
-    let pastEventsQuery = 'event?filter[from][lt]=now&fields=*.*'
+    let upcomingEventsQuery =
+      'event?filter[from][gt]=now&fields=*.*,region.name,region.number'
+    let pastEventsQuery =
+      'event?filter[from][lt]=now&fields=*.*,region.name,region.number'
 
     let upcomingEvents = await $http.get(upcomingEventsQuery)
     let upcomingEventsData = await upcomingEvents.json()
