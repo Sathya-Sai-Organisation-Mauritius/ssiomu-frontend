@@ -124,69 +124,7 @@
           </div>
         </div>
 
-        <div class="event-events-gallery gradient-bg py-8">
-          <div class="container mx-auto space-y-4  p-4 md:p-0">
-            <h2
-              class="font-serif text-center md:text-left text-white text-3xl leading-9 tracking-tight font-extrabold sm:text-4xl sm:leading-10"
-            >
-              Gallery
-            </h2>
-            <p class="text-white max-w-2xl text-xl leading-7">
-              Images of what happened during the event
-            </p>
-            <div class="text-white">
-              <div class="grid grid-cols-4 gap-3">
-                <Gallery
-                  v-for="(gallery, index) in events.data"
-                  :galleryvalues="gallery"
-                  :key="index"
-                />
-                <div>
-                  <img
-                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <img
-                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <img
-                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <img
-                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <img
-                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <img
-                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <img
-                    src="http://saibabamauritius.org/sites/default/files/photos/2C70BB2F-A799-47C6-B6E9-9AD6B5748663.jpeg"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Gallery />
       </div>
     </ErrorHandler>
   </div>

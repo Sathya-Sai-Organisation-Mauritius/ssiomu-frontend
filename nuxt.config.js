@@ -28,7 +28,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/axios'],
+  plugins: [
+    '~/plugins/axios',
+    { src: '~/plugins/vue-easy-lightbox.js', mode: 'client' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */ buildModules: [
@@ -38,7 +41,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxt/http', '@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios'],
   axios: {
     baseURL: 'http://localhost:4444/_/items/'
   },
