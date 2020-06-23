@@ -1,15 +1,6 @@
 <<template>
-  <div class="event-events-gallery gradient-bg py-8">
+  <div class="event-events-gallery py-8">
     <div class="container mx-auto space-y-4  p-4 md:p-0">
-      <h2
-        class="font-serif text-center md:text-left text-white text-3xl leading-9 tracking-tight font-extrabold sm:text-4xl sm:leading-10"
-      >
-        Gallery
-      </h2>
-      <p class="text-white max-w-2xl text-xl leading-7">
-        Images of what happened during the event
-      </p>
-
       <!-- all props & events -->
       <client-only>
         <vue-easy-lightbox
@@ -39,17 +30,18 @@
 
 <script>
 export default {
+  props: ['information'],
   data() {
     return {
       visible: false,
       index: 0, // default
-      images: [
-        'https://picsum.photos/seed/1/900/900',
-        'https://picsum.photos/seed/2/900/900',
-        'https://picsum.photos/seed/3/900/900',
-        'https://picsum.photos/seed/4/900/900'
-      ]
+      images: []
     }
+  },
+  mounted() {
+    this.images = this.information.map(item => {
+      return item.directus_files_id.data.full_url
+    })
   },
   methods: {
     show(index) {

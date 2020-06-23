@@ -88,4 +88,10 @@ html {
 .page-leave-active {
   opacity: 0;
 }
+
+a:focus {
+  outline-color: orange;
+  outline-width: 2px;
+  outline-style: solid;
+}
 </style>

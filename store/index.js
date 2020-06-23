@@ -3,23 +3,23 @@ export const state = () => ({
   wings: [],
   menuResources: [
     {
-      url: '/',
+      url: '/page/sai-shop',
       name: 'Sai shop'
     },
     {
-      url: '/',
+      url: '/page/guidelines',
       name: 'Guidelines'
     },
     {
-      url: '/',
+      url: '/page/links',
       name: 'Links'
     },
     {
-      url: '/',
+      url: '/page/pws-resources',
       name: 'PWS resources'
     },
     {
-      url: '/',
+      url: '/page/pre-world-conference-videos',
       name: 'Pre World Conference Videos'
     }
   ]

@@ -15,7 +15,7 @@
 
     <div class="main-menu-wrapper relative z-10 ">
       <div
-        class="container flex justify-center md:justify-start items-center mx-auto"
+        class="container flex justify-start md:justify-start items-center mx-auto"
       >
         <div>
           <div id="block-tailwingcss-branding">

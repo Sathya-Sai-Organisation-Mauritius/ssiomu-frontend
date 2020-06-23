@@ -124,7 +124,25 @@
           </div>
         </div>
 
-        <Gallery />
+        <!-- <pre> {{ gallery }}</pre> -->
+
+        <ErrorHandler :model="gallery">
+          <div class="gradient-bg " v-if="gallery.length > 0">
+            <div class="container mx-auto pt-8">
+              <h2
+                class="font-serif text-center md:text-left text-white text-3xl leading-9 tracking-tight font-extrabold sm:text-4xl sm:leading-10"
+              >
+                Gallery
+              </h2>
+            </div>
+
+            <Gallery
+              v-for="(oneGallery, index) in gallery"
+              :key="index"
+              :information="oneGallery.images"
+            />
+          </div>
+        </ErrorHandler>
       </div>
     </ErrorHandler>
   </div>
@@ -157,8 +175,16 @@ export default {
       .then(res => res)
       .catch(err => err)
 
+    const gallery = await $axios
+      .$get(
+        `gallery?filter[event.slug][eq]=${params.slug}&fields=*,images.directus_files_id.data.full_url`
+      )
+      .then(res => res)
+      .catch(err => err)
+
     return {
-      events: result.data[0]
+      events: result.data[0],
+      gallery: gallery.data
     }
   }
 }
