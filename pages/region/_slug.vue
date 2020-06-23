@@ -48,12 +48,10 @@
       />
     </ErrorHandler>
 
-    <ErrorHandler :model="regions">
-      <OfficeBearer
-        :information="regions.member"
-        v-if="regions.member.length > 0"
-      />
-    </ErrorHandler>
+    <OfficeBearer
+      v-if="regions && regions.member.length > 0"
+      :information="regions.member"
+    />
   </div>
 </template>
 
