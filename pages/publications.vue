@@ -15,7 +15,7 @@
         </p>
       </div>
 
-      <div>
+      <ErrorHandler :model="publications">
         <div
           class="mt-12 grid gap-5 mx-auto lg:grid-cols-3"
           v-if="publications"
@@ -26,12 +26,14 @@
             :pubvalues="pubDescription"
           />
         </div>
-      </div>
+      </ErrorHandler>
     </div>
   </div>
 </template>
 
 <script>
+import ErrorHandler from '~/components/Shared/ErrorHandler.vue'
+
 import PublicationBox from '~/components/PublicationBox.vue'
 
 export default {
@@ -44,12 +46,15 @@ export default {
     }
   },
   components: {
-    PublicationBox
+    PublicationBox,
+    ErrorHandler
   },
-  async asyncData({ $http }) {
-    const result = await $http.$get(
-      'publication?fields=*.*,photo.*,wing.name,wing.slug'
-    )
+  async asyncData({ $axios }) {
+    const result = await $axios
+      .$get('publication?fields=*.*,photo.*,wing.name,wing.slug')
+      .then(res => res)
+      .catch(err => err)
+
     return {
       publications: result.data
     }

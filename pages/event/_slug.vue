@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <ErrorHandler :model="events">
       <div>
         <div class="container mx-auto">
           <div class="event-details space-y-12 py-10 m-8 md:m-0">
@@ -188,16 +188,18 @@
           </div>
         </div>
       </div>
-    </div>
+    </ErrorHandler>
   </div>
 </template>
 
 <script>
 import Gallery from '~/components/Gallery.vue'
+import ErrorHandler from '~/components/Shared/ErrorHandler.vue'
 
 export default {
   components: {
-    Gallery
+    Gallery,
+    ErrorHandler
   },
   methods: {
     formatDate(param) {
@@ -210,9 +212,12 @@ export default {
       return fullDate
     }
   },
-  async asyncData({ params, $http }) {
+  async asyncData({ params, $axios }) {
     let url = `event?filter[slug][eq]=${params.slug}&single&fields=*.*,region.number,region.slug`
-    const result = await $http.$get(url)
+    const result = await $axios
+      .$get(url)
+      .then(res => res)
+      .catch(err => err)
 
     return {
       events: result.data[0]

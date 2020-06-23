@@ -1,23 +1,28 @@
 <template>
   <div>
-    <UpcomingEvents
-      :color="'gradient-bg'"
-      :textcolor="'text-blue-600'"
-      :information="upcomingEvents"
-    />
+    <ErrorHandler :model="upcomingEvents">
+      <UpcomingEvents
+        :color="'gradient-bg'"
+        :textcolor="'text-blue-600'"
+        :information="upcomingEvents"
+      />
+    </ErrorHandler>
 
-    <PastEvents
-      :subtitle="
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.'
-      "
-      :textalign="'text-center'"
-      :textcolor="'text-blue-600'"
-      :information="pastEvents"
-    />
+    <ErrorHandler :model="pastEvents">
+      <PastEvents
+        :subtitle="
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.'
+        "
+        :textalign="'text-center'"
+        :textcolor="'text-blue-600'"
+        :information="pastEvents"
+      />
+    </ErrorHandler>
   </div>
 </template>
 
 <script>
+import ErrorHandler from '~/components/Shared/ErrorHandler.vue'
 import UpcomingEvents from '~/components/UpcomingEvents.vue'
 import PastEvents from '~/components/PastEvents.vue'
 
@@ -30,23 +35,23 @@ export default {
   },
   components: {
     UpcomingEvents,
-    PastEvents
+    PastEvents,
+    ErrorHandler
   },
-  async asyncData({ $http }) {
-    let upcomingEventsQuery =
-      'event?filter[from][gt]=now&fields=*.*,region.name,region.number'
-    let pastEventsQuery =
-      'event?filter[from][lt]=now&fields=*.*,region.name,region.number'
+  async asyncData({ $axios }) {
+    let upcomingEvents = await $axios
+      .$get('event?filter[from][gt]=now&fields=*.*,region.name,region.number')
+      .then(res => res)
+      .catch(err => err)
 
-    let upcomingEvents = await $http.get(upcomingEventsQuery)
-    let upcomingEventsData = await upcomingEvents.json()
-
-    let pastEvents = await $http.get(pastEventsQuery)
-    let pastEventsData = await pastEvents.json()
+    let pastEvents = await $axios
+      .$get('event?filter[from][lt]=now&fields=*.*,region.name,region.number')
+      .then(res => res)
+      .catch(err => err)
 
     return {
-      upcomingEvents: upcomingEventsData.data,
-      pastEvents: pastEventsData.data
+      upcomingEvents: upcomingEvents.data,
+      pastEvents: pastEvents.data
     }
   }
 }

@@ -2,31 +2,42 @@
   <div>
     <HomeHero />
 
-    <Announcements v-if="announcements" :information="announcements" />
-    <BreakingNews v-if="breakingNews" :information="breakingNews" />
+    <ErrorHandler :model="announcements">
+      <Announcements :information="announcements" />
+    </ErrorHandler>
 
-    <UpcomingEvents
-      v-if="upcomingEvents"
-      :information="upcomingEvents"
-      :color="'gradient-bg'"
-      :textcolor="'text-blue-600'"
-    />
+    <ErrorHandler :model="breakingNews">
+      <BreakingNews v-if="breakingNews" :information="breakingNews" />
+    </ErrorHandler>
 
-    <FeaturedPublications
-      v-if="featuredPublications"
-      :information="featuredPublications"
-      :textalign="'text-center'"
-    />
+    <ErrorHandler :model="upcomingEvents">
+      <UpcomingEvents
+        v-if="upcomingEvents"
+        :information="upcomingEvents"
+        :color="'gradient-bg'"
+        :textcolor="'text-blue-600'"
+      />
+    </ErrorHandler>
 
-    <PastEvents
-      v-if="pastEvents"
-      :information="pastEvents"
-      :subtitle="
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.'
-      "
-      :textalign="'text-center'"
-      :textcolor="'text-blue-600'"
-    />
+    <ErrorHandler :model="featuredPublications">
+      <FeaturedPublications
+        v-if="featuredPublications"
+        :information="featuredPublications"
+        :textalign="'text-center'"
+      />
+    </ErrorHandler>
+
+    <ErrorHandler :model="pastEvents">
+      <PastEvents
+        v-if="pastEvents"
+        :information="pastEvents"
+        :subtitle="
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.'
+        "
+        :textalign="'text-center'"
+        :textcolor="'text-blue-600'"
+      />
+    </ErrorHandler>
   </div>
 </template>
 
@@ -37,6 +48,7 @@ import UpcomingEvents from '~/components/UpcomingEvents.vue'
 import FeaturedPublications from '~/components/FeaturedPublications.vue'
 import PastEvents from '~/components/PastEvents.vue'
 import BreakingNews from '~/components/BreakingNews.vue'
+import ErrorHandler from '~/components/Shared/ErrorHandler.vue'
 
 export default {
   head() {
@@ -51,39 +63,44 @@ export default {
     Announcements,
     UpcomingEvents,
     FeaturedPublications,
-    PastEvents
+    PastEvents,
+    ErrorHandler
   },
+  methods: {},
+  async asyncData({ store, $axios }) {
+    let announcements = await $axios
+      .$get('annoucement?fields=*.*,region.*')
+      .then(res => res)
+      .catch(err => err)
 
-  async asyncData({ $http }) {
-    const announcementsQuery = 'annoucement?fields=*.*,region.*'
-    const breakingNewsQuery = 'breaking_news'
-    const upcomingEventsQuery =
-      'event?filter[from][gt]=now&fields=*.*,region.name,region.number'
-    const featuredPublicationsQuery =
-      'publication?filter[featured][nempty]&limit=3&fields=*.*,photo.*,wing.*'
-    const pastEventsQuery = 'event?filter[from][lt]=now&fields=*.*'
+    let breakingNews = await $axios
+      .$get('breaking_news')
+      .then(res => res)
+      .catch(err => err)
 
-    const announcements = await $http.get(announcementsQuery)
-    const announcementsData = await announcements.json()
+    let upcomingEvents = await $axios
+      .$get('event?filter[from][gt]=now&fields=*.*,region.name,region.number')
+      .then(res => res)
+      .catch(err => err)
 
-    const breakingNews = await $http.get(breakingNewsQuery)
-    const breakingNewsData = await breakingNews.json()
+    let featuredPublications = await $axios
+      .$get(
+        'publication?filter[featured][nempty]&limit=3&fields=*.*,photo.*,wing.*'
+      )
+      .then(res => res)
+      .catch(err => err)
 
-    const upcomingEvents = await $http.get(upcomingEventsQuery)
-    const upcomingEventsData = await upcomingEvents.json()
-
-    const featuredPublications = await $http.get(featuredPublicationsQuery)
-    const featuredPublicationsData = await featuredPublications.json()
-
-    const pastEvent = await $http.get(pastEventsQuery)
-    const pastEventsData = await pastEvent.json()
+    let pastEvents = await $axios
+      .$get('event?filter[from][lt]=now&fields=*.*')
+      .then(res => res)
+      .catch(err => err)
 
     return {
-      announcements: announcementsData.data,
-      breakingNews: breakingNewsData.data,
-      upcomingEvents: upcomingEventsData.data,
-      featuredPublications: featuredPublicationsData.data,
-      pastEvents: pastEventsData.data
+      announcements: announcements.data,
+      breakingNews: breakingNews.data,
+      upcomingEvents: upcomingEvents.data,
+      featuredPublications: featuredPublications.data,
+      pastEvents: pastEvents.data
     }
   }
 }

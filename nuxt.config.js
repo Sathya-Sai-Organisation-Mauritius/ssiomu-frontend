@@ -28,19 +28,18 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/axios'],
   /*
    ** Nuxt.js dev-modules
-   */
-  buildModules: [
+   */ buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss'
   ],
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxt/http'],
-  http: {
+  modules: ['@nuxt/http', '@nuxtjs/axios'],
+  axios: {
     baseURL: 'http://localhost:4444/_/items/'
   },
   server: {

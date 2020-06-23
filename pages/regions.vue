@@ -9,15 +9,17 @@
             All regions
           </h2>
 
-          <div>
-            <div class="grid md:grid-cols-2 gap-4 " v-if="regions">
-              <RegionsComponentBox
-                v-for="(description, index) in regions"
-                :key="index"
-                :myvalues="description"
-              />
+          <ErrorHandler :model="regions">
+            <div>
+              <div class="grid md:grid-cols-2 gap-4 " v-if="regions">
+                <RegionsComponentBox
+                  v-for="(description, index) in regions"
+                  :key="index"
+                  :myvalues="description"
+                />
+              </div>
             </div>
-          </div>
+          </ErrorHandler>
         </div>
       </div>
     </div>
@@ -25,6 +27,8 @@
 </template>
 
 <script>
+import ErrorHandler from '~/components/Shared/ErrorHandler.vue'
+
 import RegionsComponentBox from '~/components/RegionsComponentBox.vue'
 
 export default {
@@ -37,13 +41,14 @@ export default {
     }
   },
   components: {
-    RegionsComponentBox
+    RegionsComponentBox,
+    ErrorHandler
   },
-  async asyncData({ $http }) {
-    let url = 'region?fields=*.*'
-
-    const res = await $http.get(url)
-    const regions = await res.json()
+  async asyncData({ $axios }) {
+    const regions = await $axios
+      .$get('region?fields=*.*')
+      .then(res => res)
+      .catch(err => err)
 
     return {
       regions: regions.data

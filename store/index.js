@@ -65,15 +65,20 @@ export const mutations = {
 }
 
 export const actions = {
+  handleError({ context }, err) {
+    console.log(err)
+    // announcements = { data: [] }
+    return {
+      data: []
+    }
+  },
   async nuxtServerInit({ commit }) {
-    let region = await this.$http.get('region?fields=*.*')
-    let regionData = await region.json()
+    let region = await this.$axios.$get('region?fields=*.*')
 
-    let wing = await this.$http.get('wing?fields=*.*')
-    let wingData = await wing.json()
+    let wing = await this.$axios.$get('wing?fields=*.*')
 
     // store into state
-    commit('SET_REGIONS', regionData.data)
-    commit('SET_WINGS', wingData.data)
+    commit('SET_REGIONS', region.data)
+    commit('SET_WINGS', wing.data)
   }
 }
