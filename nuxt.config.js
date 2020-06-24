@@ -1,5 +1,5 @@
 export default {
-  // target: 'static',
+  target: 'static',
   mode: 'universal',
   /*
    ** Headers of the page
@@ -43,7 +43,7 @@ export default {
    */
   modules: ['@nuxtjs/axios'],
   axios: {
-    baseURL: 'http://admin.sathyasai.mu:4444/_/items/'
+    baseURL: 'http://admin.sathyasai:4444/_/items/'
   },
   router: {
     // prefetchLinks: false
