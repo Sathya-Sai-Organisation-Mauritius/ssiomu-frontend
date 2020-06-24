@@ -43,7 +43,7 @@ export default {
    */
   modules: ['@nuxtjs/axios'],
   axios: {
-    baseURL: 'http://localhost:4444/_/items/'
+    baseURL: 'http://directus/_/items/'
   },
   server: {
     port: 3050 // default: 3000
