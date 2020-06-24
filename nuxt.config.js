@@ -43,10 +43,7 @@ export default {
    */
   modules: ['@nuxtjs/axios'],
   axios: {
-    baseURL: 'http://directus/_/items/'
-  },
-  server: {
-    port: 3050 // default: 3000
+    baseURL: 'http://admin.sathyasai.mu:4444/_/items/'
   },
   router: {
     // prefetchLinks: false
