@@ -83,10 +83,10 @@ export default {
     }
   },
   async asyncData({ params, $axios }) {
-    let regionsQuery = `region?filter[slug][eq]=${params.slug}&fields=*.*,member.member_id.name,,member.member_id.email,member.member_id.role,member.member_id.phone`
-    let upcomingEventsQuery = `event?filter[from][gt]=now&filter[region.slug][eq]=${params.slug}`
-    let pastEventsQuery = `event?filter[from][lt]=now&filter[region.slug][eq]=${params.slug}&fields=*.*`
-    let featuredPublicationsQuery = `publication?filter[region.slug][eq]=${params.slug}&fields=*.*`
+    let regionsQuery = `region?filter[slug][eq]=${params.slug}&filter[status]=published&fields=*.*,member.member_id.name,,member.member_id.email,member.member_id.role,member.member_id.phone`
+    let upcomingEventsQuery = `event?filter[from][gt]=now&filter[status]=published&filter[region.slug][eq]=${params.slug}`
+    let pastEventsQuery = `event?filter[from][lt]=now&filter[status]=published&filter[region.slug][eq]=${params.slug}&fields=*.*`
+    let featuredPublicationsQuery = `publication?filter[region.slug][eq]=${params.slug}&filter[status]=published&fields=*.*`
 
     let region = await $axios
       .$get(regionsQuery)

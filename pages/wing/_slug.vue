@@ -60,10 +60,10 @@ export default {
     ErrorHandler
   },
   async asyncData({ params, $axios }) {
-    let url = `wing?filter[slug][eq]=${params.slug}&fields=*.*`
-    let upcomingEventsQuery = `event?filter[from][gt]=now&filter[wing.slug][eq]=${params.slug}`
-    let pastEventsQuery = `event?filter[from][lt]=now&filter[wing.slug][eq]=${params.slug}&fields=*.*`
-    let featuredPublicationsQuery = `publication?filter[wing.slug][eq]=${params.slug}&fields=*.*`
+    let url = `wing?filter[slug][eq]=${params.slug}&filter[status]=published&fields=*.*`
+    let upcomingEventsQuery = `event?filter[from][gt]=now&filter[status]=published&filter[wing.slug][eq]=${params.slug}`
+    let pastEventsQuery = `event?filter[from][lt]=now&filter[status]=published&filter[wing.slug][eq]=${params.slug}&fields=*.*`
+    let featuredPublicationsQuery = `publication?filter[wing.slug][eq]=${params.slug}&filter[status]=published&fields=*.*`
 
     let upcomingEvents = await $axios
       .$get(upcomingEventsQuery)

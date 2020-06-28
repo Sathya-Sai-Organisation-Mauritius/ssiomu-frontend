@@ -12,7 +12,10 @@
             <h3 class=" font-bold text-md md:text-sm lg:text-xl">
               {{ myvalues.name }}
             </h3>
-            <div class="font-light text-md md:text-sm lg:text-sm">
+            <div
+              class="font-light text-md md:text-sm lg:text-sm"
+              v-if="myvalues.region"
+            >
               Region {{ myvalues.region.number }} - {{ myvalues.region.name }}
             </div>
           </div>

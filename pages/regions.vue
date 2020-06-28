@@ -46,7 +46,7 @@ export default {
   },
   async asyncData({ $axios }) {
     const regions = await $axios
-      .$get('region?fields=*.*')
+      .$get('region?filter[status]=published&fields=*.*')
       .then(res => res)
       .catch(err => err)
 

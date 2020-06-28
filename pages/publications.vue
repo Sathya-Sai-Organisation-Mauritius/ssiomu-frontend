@@ -51,7 +51,9 @@ export default {
   },
   async asyncData({ $axios }) {
     const result = await $axios
-      .$get('publication?fields=*.*,photo.*,wing.name,wing.slug')
+      .$get(
+        'publication?filter[status]=published&fields=*.*,photo.*,wing.name,wing.slug'
+      )
       .then(res => res)
       .catch(err => err)
 

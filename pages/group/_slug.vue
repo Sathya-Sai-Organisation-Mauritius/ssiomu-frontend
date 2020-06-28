@@ -98,7 +98,7 @@ export default {
     ErrorHandler
   },
   async asyncData({ params, $axios }) {
-    let url = `groups?filter[slug][eq]=${params.slug}&single&fields=*.*,type.label`
+    let url = `groups?filter[slug][eq]=${params.slug}&single&filter[status]=published&fields=*.*,type.label`
     const result = await $axios
       .$get(url)
       .then(res => res)
