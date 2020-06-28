@@ -1,3 +1,5 @@
+let development = process.env.NODE_ENV !== 'production'
+
 export default {
   target: 'static',
   mode: 'universal',
@@ -43,7 +45,9 @@ export default {
    */
   modules: ['@nuxtjs/axios'],
   axios: {
-    baseURL: 'http://admin.sathyasai.mu:4444/_/items/'
+    baseURL: development
+      ? 'https://localhost:4444'
+      : 'https://manage.sathyasai.mu'
   },
   router: {
     // prefetchLinks: false
