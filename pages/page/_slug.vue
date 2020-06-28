@@ -25,7 +25,7 @@ export default {
   },
 
   async asyncData({ params, $axios }) {
-    let url = `page?filter[slug][eq]=${params.slug}&fields=*.*`
+    let url = `page?filter[slug][eq]=${params.slug}&filter[status]=published&fields=*.*`
     const result = await $axios
       .$get(url)
       .then(res => res)

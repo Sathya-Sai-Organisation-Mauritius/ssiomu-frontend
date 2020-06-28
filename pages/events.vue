@@ -40,12 +40,16 @@ export default {
   },
   async asyncData({ $axios }) {
     let upcomingEvents = await $axios
-      .$get('event?filter[from][gt]=now&fields=*.*,region.name,region.number')
+      .$get(
+        'event?filter[from][gt]=now&filter[status]=published&fields=*.*,region.name,region.number'
+      )
       .then(res => res)
       .catch(err => err)
 
     let pastEvents = await $axios
-      .$get('event?filter[from][lt]=now&fields=*.*,region.name,region.number')
+      .$get(
+        'event?filter[from][lt]=now&filter[status]=published&fields=*.*,region.name,region.number'
+      )
       .then(res => res)
       .catch(err => err)
 

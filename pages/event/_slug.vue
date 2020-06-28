@@ -140,7 +140,7 @@ export default {
     }
   },
   async asyncData({ params, $axios }) {
-    let url = `event?filter[slug][eq]=${params.slug}&single&fields=*.*,region.number,region.slug`
+    let url = `event?filter[slug][eq]=${params.slug}&single&filter[status]=published&fields=*.*,region.number,region.slug`
     const result = await $axios
       .$get(url)
       .then(res => res)
@@ -148,7 +148,7 @@ export default {
 
     const gallery = await $axios
       .$get(
-        `gallery?filter[event.slug][eq]=${params.slug}&fields=*,images.directus_files_id.data.full_url`
+        `gallery?filter[event.slug][eq]=${params.slug}&filter[status]=published&fields=*,images.directus_files_id.data.full_url`
       )
       .then(res => res)
       .catch(err => err)

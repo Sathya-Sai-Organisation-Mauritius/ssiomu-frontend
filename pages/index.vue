@@ -69,7 +69,7 @@ export default {
   methods: {},
   async asyncData({ store, $axios }) {
     let announcements = await $axios
-      .$get('annoucement?fields=*.*,region.*')
+      .$get('annoucement?filter[status]=published&fields=*.*,region.*')
       .then(res => res)
       .catch(err => err)
 
@@ -79,19 +79,21 @@ export default {
       .catch(err => err)
 
     let upcomingEvents = await $axios
-      .$get('event?filter[from][gt]=now&fields=*.*,region.name,region.number')
+      .$get(
+        'event?filter[from][gt]=now&filter[status]=published&fields=*.*,region.name,region.number'
+      )
       .then(res => res)
       .catch(err => err)
 
     let featuredPublications = await $axios
       .$get(
-        'publication?filter[featured][nempty]&limit=3&fields=*.*,photo.*,wing.*'
+        'publication?filter[featured][nempty]&filter[status]=published&limit=3&fields=*.*,photo.*,wing.*'
       )
       .then(res => res)
       .catch(err => err)
 
     let pastEvents = await $axios
-      .$get('event?filter[from][lt]=now&fields=*.*')
+      .$get('event?filter[from][lt]=now&filter[status]=published&fields=*.*')
       .then(res => res)
       .catch(err => err)
 
