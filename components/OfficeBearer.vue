@@ -42,6 +42,7 @@
                 </thead>
                 <tbody>
                   <OfficeBearerBox
+                    v-if="officeBearer.member_id"
                     v-for="(officeBearer, index) in members"
                     :officebearervalues="officeBearer.member_id"
                     :key="index"

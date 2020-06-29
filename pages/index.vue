@@ -74,7 +74,7 @@ export default {
       .catch(err => err)
 
     let breakingNews = await $axios
-      .$get('breaking_news')
+      .$get('breaking_news?filter[status]=published')
       .then(res => res)
       .catch(err => err)
 

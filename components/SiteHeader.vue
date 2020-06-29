@@ -126,12 +126,12 @@
                   <ul
                     class="dropdown-menu absolute left-0 hidden block text-white-700 shadow-xl "
                   >
-                    <li
-                      class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
-                      v-for="menu in getMenuResources"
-                      :key="menu.url"
-                    >
-                      <nuxt-link :to="menu.url" v-if="menu.url !== null">
+                    <li v-for="menu in getMenuResources" :key="menu.url">
+                      <nuxt-link
+                        :to="menu.url"
+                        v-if="menu.url !== null"
+                        class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
+                      >
                         {{ menu.name }}
                       </nuxt-link>
                       <div v-else>

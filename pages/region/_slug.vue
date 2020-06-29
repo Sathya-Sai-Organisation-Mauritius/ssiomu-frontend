@@ -49,7 +49,7 @@
     </ErrorHandler>
 
     <OfficeBearer
-      v-if="regions && regions.member.length > 0"
+      v-if="regions && regions.member && regions.member.length > 0"
       :information="regions.member"
     />
   </div>

@@ -30,10 +30,7 @@
         </ErrorHandler>
       </div>
       <div v-else>
-        <h2
-          class="font-serif text-3xl text-center font-bold text-black"
-          :class="textalign"
-        >
+        <h2 class="font-serif text-3xl text-center font-bold text-black">
           No publications on this page
         </h2>
       </div>
