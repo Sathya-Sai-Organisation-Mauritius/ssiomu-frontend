@@ -34,6 +34,7 @@
       <div class="mt-2 sm:flex sm:justify-between">
         <div class="sm:flex">
           <a
+            v-if="pasteventvalues.wing !== null"
             :href="'/wing/' + pasteventvalues.wing.slug"
             class="hover:underline"
           >
@@ -54,6 +55,7 @@
             </div>
           </a>
           <a
+            v-if="pasteventvalues.group !== null"
             :href="'/group/' + pasteventvalues.group.slug"
             class="hover:underline"
           >

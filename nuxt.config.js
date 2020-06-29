@@ -68,7 +68,7 @@ export default {
   modules: ['@nuxtjs/axios'],
   axios: {
     baseURL: development
-      ? 'https://localhost:4444/_/items/'
+      ? 'https://localhost:8443/_/items/'
       : 'https://manage.sathyasai.mu/_/items/'
   },
   router: {
