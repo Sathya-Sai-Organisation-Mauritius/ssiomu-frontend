@@ -65,7 +65,18 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/axios'],
+  modules: [
+    '@nuxtjs/axios',
+    [
+      '@rainmakerdigital/nuxt-google-fonts',
+      {
+        google: {
+          families: ['Merriweather:700'],
+          downloadFonts: true
+        }
+      }
+    ]
+  ],
   axios: {
     baseURL: development
       ? 'https://localhost:8443/_/items/'
