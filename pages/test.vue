@@ -1,4 +1,4 @@
-<<template>
+<template>
   <div>
     <h3 class="p-3 text-center">Vue HTTP GET Requests with Fetch</h3>
     <GetRequest />

@@ -1,6 +1,6 @@
-<<template>
+<template>
   <div class="event-events-gallery py-8">
-    <div class="container mx-auto space-y-4  p-4 md:p-0">
+    <div class="container mx-auto space-y-4 p-4 md:p-0">
       <!-- all props & events -->
       <client-only>
         <vue-easy-lightbox
@@ -15,11 +15,7 @@
 
       <div class="text-white">
         <div class="grid grid-cols-4 gap-3">
-          <div
-            v-for="(image, index) in images"
-            :key="index"
-            @click="() => show(index)"
-          >
+          <div v-for="(image, index) in images" :key="index" @click="() => show(index)">
             <img :src="image" />
           </div>
         </div>

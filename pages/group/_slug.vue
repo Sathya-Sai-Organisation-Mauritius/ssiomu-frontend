@@ -1,18 +1,12 @@
-<<template>
+<template>
   <div>
     <ErrorHandler :model="groups">
       <div class="container mx-auto">
         <div class="information-details space-y-12 py-10">
           <div class="information-title font-bold space-x-2 center">
-            <h1
-              class="lg:text-6xl lg:justify-start text-4xl flex justify-center"
-            >
-              {{ groups.name }}
-            </h1>
+            <h1 class="lg:text-6xl lg:justify-start text-4xl flex justify-center">{{ groups.name }}</h1>
           </div>
-          <table
-            class="table-fixed overflow-hidden mx-12 md:mx-0 sm:rounded-md border shadow-lg"
-          >
+          <table class="table-fixed overflow-hidden mx-12 md:mx-0 sm:rounded-md border shadow-lg">
             <thead>
               <tr>
                 <!-- <th class="text-6xl col-span-2 px-4 py-2">Roche Bois</th> -->
@@ -22,12 +16,8 @@
               <tr class="border-b">
                 <td
                   class="md:px-6 px-2 md:py-6 py-1 text-sm md:text-lg leading-5 font-bold text-blue-600 border-r truncate"
-                >
-                  Status
-                </td>
-                <td
-                  class="flex border-gray-200 md:px-6 px-2 md:py-6 md:text-lg text-gray-600"
-                >
+                >Status</td>
+                <td class="flex border-gray-200 md:px-6 px-2 md:py-6 md:text-lg text-gray-600">
                   <svg
                     class="flex-shrink-0 mr-2 h-5 md:w-5 w-3 text-gray-600"
                     fill="currentColor"
@@ -45,13 +35,8 @@
               <tr class="border-b">
                 <td
                   class="md:px-6 px-2 md:py-6 py-1 text-sm md:text-lg leading-5 font-bold text-blue-600 border-r truncate"
-                >
-                  Found In
-                </td>
-                <td
-                  class="flex md:px-6 px-2 md:py-6 md:text-lg text-gray-600"
-                  v-if="groups.region"
-                >
+                >Found In</td>
+                <td class="flex md:px-6 px-2 md:py-6 md:text-lg text-gray-600" v-if="groups.region">
                   <svg
                     class="flex-shrink-0 mr-2 h-5 md:w-5 w-3 text-gray-600"
                     fill="currentColor"
@@ -64,7 +49,7 @@
                     />
                   </svg>
                   <nuxt-link
-                    :to="'/region/' + groups.region.slug"
+                    :to="{name: 'region-slug', params: { slug:   groups.region.slug} }"
                     class="hover:underline"
                   >
                     {{ groups.region.name }} - Region
@@ -75,12 +60,10 @@
               <tr class="rounded-b-sm">
                 <td
                   class="md:px-6 px-2 md:py-6 py-1 text-sm md:text-lg leading-5 font-bold text-blue-600 border-r truncate"
-                >
-                  Other details
-                </td>
-                <td class="flex md:px-6 px-2 md:py-6 md:text-lg text-gray-600">
-                  Daechwita daechwita, im the king am the boss, traditional MV
-                </td>
+                >Other details</td>
+                <td
+                  class="flex md:px-6 px-2 md:py-6 md:text-lg text-gray-600"
+                >Daechwita daechwita, im the king am the boss, traditional MV</td>
               </tr>
             </tbody>
           </table>

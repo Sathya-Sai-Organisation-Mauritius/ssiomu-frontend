@@ -1,4 +1,4 @@
-<<template>
+<template>
   <div>
     <div class="py-20 gradient-bg">
       <div class="container mx-auto">
@@ -6,9 +6,7 @@
           <h2
             class="font-serif text-4xl font-bold text-white pb-8"
             :class="textalign"
-          >
-            Upcoming Events
-          </h2>
+          >Upcoming Events</h2>
 
           <div>
             <div class="grid md:grid-cols-3 gap-8 text-blue-600">
@@ -24,9 +22,7 @@
           <h2
             class="font-serif text-2xl text-center font-bold text-white"
             :class="textalign"
-          >
-            No upcoming events on this page
-          </h2>
+          >No upcoming events on this page</h2>
         </div>
       </div>
     </div>

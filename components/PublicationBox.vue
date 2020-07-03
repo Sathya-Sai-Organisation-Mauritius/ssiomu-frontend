@@ -1,18 +1,18 @@
-<<template>
+<template>
   <div
     class="flex flex-col transition duration-500 transition-shadow shadow-md hover:shadow-lg overflow-hidden mb-4"
   >
     <div>
       <div class="flex-shrink-0">
         <nuxt-link
-          :to="'/publication/' + pubvalues.slug"
+          :to="{name: 'publication-slug', params: { slug:  pubvalues.slug} }"
           class="hover:underline"
         >
           <img
             class="h-48 w-full object-cover"
             v-if="pubvalues.photo"
             :src="pubvalues.photo.data.full_url"
-            alt=""
+            alt
           />
           <img v-else src="https://picsum.photos/400/200" />
         </nuxt-link>
@@ -21,20 +21,18 @@
         <div class="flex-1">
           <p class="text-xs uppercase leading-5 font-medium text-blue-600">
             <nuxt-link
-              :to="'/wing/' + pubvalues.wing.slug"
+              :to="{name: 'wing-slug', params: { slug: pubvalues.wing.slug} }"
               class="hover:underline"
               v-if="pubvalues.wing"
-            >
-              {{ pubvalues.wing.name }}
-            </nuxt-link>
+            >{{ pubvalues.wing.name }}</nuxt-link>
           </p>
           <nuxt-link
-            :to="'/publication/' + pubvalues.slug"
+            :to="{name: 'publication-slug', params: { slug:  pubvalues.slug} }"
             class="hover:underline"
           >
-            <h3 class="pt-2 pb-3 text-xl leading-7 font-semibold text-gray-900">
-              {{ pubvalues.title }}
-            </h3>
+            <h3
+              class="pt-2 pb-3 text-xl leading-7 font-semibold text-gray-900"
+            >{{ pubvalues.title }}</h3>
           </nuxt-link>
         </div>
 
@@ -43,25 +41,19 @@
             <div
               class="h-10 w-10 rounded-full text-center font-bold flex items-center justify-center bg-orange-500 text-white text-2xl"
               v-if="pubvalues.region"
-            >
-              {{ pubvalues.region.number }}
-            </div>
+            >{{ pubvalues.region.number }}</div>
           </div>
 
           <div class="ml-3">
             <p class="text-sm leading-5 font-medium text-gray-900">
               <nuxt-link
-                :to="'/region/' + pubvalues.region.slug"
+                :to="{name: 'region-slug', params: { slug:  pubvalues.region.slug} }"
                 class="hover:underline"
                 v-if="pubvalues.region"
-              >
-                {{ pubvalues.region.name }}
-              </nuxt-link>
+              >{{ pubvalues.region.name }}</nuxt-link>
             </p>
             <div class="flex text-sm leading-5 text-gray-600">
-              <time datetime="2020-03-16">
-                {{ formatDate(pubvalues.date) }}
-              </time>
+              <time datetime="2020-03-16">{{ formatDate(pubvalues.date) }}</time>
             </div>
           </div>
         </div>

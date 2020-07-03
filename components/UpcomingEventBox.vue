@@ -1,23 +1,19 @@
 <template>
   <div class="description">
-    <nuxt-link :to="'/event/' + myvalues.slug">
+    <nuxt-link :to="{name: 'event-slug', params: { slug:   myvalues.slug} }">
       <div class="views-row bg-white p-8 mx-4 md:m-2">
-        <div class="grid  md:grid-cols-4 gap-4">
+        <div class="grid md:grid-cols-4 gap-4">
           <div
-            class="col-span-1 font-bold text-xl md:text-2xl lg:text-3xl text-left  md:text-right leading-none"
+            class="col-span-1 font-bold text-xl md:text-2xl lg:text-3xl text-left md:text-right leading-none"
           >
             <div class="date">{{ formatDate(myvalues.from) }}</div>
           </div>
           <div class="col-span-3 text-left md:text-center lg:text-left">
-            <h3 class=" font-bold text-md md:text-sm lg:text-xl">
-              {{ myvalues.name }}
-            </h3>
+            <h3 class="font-bold text-md md:text-sm lg:text-xl">{{ myvalues.name }}</h3>
             <div
               class="font-light text-md md:text-sm lg:text-sm"
               v-if="myvalues.region"
-            >
-              Region {{ myvalues.region.number }} - {{ myvalues.region.name }}
-            </div>
+            >Region {{ myvalues.region.number }} - {{ myvalues.region.name }}</div>
           </div>
         </div>
       </div>
