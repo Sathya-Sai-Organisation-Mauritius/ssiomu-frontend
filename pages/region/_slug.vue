@@ -48,6 +48,10 @@
       />
     </ErrorHandler>
 
+    <ErrorHandler :model="groups">
+      <GroupsOfRegion v-if="groups.length > 0" :information="groups" />
+    </ErrorHandler>
+
     <OfficeBearer
       v-if="regions && regions.member && regions.member.length > 0"
       :information="regions.member"
@@ -60,6 +64,7 @@ import UpcomingEvents from '../../components/UpcomingEvents.vue'
 import FeaturedPublications from '../../components/FeaturedPublications.vue'
 import PastEvents from '../../components/PastEvents.vue'
 import OfficeBearer from '../../components/OfficeBearer.vue'
+import GroupsOfRegion from '../../components/GroupsOfRegion.vue'
 import ErrorHandler from '~/components/Shared/ErrorHandler.vue'
 
 export default {
@@ -68,6 +73,7 @@ export default {
     FeaturedPublications,
     PastEvents,
     OfficeBearer,
+    GroupsOfRegion,
     ErrorHandler
   },
 
@@ -87,6 +93,7 @@ export default {
     let upcomingEventsQuery = `event?filter[from][gt]=now&filter[status]=published&filter[region.slug][eq]=${params.slug}`
     let pastEventsQuery = `event?filter[from][lt]=now&filter[status]=published&filter[region.slug][eq]=${params.slug}&fields=*.*`
     let featuredPublicationsQuery = `publication?filter[region.slug][eq]=${params.slug}&filter[status]=published&fields=*.*`
+    let groupsQuery = `groups?filter[region.slug][eq]=${params.slug}&filter[status]=published&fields=*.*`
 
     let region = await $axios
       .$get(regionsQuery)
@@ -108,10 +115,16 @@ export default {
       .then(res => res)
       .catch(err => err)
 
+    let regionGroups = await $axios
+      .$get(groupsQuery)
+      .then(res => res)
+      .catch(err => err)
+
     return {
       upcomingEvents: upcomingEvents.data,
       pastEvents: pastEvents.data,
       featuredPublications: featuredPublications.data,
+      groups: regionGroups.data,
       regions: region.data[0]
     }
   }

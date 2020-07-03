@@ -1,99 +1,67 @@
 <<template>
   <div class="footer-details gradient-bg">
     <div class="container mx-auto">
-      <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div class="grid grid-cols-2 gap-8 xl:col-span-2">
-            <div class="md:grid md:grid-cols-1 md:gap-8">
-              <div>
-                <h4
-                  class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase"
-                >
-                  Regions
-                </h4>
-                <ul class="mt-4 gap-5 grid md:grid-cols-2">
-                  <li v-for="region in getRegions" :key="region.slug">
-                    <nuxt-link
-                      :to="'/region/' + region.slug"
-                      class="text-base leading-6 text-gray-300 hover:text-white"
-                    >
-                      {{ region.name }}
-                    </nuxt-link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="md:grid md:grid-cols-2 md:gap-8">
-              <div class="mt-12 md:mt-0">
-                <h4
-                  class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase"
-                >
-                  Wings
-                </h4>
-                <ul class="mt-4 space-y-4">
-                  <li v-for="wing in getWings" :key="wing.id">
-                    <nuxt-link
-                      :to="'/wing/' + wing.slug"
-                      class="text-base leading-6 text-gray-300 hover:text-white"
-                    >
-                      {{ wing.name }}
-                    </nuxt-link>
-                  </li>
-                </ul>
-              </div>
-              <div class="mt-12 md:mt-0">
-                <h4
-                  class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase"
-                >
-                  Resources
-                </h4>
-                <ul class="mt-4">
-                  <li></li>
-
-                  <li
-                    class="text-base leading-6 text-gray-300 hover:text-white"
-                    v-for="menu in getMenuResources"
-                    :key="menu.url"
-                  >
-                    <nuxt-link :to="menu.url" v-if="menu.url !== null">
-                      {{ menu.name }}
-                    </nuxt-link>
-                    <div v-else>
-                      {{ menu.name }}
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="mt-8 xl:mt-0">
-            <h4
-              class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase"
-            >
-              Section Header
-            </h4>
-            <p class="mt-4 text-gray-300 text-base leading-6">
-              The latest news, articles, and resources, sent to your inbox
-              weekly.
-            </p>
-            <form class="mt-4 sm:flex sm:max-w-md">
-              <input
-                aria-label="Email address"
-                type="email"
-                required
-                class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out"
-                placeholder="Enter your email"
-              />
-              <div
-                class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0"
+      <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-8 lg:px-8">
+        <div class="xl:grid xl:gap-8">
+          <div class="md:grid md:grid-cols-4 md:gap-8">
+            <nuxt-link to="/" title="Home" rel="home" class="block px-10">
+              <img src="/images/logo.png" alt="Home" />
+            </nuxt-link>
+            <div class="mt-12 md:mt-0">
+              <h4
+                class="text-sm leading-5 font-semibold tracking-wider text-gray-100 uppercase"
               >
-                <button
-                  class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-500 hover:bg-blue-400 focus:outline-none focus:bg-blue-400 transition duration-150 ease-in-out"
+                Regions
+              </h4>
+              <ul class="mt-4 space-y-5">
+                <li v-for="region in getRegions" :key="region.slug">
+                  <nuxt-link
+                    :to="'/region/' + region.slug"
+                    class="text-base leading-6 text-gray-300 hover:text-white"
+                  >
+                    {{ region.name }}
+                  </nuxt-link>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-12 md:mt-0">
+              <h4
+                class="text-sm leading-5 font-semibold tracking-wider text-gray-100 uppercase"
+              >
+                Wings
+              </h4>
+              <ul class="mt-4 space-y-5">
+                <li v-for="wing in getWings" :key="wing.id">
+                  <nuxt-link
+                    :to="'/wing/' + wing.slug"
+                    class="text-base leading-6 text-gray-300 hover:text-white"
+                  >
+                    {{ wing.name }}
+                  </nuxt-link>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-12 md:mt-0">
+              <h4
+                class="text-sm leading-5 font-semibold tracking-wider text-gray-100 uppercase"
+              >
+                Resources
+              </h4>
+              <ul class="mt-4 space-y-5">
+                <li
+                  class="text-base leading-6 text-gray-300 hover:text-white"
+                  v-for="menu in getMenuResources"
+                  :key="menu.url"
                 >
-                  Subscribe
-                </button>
-              </div>
-            </form>
+                  <nuxt-link :to="menu.url" v-if="menu.url !== null">
+                    {{ menu.name }}
+                  </nuxt-link>
+                  <div v-else>
+                    {{ menu.name }}
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div
