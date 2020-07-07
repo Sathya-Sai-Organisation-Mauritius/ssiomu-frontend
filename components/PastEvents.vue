@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200">
+  <div class="bg-white pastevents-section">
     <div class="container mx-auto relative pt-12 pb-24 px-4 sm:px-6 lg:px-8">
       <div v-if="pastevents.length > 0">
         <div class="pb-12" :class="textalign">
@@ -46,4 +46,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.pastevents-section {
+  background-image: url('/images/past-events.jpg');
+  background-size: auto 50vh;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+}
+</style>

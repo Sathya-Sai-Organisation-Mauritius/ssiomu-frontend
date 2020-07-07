@@ -47,7 +47,7 @@ export default {}
 
 @screen lg {
   .front-landing {
-    background-image: url('/images/intro.svg');
+    background-image: url('/images/intro-01.svg');
     background-size: contain;
     background-position: right top;
     background-repeat: no-repeat;

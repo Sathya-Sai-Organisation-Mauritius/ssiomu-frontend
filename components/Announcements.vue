@@ -3,6 +3,9 @@
     <div v-if="announcements.length > 0">
       <div class="container mx-auto px-4 md:px-0 py-10 flex flex-col justify-center text-blue-500">
         <div class="lg:flex mb-4 items-center space-x-10">
+          <div class="w-0 lg:w-1/2 hidden -ml-2 lg:block lg:overflow-hidden">
+            <!-- <img class="h-full w-full overflow-hidden" src="/images/announcement_1.svg" /> -->
+          </div>
           <div class="w-2/2 lg:w-1/2 lg:mr-4">
             <div class="text-center pb-10">
               <h2
@@ -22,9 +25,6 @@
                 </ul>
               </div>
             </div>
-          </div>
-          <div class="w-0 lg:w-1/2 hidden -ml-2 lg:block lg:overflow-hidden">
-            <img class="h-full w-full overflow-hidden" src="/images/sai-art.svg" />
           </div>
         </div>
       </div>
@@ -58,4 +58,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+@screen lg {
+  .announcement-details {
+    background-image: url('/images/announcement_1.svg');
+    background-size: 30vw 30vh;
+    background-position: 20vw center;
+    background-repeat: no-repeat;
+    min-height: 30vh;
+  }
+}
+</style>
