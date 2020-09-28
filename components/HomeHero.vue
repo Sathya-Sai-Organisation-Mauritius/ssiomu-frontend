@@ -45,6 +45,13 @@ export default {}
   }
 }
 
+h1,
+p {
+  text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 2px 2px 0px #fff,
+    -2px -2px 0px #fff, 3px 3px 0px #fff, -3px -3px 0px #fff, 4px 4px 0px #fff,
+    -4px -4px 0px #fff, 5px 5px 0px #fff, -5px -5px 0px #fff;
+}
+
 @screen lg {
   .front-landing {
     background-image: url('/images/intro-01.svg');
