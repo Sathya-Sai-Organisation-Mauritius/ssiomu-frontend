@@ -1,4 +1,4 @@
-let development = process.env.NODE_ENV !== 'production'
+let development = false //process.env.NODE_ENV !== 'production'
 
 export default {
   target: 'static',

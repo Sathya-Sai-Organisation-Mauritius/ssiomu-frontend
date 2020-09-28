@@ -13,16 +13,17 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/axios": "^5.12.2",
     "@rainmakerdigital/nuxt-google-fonts": "^1.0.6",
-    "nuxt": "^2.13.0",
-    "sass": "^1.26.8",
+    "@tailwindcss/typography": "^0.2.0",
+    "nuxt": "^2.14.6",
+    "sass": "^1.26.11",
     "sass-loader": "^8.0.2",
     "vue-easy-lightbox": "^0.13.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0",
-    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^1.19.1"
   }
