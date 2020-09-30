@@ -5,8 +5,15 @@
         <div class="pb-12" :class="textalign">
           <h2
             class="font-serif text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10"
-          >Past events</h2>
-          <p v-if="subtitle" class="mt-3 text-xl leading-7 text-gray-700 sm:mt-4">{{ subtitle }}</p>
+          >
+            Past events
+          </h2>
+          <p
+            v-if="subtitle"
+            class="mt-3 text-xl leading-7 text-gray-700 sm:mt-4"
+          >
+            {{ subtitle }}
+          </p>
         </div>
 
         <div>
@@ -25,7 +32,9 @@
         <h2
           class="font-serif text-3xl text-center font-bold text-black"
           :class="textalign"
-        >No past events to show</h2>
+        >
+          No past events to show
+        </h2>
       </div>
     </div>
   </div>
