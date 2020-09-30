@@ -3,6 +3,9 @@ module.exports = {
   theme: {
     fontFamily: {
       serif: ['Merriweather', 'Georgia', 'Cambria']
+    },
+    maxWidth: {
+      xxs: '13rem'
     }
   },
   variants: {
