@@ -8,7 +8,7 @@
               class="event-details grid gap-1 grid-rows-2 md:grid-cols-2 space-y-12 py-6 md:py-10 border-b border-gray-20"
             >
               <div
-                class="event-title font-bold flex col-span-1 space-x-2 md:items-center justify-center"
+                class="event-title font-bold flex col-span-1 space-x-2 items-center md:items-start justify-center md:justify-start"
               >
                 <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl">
                   {{ events.name }}
@@ -37,7 +37,7 @@
         </div>
 
         <div class="container mx-auto">
-          <div class="event-details space-y-12 pb-10">
+          <div class="event-details space-y-12 md:pb-10">
             <div class="md:grid grid-cols-2">
               <div
                 class="event-description md:text-left md:mx-0 mx-4 md:py-0 py-6"
@@ -53,45 +53,49 @@
                 ></div>
               </div>
 
-              <div class="my-12 md:mx-0 mx-4 md:my-0 lg:ml-8 event-schedule">
-                <h2
-                  class="text-left md:text-center mb-4 text-3xl leading-5 md:leading-9 tracking-tight font-extrabold text-gray-800 sm:text-3xl sm:leading-10"
+              <div class="flex md:justify-end justify-start items-center">
+                <div
+                  class="my-12 w-full md:ml-24 md:mr-0 mx-4 md:my-0  event-schedule"
                 >
-                  Schedule
-                </h2>
-                <div class="serif">
-                  <div class="md:mx-12 lg:flex contact mt-4">
-                    <h3
-                      class="flex items-center w-50 md:w-64 lg:font-semibold justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent bg-orange-500 md:bg-blue-600 text-base leading-5 md:leading-6 font-medium text-center text-white"
-                    >
-                      From
-                    </h3>
-
-                    <div
-                      class="lg:flex font-semibold text-gray-600 rounded-b-none md:rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 w-full"
-                    >
-                      <div
-                        class="text-center text-xl text-gray-600 font-bold py-0 md:py-2"
+                  <h2
+                    class="text-left md:text-center mb-4 text-3xl leading-5 md:leading-9 tracking-tight font-extrabold text-gray-800 sm:text-3xl sm:leading-10"
+                  >
+                    Schedule
+                  </h2>
+                  <div class="serif">
+                    <div class="lg:flex contact mt-4">
+                      <h3
+                        class="flex items-center w-50 md:w-64 lg:font-semibold justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent bg-orange-500 md:bg-blue-600 text-base leading-5 md:leading-6 font-medium text-center text-white"
                       >
-                        {{ formatDate(events.to) }}
+                        From
+                      </h3>
+
+                      <div
+                        class="lg:flex font-semibold text-gray-600 rounded-b-none md:rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 w-full"
+                      >
+                        <div
+                          class="text-center text-xl md:mx-0 mx-8 text-gray-600 font-bold py-0 md:py-2"
+                        >
+                          {{ formatDate(events.to) }}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="md:mx-12 lg:flex contact mt-3 md:mt-1">
-                    <h3
-                      class="flex items-center w-50 md:w-64 lg:font-semibold justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent text-center bg-orange-500 md:bg-blue-600 text-base leading-5 md:leading-6 font-medium text-center text-white"
-                    >
-                      To
-                    </h3>
-
-                    <div
-                      class="lg:flex font-semibold text-gray-600 rounded-b-none md:rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 text-center w-full"
-                    >
-                      <div
-                        class="text-center text-xl text-gray-600 font-bold py-0 md:py-2"
+                    <div class="lg:flex contact mt-3 md:mt-1">
+                      <h3
+                        class="flex items-center w-50 md:w-64 lg:font-semibold justify-center text-center rounded-t-md lg:rounded-t-none lg:rounded-l-md border border-transparent text-center bg-orange-500 md:bg-blue-600 text-base leading-5 md:leading-6 font-medium text-center text-white"
                       >
-                        {{ formatDate(events.to) }}
+                        To
+                      </h3>
+
+                      <div
+                        class="lg:flex font-semibold text-gray-600 rounded-b-none md:rounded-b-md lg:rounded-b-none lg:rounded-r-md justify-center text-center border-2 border-gray-400 text-center w-full"
+                      >
+                        <div
+                          class="text-center text-xl md:mx-0 mx-8 text-gray-600 font-bold py-0 md:py-2"
+                        >
+                          {{ formatDate(events.to) }}
+                        </div>
                       </div>
                     </div>
                   </div>
