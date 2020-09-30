@@ -4,29 +4,41 @@
       <ErrorHandler :model="publications">
         <div v-if="publications">
           <div class="container mx-auto">
-            <div class="publication-details space-y-12 py-10">
-              <div
-                class="publications-details grid gap-1 md:grid-cols-3 space-y-4 py-2 border-b border-gray-20"
-              >
+            <div class="publication-details space-y-12 md:py-10 pt-8 pb-10">
+              <div class="publications-details py-2 border-b border-gray-20">
                 <div
-                  class="publications-title font-bold flex md:col-span-2 space-x-2 items-center justify-center md:justify-start"
+                  class="grid gap-1 grid-rows-2 md:grid-rows-none md:grid-cols-2"
                 >
-                  <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl">{{ publications.title }}</h1>
-                </div>
-                <div class="relative col-span-1 mx-12 flex items-center justify-center">
                   <div
-                    class="text-center lg:absolute lg:text-2xl top-0 right-0 text-gray-700 bg-black-100 border-2 border-gray-400 rounded-full p-2 md:p-3 px-4 md:px-8 lg:px-10 font-black"
-                    v-if="publications.region"
+                    class="publications-title font-bold flex space-x-2 items-center justify-center md:justify-start"
                   >
-                    <nuxt-link
-                      :to="{name: 'region-slug', params: { slug:   publications.region.slug} }"
-                      class="hover:underline"
-                    >Region {{ publications.region.number }}</nuxt-link>
+                    <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl">
+                      {{ publications.title }}
+                    </h1>
+                  </div>
+                  <div
+                    class="relative flex justify-center items-top md:items-center"
+                  >
+                    <div
+                      class="absolute md:right-0 text-md md:text-2xl text-gray-700 bg-black-100 border-2 border-black-900 rounded-full p-1 md:p-2 lg:p-3 px-4 md:px-8 lg:px-10 font-black"
+                      v-if="publications.region"
+                    >
+                      <nuxt-link
+                        :to="{
+                          name: 'region-slug',
+                          params: { slug: publications.region.slug }
+                        }"
+                        class="hover:underline"
+                        >Region {{ publications.region.number }}</nuxt-link
+                      >
+                    </div>
                   </div>
                 </div>
                 <div
-                  class="italic flex justify-center md:justify-start"
-                >Published on: {{ formatDate(publications.date) }}</div>
+                  class="italic flex justify-center md:justify-start pt-4 md:pt-8"
+                >
+                  Published on: {{ formatDate(publications.date) }}
+                </div>
               </div>
             </div>
           </div>
@@ -35,26 +47,34 @@
             <div class="publication-details space-y-12 pb-10">
               <div class="publication-description">
                 <div
-                  class="description-body space-y-2 flex justify-center md:justify-start"
+                  class="description-body space-y-2 flex justify-center justify-center"
                   v-html="publications.body"
                 ></div>
               </div>
 
-              <div class="flex flex-col text-center md:text-left">
+              <div class="flex flex-col text-left">
                 <div v-if="publications.wing" class>
                   Wing:
                   <nuxt-link
-                    :to="{name: 'wing-slug', params: { slug:   publications.wing.slug} }"
+                    :to="{
+                      name: 'wing-slug',
+                      params: { slug: publications.wing.slug }
+                    }"
                     class="hover:font-bold underline"
-                  >{{ publications.wing.name }}</nuxt-link>
+                    >{{ publications.wing.name }}</nuxt-link
+                  >
                 </div>
 
                 <div v-if="publications.region" class>
                   Region:
                   <nuxt-link
-                    :to="{name: 'region-slug', params: { slug:   publications.region.slug} }"
+                    :to="{
+                      name: 'region-slug',
+                      params: { slug: publications.region.slug }
+                    }"
                     class="hover:font-bold underline"
-                  >{{ publications.region.name }}</nuxt-link>
+                    >{{ publications.region.name }}</nuxt-link
+                  >
                 </div>
 
                 <div
