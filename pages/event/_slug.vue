@@ -40,7 +40,7 @@
           <div class="event-details space-y-12 md:pb-10">
             <div class="md:grid grid-cols-2">
               <div
-                class="event-description md:text-left md:mx-0 mx-4 md:py-0 py-6"
+                class="event-description md:text-left md:mx-0 mx-4 md:py-0 pb-6"
               >
                 <h2
                   class="text-3xl leading-9 tracking-tight font-extrabold text-gray-800 sm:text-4xl sm:leading-10 mb-4"
