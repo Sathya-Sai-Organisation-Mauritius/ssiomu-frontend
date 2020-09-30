@@ -1,13 +1,15 @@
 <template>
   <tr class="bg-white">
     <td
-      class="px-6 py-4 whitespace-no-wrap text-lg leading-5 font-medium text-gray-900"
+      class="px-2 md:px-6 py-4 whitespace-no-wrap text-left text-sm md:text-lg leading-5 font-medium text-gray-900"
     >
       <nuxt-link :to="{ name: 'group-slug', params: { slug: values.slug } }">{{
         values.name
       }}</nuxt-link>
     </td>
-    <td class="px-6 py-4 whitespace-no-wrap text-lg leading-5 text-gray-500">
+    <td
+      class="px-2 md:px-6 py-4 whitespace-no-wrap text-left text-sm md:text-lg leading-5 text-gray-500"
+    >
       {{ formatType(values.type) }}
     </td>
   </tr>
