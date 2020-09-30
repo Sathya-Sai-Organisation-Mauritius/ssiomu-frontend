@@ -2,18 +2,31 @@
   <div>
     <div class="container mx-auto">
       <ErrorHandler :model="regions">
-        <div v-if="regions" class="region-details grid gap-1 grid-cols-2 space-y-12 py-10">
-          <div class="region-title font-bold flex col-span-1 space-x-2 items-center">
-            <h1 class="font-serif text-5xl">{{ regions.name }}</h1>
+        <div
+          v-if="regions"
+          class="region-details grid gap-1 grid-rows-2 md:grid-cols-2 space-y-12 py-6 md:py-10"
+        >
+          <div
+            class="region-title font-bold flex col-span-1 space-x-2 justify-center md:items-center"
+          >
+            <h1
+              class="font-serif font-extrabold text-3xl md:text-4xl lg:text-5xl"
+            >
+              {{ regions.name }}
+            </h1>
           </div>
-          <div class="relative col-span-1" style="margin-top: 0;">
+          <div
+            class="relative col-span-1 flex justify-center items-top md:items-center"
+            style="margin-top: 0;"
+          >
             <div
-              class="absolute top-0 right-0 text-2xl text-gray-700 bg-black-100 border-2 border-black-900 rounded-full p-3 px-10 font-black"
+              class="absolute md:right-0 text--md md:text-2xl text-gray-700 bg-black-100 border-2 border-black-900 rounded-full p-1 md:p-2 lg:p-3 px-4 md:px-8 lg:px-10 font-black"
             >
               <nuxt-link
-                :to="{name: 'region-slug', params: { slug:   regions.slug} }"
+                :to="{ name: 'region-slug', params: { slug: regions.slug } }"
                 class="hover:underline"
-              >Region {{ regions.number }}</nuxt-link>
+                >Region {{ regions.number }}</nuxt-link
+              >
             </div>
           </div>
         </div>
