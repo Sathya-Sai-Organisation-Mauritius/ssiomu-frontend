@@ -80,7 +80,7 @@ export default {
 
     let upcomingEvents = await $axios
       .$get(
-        'event?filter[from][gt]=now&filter[status]=published&fields=*.*,region.name,region.number'
+        'event?filter[from][gt]=now&filter[status]=published&limit=5&fields=*.*,region.name,region.number'
       )
       .then(res => res)
       .catch(err => err)
