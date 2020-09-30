@@ -39,7 +39,9 @@
         <div class="container mx-auto">
           <div class="event-details space-y-12 pb-10">
             <div class="md:grid grid-cols-2">
-              <div class="event-description md:text-left md:py-0 py-6">
+              <div
+                class="event-description md:text-left md:mx-0 mx-4 md:py-0 py-6"
+              >
                 <h2
                   class="text-3xl leading-9 tracking-tight font-extrabold text-gray-800 sm:text-4xl sm:leading-10 mb-4"
                 >
@@ -51,7 +53,7 @@
                 ></div>
               </div>
 
-              <div class="my-12 md:my-0 lg:ml-8 event-schedule">
+              <div class="my-12 md:mx-0 mx-4 md:my-0 lg:ml-8 event-schedule">
                 <h2
                   class="text-left md:text-center mb-4 text-3xl leading-5 md:leading-9 tracking-tight font-extrabold text-gray-800 sm:text-3xl sm:leading-10"
                 >
