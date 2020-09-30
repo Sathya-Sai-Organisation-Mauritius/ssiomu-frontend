@@ -1,8 +1,8 @@
 <template>
-  <div class="container mx-auto py-12">
+  <div class="container mx-auto pb-12 md:py-12">
     <div class="region-team space-y-4">
       <h2
-        class="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10"
+        class="text-xl md:text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10"
       >
         Office Bearers
       </h2>
@@ -19,18 +19,18 @@
                 <thead>
                   <tr>
                     <th
-                      class="px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-sm leading-4 font-bold text-gray-500 uppercase tracking-wider"
+                      class="px-2 md:px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-sm leading-4 font-bold text-gray-500 uppercase tracking-wider"
                     >
                       Name
                     </th>
                     <!-- <th
-                      class="px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-sm leading-4 font-bold text-gray-500 uppercase tracking-wider"
+                      class="px-2 md:px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-sm leading-4 font-bold text-gray-500 uppercase tracking-wider"
                     >Title</th>
                     <th
-                      class="px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-sm leading-4 font-bold text-gray-500 uppercase tracking-wider"
+                      class="px-2 md:px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-sm leading-4 font-bold text-gray-500 uppercase tracking-wider"
                     >Email</th> -->
                     <th
-                      class="px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-sm leading-4 font-bold text-gray-500 uppercase tracking-wider"
+                      class="px-1 md:px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-sm leading-4 font-bold text-gray-500 uppercase tracking-wider"
                     >
                       Role
                     </th>
