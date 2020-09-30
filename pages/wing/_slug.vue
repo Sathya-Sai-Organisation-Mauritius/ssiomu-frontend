@@ -5,16 +5,18 @@
         <div v-if="wings">
           <div class="container mx-auto ">
             <div
-              class=" wing-details space-y-12 py-20 flex flex-col items-center"
+              class=" wing-details space-y-10 md:space-y-12 py-12 md:py-20 flex flex-col items-center"
             >
               <div class="wing-title font-bold space-x-2 items-center">
-                <h1 class="font-serif text-6xl text-center">
+                <h1
+                  class="font-serif border-b border-black  md:border-none text-3xl md:text-4xl lg:text-6xl text-center"
+                >
                   {{ wings.name }}
                 </h1>
               </div>
 
               <div
-                class="wing-description space-y-3 prose "
+                class="wing-description space-y-3 text-sm lg:text-lg max-w-xs md:max-w-4xl prose "
                 v-html="wings.description"
               ></div>
             </div>
