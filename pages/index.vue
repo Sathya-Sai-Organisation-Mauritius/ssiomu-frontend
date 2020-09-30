@@ -93,7 +93,9 @@ export default {
       .catch(err => err)
 
     let pastEvents = await $axios
-      .$get('event?filter[from][lt]=now&filter[status]=published&fields=*.*')
+      .$get(
+        'event?filter[from][lt]=now&filter[status]=published&limit=5&fields=*.*'
+      )
       .then(res => res)
       .catch(err => err)
 
