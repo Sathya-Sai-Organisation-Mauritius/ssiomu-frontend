@@ -4,53 +4,74 @@
       <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-8 lg:px-8">
         <div class="xl:grid xl:gap-8">
           <div class="md:grid md:grid-cols-4 md:gap-8">
-            <nuxt-link :to="{ name: 'index' }" title="Home" rel="home" class="block px-10">
-              <img src="/images/logo.png" alt="Home" />
+            <nuxt-link
+              :to="{ name: 'index' }"
+              title="Home"
+              rel="home"
+              class="block md:px-10 flex justify-start items-center"
+            >
+              <img
+                class="w-32 h-32 md:w-48 md:h-44"
+                src="/images/logo.png"
+                alt="Home"
+              />
             </nuxt-link>
             <div class="mt-12 md:mt-0">
               <h4
                 class="text-sm leading-5 font-semibold tracking-wider text-gray-100 uppercase"
-              >Regions</h4>
+              >
+                Regions
+              </h4>
               <ul class="mt-4 space-y-5">
                 <li v-for="region in getRegions" :key="region.slug">
                   <nuxt-link
-                    :to="{name: 'region-slug', params: { slug:   region.slug} }"
+                    :to="{ name: 'region-slug', params: { slug: region.slug } }"
                     class="text-base leading-6 text-gray-300 hover:text-white"
-                  >{{ region.name }}</nuxt-link>
+                    >{{ region.name }}</nuxt-link
+                  >
                 </li>
               </ul>
             </div>
             <div class="mt-12 md:mt-0">
               <h4
                 class="text-sm leading-5 font-semibold tracking-wider text-gray-100 uppercase"
-              >Wings</h4>
+              >
+                Wings
+              </h4>
               <ul class="mt-4 space-y-5">
                 <li v-for="wing in getWings" :key="wing.id">
                   <nuxt-link
-                    :to="{name: 'wing-slug', params: { slug:   wing.slug} }"
+                    :to="{ name: 'wing-slug', params: { slug: wing.slug } }"
                     class="text-base leading-6 text-gray-300 hover:text-white"
-                  >{{ wing.name }}</nuxt-link>
+                    >{{ wing.name }}</nuxt-link
+                  >
                 </li>
               </ul>
             </div>
             <div class="mt-12 md:mt-0">
               <h4
                 class="text-sm leading-5 font-semibold tracking-wider text-gray-100 uppercase"
-              >Resources</h4>
+              >
+                Resources
+              </h4>
               <ul class="mt-4 space-y-5">
                 <li
                   class="text-base leading-6 text-gray-300 hover:text-white"
                   v-for="menu in getMenuResources"
                   :key="menu.url"
                 >
-                  <nuxt-link :to="menu.url" v-if="menu.url !== null">{{ menu.name }}</nuxt-link>
+                  <nuxt-link :to="menu.url" v-if="menu.url !== null">{{
+                    menu.name
+                  }}</nuxt-link>
                   <div v-else>{{ menu.name }}</div>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+        <div
+          class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between"
+        >
           <div class="flex md:order-2">
             <a href="#" class="text-gray-400 hover:text-gray-300">
               <span class="sr-only">Facebook</span>
