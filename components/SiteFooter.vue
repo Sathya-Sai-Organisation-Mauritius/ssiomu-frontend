@@ -8,10 +8,10 @@
               :to="{ name: 'index' }"
               title="Home"
               rel="home"
-              class="block md:px-10 flex justify-start items-center"
+              class="block md:px-10 flex justify-start items-center md:items-start md:justify-start"
             >
               <img
-                class="w-32 h-32 md:w-48 md:h-44"
+                class="w-32 h-32 md:w-48 md:h-48"
                 src="/images/logo.png"
                 alt="Home"
               />
