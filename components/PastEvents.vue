@@ -29,7 +29,7 @@
           <div class="flex justify-center items-center pt-8">
             <a href=""
               ><div
-                class="px-8 py-4 inline-block gradient-bg text-white rounded-md shadow-lg font-bold tracking-wide hover:text-orange-400 "
+                class="px-8 md:py-4 py-2 inline-block gradient-bg text-white rounded-md shadow-lg font-bold tracking-wide hover:text-orange-400 "
               >
                 View more
               </div></a
