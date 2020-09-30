@@ -3,24 +3,33 @@
     <div class="px-4 py-4 sm:px-6">
       <div class="flex items-center justify-between">
         <nuxt-link
-          :to="{name: 'event-slug', params: { slug: pasteventvalues.slug} }"
+          :to="{ name: 'event-slug', params: { slug: pasteventvalues.slug } }"
           class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
         >
           <div
-            class="text-lg leading-5 font-bold text-blue-600 truncate"
+            class="text-lg leading-5 max-w-xs md:max-w-6xl font-bold text-blue-600 truncate"
             :class="textcolor"
-          >{{ pasteventvalues.name }}</div>
+          >
+            {{ pasteventvalues.name }}
+          </div>
         </nuxt-link>
 
-        <div class="ml-2 flex-shrink-0 flex" v-if="pasteventvalues.region !== null">
+        <div
+          class="ml-2 flex-shrink-0 flex"
+          v-if="pasteventvalues.region !== null"
+        >
           <nuxt-link
-            :to="{name: 'region-slug', params: { slug: pasteventvalues.region.slug} }"
+            :to="{
+              name: 'region-slug',
+              params: { slug: pasteventvalues.region.slug }
+            }"
             class="hover:underline"
             v-if="pasteventvalues.region"
           >
             <span
               class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800"
-            >Region {{ pasteventvalues.region.number }}</span>
+              >Region {{ pasteventvalues.region.number }}</span
+            >
           </nuxt-link>
         </div>
       </div>
@@ -28,7 +37,10 @@
         <div class="sm:flex">
           <nuxt-link
             v-if="pasteventvalues.wing !== null"
-            :to="{name: 'wing-slug', params: { slug:   pasteventvalues.wing.slug} }"
+            :to="{
+              name: 'wing-slug',
+              params: { slug: pasteventvalues.wing.slug }
+            }"
             class="hover:underline"
           >
             <div
@@ -49,7 +61,10 @@
           </nuxt-link>
           <nuxt-link
             v-if="pasteventvalues.group !== null"
-            :to="{name: 'group-slug', params: { slug:   pasteventvalues.group.slug} }"
+            :to="{
+              name: 'group-slug',
+              params: { slug: pasteventvalues.group.slug }
+            }"
             class="hover:underline"
           >
             <div
@@ -71,7 +86,9 @@
             </div>
           </nuxt-link>
         </div>
-        <div class="mt-2 flex items-center text-sm leading-5 text-gray-600 sm:mt-0">
+        <div
+          class="mt-2 flex items-center text-sm leading-5 text-gray-600 sm:mt-0"
+        >
           <svg
             class="flex-shrink-0 mr-2 h-5 w-5 text-gray-600"
             fill="currentColor"
@@ -85,9 +102,7 @@
           </svg>
           <span>
             <time datetime="2020-01-07">
-              {{
-              formatDate(pasteventvalues.from)
-              }}
+              {{ formatDate(pasteventvalues.from) }}
             </time>
           </span>
         </div>
