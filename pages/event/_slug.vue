@@ -2,20 +2,20 @@
   <div>
     <ErrorHandler :model="events">
       <div>
-        <div class="container mx-auto">
-          <div class="event-details space-y-12 py-10">
+        <div class="container mx-auto ">
+          <div class="event-details md:mx-0 mx-4 space-y-12 py-10">
             <div
               class="event-details grid gap-1 grid-rows-2 md:grid-cols-2 space-y-12 py-6 md:py-10 border-b border-gray-20"
             >
               <div
-                class="event-title font-bold flex col-span-1 space-x-2 md:items-center justify-center"
+                class="event-title font-bold flex col-span-1 space-x-2 md:items-center justify-start"
               >
                 <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl">
                   {{ events.name }}
                 </h1>
               </div>
               <div
-                class="relative col-span-1 flex justify-center items-top md:items-center"
+                class="relative col-span-1 flex justify-start items-top md:items-center"
                 style="margin-top: 0;"
               >
                 <div
