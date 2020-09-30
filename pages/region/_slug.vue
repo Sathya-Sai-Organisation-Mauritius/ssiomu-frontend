@@ -20,7 +20,7 @@
             style="margin-top: 0;"
           >
             <div
-              class="absolute md:right-0 text--md md:text-2xl text-gray-700 bg-black-100 border-2 border-black-900 rounded-full p-1 md:p-2 lg:p-3 px-4 md:px-8 lg:px-10 font-black"
+              class="absolute md:right-0 text-md md:text-2xl text-gray-700 bg-black-100 border-2 border-black-900 rounded-full p-1 md:p-2 lg:p-3 px-4 md:px-8 lg:px-10 font-black"
             >
               <nuxt-link
                 :to="{ name: 'region-slug', params: { slug: regions.slug } }"

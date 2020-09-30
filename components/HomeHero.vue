@@ -15,17 +15,17 @@
       <div class="flex justify-center md:justify-start space-x-5">
         <nuxt-link
           :to="{ name: 'page-slug', params: { slug: 'about' } }"
-          class="p-2 text-sm md:text-md w-40 lg:w-48 text-center rounded bg-orange-500 cursor-pointer text-white block"
+          class="p-2 text-sm md:text-md w-40 hover:bg-orange-600 lg:w-48 text-center rounded bg-orange-500 cursor-pointer text-white block"
           >Learn more</nuxt-link
         >
         <nuxt-link
           :to="{ name: 'events' }"
-          class="p-2 text-sm md:text-md w-40 lg:w-48 text-center rounded bg-orange-500 cursor-pointer text-white block"
+          class="p-2 text-sm md:text-md w-40 hover:bg-orange-600 lg:w-48 text-center rounded bg-orange-500 cursor-pointer text-white block"
           >Events</nuxt-link
         >
         <nuxt-link
           :to="{ name: 'publications' }"
-          class="p-2 text-sm md:text-md w-40 lg:w-48 text-center rounded bg-orange-500 cursor-pointer text-white block"
+          class="p-2 text-sm md:text-md w-40 hover:bg-orange-600 lg:w-48 text-center rounded bg-orange-500 cursor-pointer text-white block"
           >Publications</nuxt-link
         >
       </div>
