@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="py-20 ">
+    <div class="pt-10 pb-16 md:py-20 ">
       <div class="container mx-auto">
         <div>
           <h2
