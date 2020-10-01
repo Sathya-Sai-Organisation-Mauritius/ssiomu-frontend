@@ -40,7 +40,7 @@
 
         <div class="container mx-auto">
           <div class="event-details md:space-y-12 md:pb-12">
-            <div class="md:grid grid-cols-2">
+            <div class="grid grid-rows-2 md:grid-rows-none md:grid-cols-2">
               <div
                 class="event-description md:text-left md:mx-0 mx-4 md:py-0 pb-6"
               >
@@ -50,7 +50,7 @@
                   Description
                 </h2>
                 <div
-                  class="description-body max-w-sm space-y-3 "
+                  class="description-body space-y-2 max-w-sm flex flex-col justify-center justify-center "
                   v-html="events.description"
                 ></div>
               </div>
