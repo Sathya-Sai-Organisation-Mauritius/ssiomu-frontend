@@ -50,7 +50,7 @@
                   Description
                 </h2>
                 <div
-                  class="description-body space-y-3 "
+                  class="description-body max-w-sm space-y-3 "
                   v-html="events.description"
                 ></div>
               </div>

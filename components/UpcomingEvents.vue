@@ -4,7 +4,7 @@
       <div class="container mx-auto">
         <div v-if="events.length > 0">
           <h2
-            class="font-serif text-3xl font-bold text-white pb-8"
+            class="font-serif text-3xl font-bold text-center md:text-left  text-white pb-8"
             :class="textalign"
           >
             Upcoming Events
