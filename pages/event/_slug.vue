@@ -3,9 +3,11 @@
     <ErrorHandler :model="events">
       <div>
         <div class="container mx-auto ">
-          <div class="event-details md:mx-0 mx-4 space-y-12 py-10">
+          <div
+            class="event-details md:mx-0 mx-4 space-y-12 pt-4 pb-8 md:my-10 "
+          >
             <div
-              class="event-details grid gap-1 grid-rows-2 md:grid-cols-2 space-y-12 py-6 md:py-10 border-b border-gray-20"
+              class="event-details grid gap-1 grid-rows-2 md:grid-rows-none md:grid-cols-2 space-y-12 py-6 md:py-10 border-b border-gray-20"
             >
               <div
                 class="event-title font-bold flex col-span-1 space-x-2 items-center md:items-start justify-center md:justify-start"
@@ -37,7 +39,7 @@
         </div>
 
         <div class="container mx-auto">
-          <div class="event-details space-y-12 md:pb-10">
+          <div class="event-details md:space-y-12 md:pb-12">
             <div class="md:grid grid-cols-2">
               <div
                 class="event-description md:text-left md:mx-0 mx-4 md:py-0 pb-6"
@@ -48,7 +50,7 @@
                   Description
                 </h2>
                 <div
-                  class="description-body space-y-2 prose"
+                  class="description-body space-y-3 "
                   v-html="events.description"
                 ></div>
               </div>
