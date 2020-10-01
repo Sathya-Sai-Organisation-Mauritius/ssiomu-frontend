@@ -10,7 +10,7 @@
             class="region-title font-bold flex col-span-1 space-x-2 justify-center md:items-center"
           >
             <h1
-              class="font-serif font-extrabold text-3xl md:text-4xl lg:text-5xl"
+              class="font-serif font-extrabold text-2xl md:text-4xl lg:text-5xl"
             >
               {{ regions.name }}
             </h1>
