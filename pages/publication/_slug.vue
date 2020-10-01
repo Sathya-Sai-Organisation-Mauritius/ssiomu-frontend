@@ -45,9 +45,9 @@
 
           <div class="container mx-auto">
             <div class="publication-details space-y-12 pb-10">
-              <div class="publication-description">
+              <div class="publication-description ">
                 <div
-                  class="description-body space-y-2 flex justify-center justify-center"
+                  class="description-body space-y-2 flex flex-col justify-center justify-center"
                   v-html="publications.body"
                 ></div>
               </div>
