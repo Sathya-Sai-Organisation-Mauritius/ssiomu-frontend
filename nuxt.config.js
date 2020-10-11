@@ -1,8 +1,8 @@
 let development = false //process.env.NODE_ENV !== 'production'
 
 export default {
-  // target: "",
-  mode: 'universal',
+  // target: "", static
+
   /*
    ** Headers of the page
    */
