@@ -4,7 +4,7 @@
       class="container mx-auto text-center lg:text-left py-20 flex flex-col justify-center text-blue-700 space-y-5"
     >
       <h1 class="text-4xl md:text-5xl font-black leading-tight font-serif">
-        Sathya Sai
+        Sri Sathya Sai
         <br />International <br />Organisation Mauritius
       </h1>
       <p class="text-xl lg:w-1/2">
