@@ -88,7 +88,9 @@
           </div>
           <p class="mt-8 text-base leading-6 text-gray-400 md:mt-0 md:order-1">
             &copy; 2020 Sathya Sai International Organisation. All rights
-            reserved.
+            reserved. | Contact Us : s<span></span>si<span></span>om.m<span
+            ></span>au<span></span>riti<span></span>us@<span></span>gma<span
+            ></span>il<span></span>.com
           </p>
         </div>
       </div>
