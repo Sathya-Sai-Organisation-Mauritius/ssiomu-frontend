@@ -5,22 +5,6 @@ export const state = () => ({
     {
       url: '/page/sai-shop',
       name: 'Sai shop'
-    },
-    {
-      url: '/page/guidelines',
-      name: 'Guidelines'
-    },
-    {
-      url: '/page/links',
-      name: 'Links'
-    },
-    {
-      url: '/page/pws-resources',
-      name: 'PWS resources'
-    },
-    {
-      url: '/page/pre-world-conference-videos',
-      name: 'Pre World Conference Videos'
     }
   ]
 })

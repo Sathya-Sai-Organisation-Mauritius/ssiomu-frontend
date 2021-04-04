@@ -3,7 +3,9 @@
     <div class="container mx-auto">
       <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-8 lg:px-8">
         <div class="xl:grid xl:gap-8">
-          <div class="md:grid md:grid-cols-4 md:gap-8">
+          <div
+            class="flex flex-col items-center text-center justify-center md:text-left md:items-start md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 gap-8"
+          >
             <nuxt-link
               :to="{ name: 'index' }"
               title="Home"
@@ -32,38 +34,23 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-12 md:mt-0">
-              <h4
-                class="text-sm leading-5 font-semibold tracking-wider text-gray-100 uppercase"
-              >
-                Wings
-              </h4>
-              <ul class="mt-4 space-y-5">
-                <li v-for="wing in getWings" :key="wing.id">
-                  <nuxt-link
-                    :to="{ name: 'wing-slug', params: { slug: wing.slug } }"
-                    class="text-base leading-6 text-gray-300 hover:text-white"
-                    >{{ wing.name }}</nuxt-link
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="mt-12 md:mt-0">
+
+            <div class="mt-12 md:mt-0 md:col-span-2">
               <h4
                 class="text-sm leading-5 font-semibold tracking-wider text-gray-100 uppercase"
               >
                 Resources
               </h4>
-              <ul class="mt-4 space-y-5">
+              <ul class="mt-4 gap-4 grid md:grid-cols-2">
                 <li
                   class="text-base leading-6 text-gray-300 hover:text-white"
-                  v-for="menu in getMenuResources"
+                  v-for="menu in footerLinks"
                   :key="menu.url"
                 >
                   <nuxt-link :to="menu.url" v-if="menu.url !== null">{{
-                    menu.name
+                    menu.title
                   }}</nuxt-link>
-                  <div v-else>{{ menu.name }}</div>
+                  <div v-else>{{ menu.title }}</div>
                 </li>
               </ul>
             </div>
@@ -113,7 +100,77 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['getRegions', 'getWings', 'getMenuResources'])
+    ...mapGetters(['getRegions', 'getWings'])
+  },
+  data() {
+    return {
+      footerLinks: [
+        {
+          title: 'Sri Sathya Sai International Org',
+          url: 'https://www.sathyasai.org/'
+        },
+
+        {
+          title: 'Sri Sathya Sai Humanitarian Relief ',
+          url: 'http://sathyasaihumanitarianrelief.org/updates/'
+        },
+
+        {
+          title: 'Sri Sathya Sai Universe',
+          url: 'http://saiuniverse.sathyasai.org/'
+        },
+
+        {
+          title: 'Sai Cast ',
+          url: 'http://www.saicast.org/'
+        },
+
+        {
+          title: 'Sai Love In Action ',
+          url: 'http://www.sailoveinaction.org/about'
+        },
+
+        {
+          title: 'Radio Sai Global Harmony ',
+          url: 'http://media.radiosai.org/www/'
+        },
+
+        {
+          title: 'Prashanthi Reporter ',
+          url: 'http://www.theprasanthireporter.org/'
+        },
+
+        {
+          title: 'Easwaramma Women’s Welfare Trust ',
+          url: 'http://www.ewwt.org.in/'
+        },
+
+        {
+          title: 'Radio Sai - Sri Sathya Sai Speaks',
+          url: 'http://media.radiosai.org/www/ssspeaks/'
+        },
+
+        {
+          title: 'Sri Sathya Sai Central Trust ',
+          url: 'https://sssmt.org.in/pages/index.html'
+        },
+
+        {
+          title: 'Sri Sathya Sai Sadhana Trust ',
+          url: 'http://sssbpt.org/index.html'
+        },
+
+        {
+          title: 'Sri Sathya Sai Media Centre',
+          url: 'https://sssmediacentre.org/#/'
+        },
+
+        {
+          title: 'Sri Sathya Sai Vidya Vahini ',
+          url: 'https://www.srisathyasaividyavahini.org/'
+        }
+      ]
+    }
   }
 }
 </script>
