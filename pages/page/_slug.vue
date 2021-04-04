@@ -11,7 +11,18 @@
             </h1>
           </div>
 
-          <div class="page-description space-y-3" v-html="pages.body"></div>
+          <div class="md:flex">
+            <div
+              class="page-description space-y-3 col-span-9"
+              v-html="pages.body"
+            ></div>
+
+            <RelatedLinks
+              class="w-full md:max-w-xs md:col-span-3"
+              v-if="pages && pages.related_links"
+              :related_links="pages.related_links"
+            />
+          </div>
         </div>
       </div>
     </ErrorHandler>
@@ -20,10 +31,12 @@
 
 <script>
 import ErrorHandler from '~/components/Shared/ErrorHandler.vue'
+import RelatedLinks from '~/components/Shared/RelatedLinks.vue'
 
 export default {
   components: {
-    ErrorHandler
+    ErrorHandler,
+    RelatedLinks
   },
 
   async asyncData({ params, $axios }) {
