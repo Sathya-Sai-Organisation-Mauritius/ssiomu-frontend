@@ -10,7 +10,7 @@
               :to="{ name: 'index' }"
               title="Home"
               rel="home"
-              class="block md:px-10 flex justify-start items-center md:items-start md:justify-start"
+              class="md:px-10 flex justify-start items-center md:items-start md:justify-start"
             >
               <img
                 class="w-32 h-32 md:w-48 md:h-48"
@@ -18,28 +18,12 @@
                 alt="Home"
               />
             </nuxt-link>
-            <div class="mt-12 md:mt-0">
-              <h4
-                class="text-sm leading-5 font-semibold tracking-wider text-gray-100 uppercase"
-              >
-                Regions
-              </h4>
-              <ul class="mt-4 space-y-5">
-                <li v-for="region in getRegions" :key="region.slug">
-                  <nuxt-link
-                    :to="{ name: 'region-slug', params: { slug: region.slug } }"
-                    class="text-base leading-6 text-gray-300 hover:text-white"
-                    >{{ region.name }}</nuxt-link
-                  >
-                </li>
-              </ul>
-            </div>
 
             <div class="mt-12 md:mt-0 md:col-span-2">
               <h4
                 class="text-sm leading-5 font-semibold tracking-wider text-gray-100 uppercase"
               >
-                Resources
+                Related Sites
               </h4>
               <ul class="mt-4 gap-4 grid md:grid-cols-2">
                 <li
