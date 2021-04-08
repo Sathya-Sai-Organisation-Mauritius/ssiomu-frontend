@@ -11,9 +11,9 @@
             </h1>
           </div>
 
-          <div class="md:flex">
+          <div class="md:grid md:grid-cols-12">
             <div
-              class="page-description space-y-3 col-span-9"
+              class="page-description space-y-3 md:col-span-9"
               v-html="pages.body"
             ></div>
 
@@ -53,4 +53,17 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.page-description {
+  iframe {
+    width: 100%;
+    height: 540px;
+    aspect-ratio: 1.3;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
