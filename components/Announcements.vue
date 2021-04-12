@@ -65,8 +65,8 @@ export default {
 <style>
 @screen lg {
   .announcement-details {
-    background-image: url('/images/announcement_1.svg');
-    background-size: 30vw 30vh;
+    background-image: url('/images/intro.svg');
+    background-size: contain;
     background-position: 20vw center;
     background-repeat: no-repeat;
     min-height: 30vh;

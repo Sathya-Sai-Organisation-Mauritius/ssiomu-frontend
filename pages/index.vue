@@ -18,14 +18,14 @@
         :textcolor="'text-blue-600'"
       />
     </ErrorHandler>
-
+    <!-- 
     <ErrorHandler :model="featuredPublications">
       <FeaturedPublications
         v-if="featuredPublications"
         :information="featuredPublications"
         :textalign="'text-center'"
       />
-    </ErrorHandler>
+    </ErrorHandler> -->
 
     <ErrorHandler :model="pastEvents">
       <PastEvents
@@ -45,7 +45,7 @@
 import Announcements from '~/components/Announcements.vue'
 import HomeHero from '~/components/HomeHero.vue'
 import UpcomingEvents from '~/components/UpcomingEvents.vue'
-import FeaturedPublications from '~/components/FeaturedPublications.vue'
+// import FeaturedPublications from '~/components/FeaturedPublications.vue'
 import PastEvents from '~/components/PastEvents.vue'
 import BreakingNews from '~/components/BreakingNews.vue'
 import ErrorHandler from '~/components/Shared/ErrorHandler.vue'
@@ -62,7 +62,7 @@ export default {
     HomeHero,
     Announcements,
     UpcomingEvents,
-    FeaturedPublications,
+    // FeaturedPublications,
     PastEvents,
     ErrorHandler
   },
@@ -85,12 +85,12 @@ export default {
       .then(res => res)
       .catch(err => err)
 
-    let featuredPublications = await $axios
-      .$get(
-        'publication?filter[featured][nempty]&filter[status]=published&limit=3&fields=*.*,photo.*,wing.*'
-      )
-      .then(res => res)
-      .catch(err => err)
+    // let featuredPublications = await $axios
+    //   .$get(
+    //     'publication?filter[featured][nempty]&filter[status]=published&limit=3&fields=*.*,photo.*,wing.*'
+    //   )
+    //   .then(res => res)
+    //   .catch(err => err)
 
     let pastEvents = await $axios
       .$get(
@@ -103,7 +103,7 @@ export default {
       announcements: announcements.data,
       breakingNews: breakingNews.data,
       upcomingEvents: upcomingEvents.data,
-      featuredPublications: featuredPublications.data,
+      // featuredPublications: featuredPublications.data,
       pastEvents: pastEvents.data
     }
   }
