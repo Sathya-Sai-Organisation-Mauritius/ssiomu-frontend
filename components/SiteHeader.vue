@@ -160,7 +160,6 @@ export default {
           ]
         },
         {
-          url: '/resources',
           name: 'Resources',
           children: [
             { name: 'E-Books', url: '/page/about' },

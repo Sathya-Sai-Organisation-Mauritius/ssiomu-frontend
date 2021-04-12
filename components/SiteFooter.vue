@@ -31,9 +31,9 @@
                   v-for="menu in footerLinks"
                   :key="menu.url"
                 >
-                  <nuxt-link :to="menu.url" v-if="menu.url !== null">{{
+                  <a :href="menu.url" v-if="menu.url !== null">{{
                     menu.title
-                  }}</nuxt-link>
+                  }}</a>
                   <div v-else>{{ menu.title }}</div>
                 </li>
               </ul>

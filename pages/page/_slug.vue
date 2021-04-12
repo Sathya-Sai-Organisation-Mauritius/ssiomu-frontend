@@ -13,12 +13,20 @@
 
           <div class="md:grid md:grid-cols-12">
             <div
-              class="page-description space-y-3 md:col-span-9"
+              class="page-description space-y-3 "
+              :class="
+                pages && pages.related_links
+                  ? 'md:col-span-9'
+                  : 'md:col-span-12'
+              "
               v-html="pages.body"
             ></div>
 
             <RelatedLinks
               class="w-full md:max-w-xs md:col-span-3"
+              :class="
+                pages && pages.related_links ? 'md:col-span-3' : 'md:hidden'
+              "
               v-if="pages && pages.related_links"
               :related_links="pages.related_links"
             />
