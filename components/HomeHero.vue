@@ -40,26 +40,34 @@ export default {}
 <style lang="scss" scoped>
 @screen md {
   .front-landing {
-    background-image: url('/images/bg-world.png');
-    background-size: auto 200%;
+    background-image: url('/images/sri-sathya-sai.jpg');
+    background-size: cover;
     background-position: right bottom;
     background-repeat: no-repeat;
   }
-}
 
-h1,
-p {
-  text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 2px 2px 0px #fff,
-    -2px -2px 0px #fff, 3px 3px 0px #fff, -3px -3px 0px #fff, 4px 4px 0px #fff,
-    -4px -4px 0px #fff, 5px 5px 0px #fff, -5px -5px 0px #fff;
+  h1,
+  p {
+    text-shadow: 0px 0px 3px #fff;
+    background: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+  }
 }
 
 @screen lg {
   .front-landing {
-    background-image: url('/images/intro-01.svg');
+    background-image: url('/images/sri-sathya-sai.jpg');
     background-size: contain;
     background-position: right top;
     background-repeat: no-repeat;
+  }
+
+  h1,
+  p {
+    background: none;
+    text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 2px 2px 0px #fff,
+      -2px -2px 0px #fff, 3px 3px 0px #fff, -3px -3px 0px #fff, 4px 4px 0px #fff,
+      -4px -4px 0px #fff, 5px 5px 0px #fff, -5px -5px 0px #fff;
   }
 }
 </style>

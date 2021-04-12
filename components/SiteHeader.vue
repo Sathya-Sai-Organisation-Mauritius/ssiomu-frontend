@@ -74,40 +74,6 @@
                 >
                 <div v-else>{{ menu.name }}</div>
               </li>
-
-              <li class="relative hover:bg-orange-500 hover">
-                <div class="dropdown">
-                  <nuxt-link
-                    :to="{ name: 'regions' }"
-                    class="inline-flex items-center py-5 px-5"
-                  >
-                    <span class="mr-1">Regions</span>
-                    <svg
-                      class="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                      />
-                    </svg>
-                  </nuxt-link>
-                  <ul
-                    class="dropdown-menu absolute block left-0 hidden block text-white-700 pt-xl"
-                  >
-                    <li class v-for="region in getRegions" :key="region.slug">
-                      <nuxt-link
-                        class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
-                        :to="{
-                          name: 'region-slug',
-                          params: { slug: region.slug }
-                        }"
-                        >{{ region.name }}</nuxt-link
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </li>
             </ul>
           </nav>
         </div>
@@ -160,12 +126,13 @@ export default {
           ]
         },
         {
+          url: '/page/resources',
           name: 'Resources',
           children: [
-            { name: 'E-Books', url: '/page/about' },
-            { name: 'Guidelines', url: '/page/about' },
-            { name: 'Devotional Songs', url: '/page/about' },
-            { name: 'Discourses', url: '/page/about' }
+            { name: 'E-Books', url: '/page/ebooks' },
+            { name: 'Guidelines', url: '/page/guidelines' },
+            { name: 'Devotional Songs', url: '/page/devotional-songs' },
+            { name: 'Discourses', url: '/page/discourses' }
           ]
         },
         {
