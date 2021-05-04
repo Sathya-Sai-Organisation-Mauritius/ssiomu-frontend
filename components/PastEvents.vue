@@ -27,7 +27,7 @@
             </ul>
           </div>
           <div class="flex justify-center items-center pt-8">
-            <a href=""
+            <a href="/events"
               ><div
                 class="px-8 md:py-4 py-2 inline-block gradient-bg text-white rounded-md shadow-lg font-bold tracking-wide hover:text-orange-400 "
               >

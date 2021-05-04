@@ -31,9 +31,7 @@
       <PastEvents
         v-if="pastEvents"
         :information="pastEvents"
-        :subtitle="
-          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.'
-        "
+        :subtitle="'A list of past events.'"
         :textalign="'text-center'"
         :textcolor="'text-blue-600'"
       />
