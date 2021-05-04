@@ -1,18 +1,18 @@
 <template>
   <div>
-    <div class="py-20">
+    <div class="py-20 gradient-bg">
       <div class="container mx-auto">
         <div v-if="events.length > 0">
           <h2
-            class="font-serif text-3xl font-bold text-center md:text-left  text-blue-600  pb-8"
+            class="font-serif text-3xl font-bold text-center md:text-left  text-white pb-8"
             :class="textalign"
           >
-            Upcoming Events
+            Recent Events
           </h2>
 
           <div>
-            <div class="grid md:grid-cols-3 gap-8  text-blue-600">
-              <UpcomingEventBox
+            <div class="grid md:grid-cols-3 gap-8 text-blue-600">
+              <RecentEventBox
                 v-for="(description, index) in events"
                 :key="index"
                 :myvalues="description"
@@ -34,11 +34,11 @@
 </template>
 
 <script>
-import UpcomingEventBox from '../components/UpcomingEventBox'
+import RecentEventBox from '../components/RecentEventBox'
 
 export default {
   components: {
-    UpcomingEventBox
+    RecentEventBox
   },
 
   props: ['color', 'textalign', 'textcolor', 'information'],

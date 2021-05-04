@@ -10,6 +10,16 @@
       <BreakingNews v-if="breakingNews" :information="breakingNews" />
     </ErrorHandler>
 
+    <ErrorHandler :model="pastEvents">
+      <RecentEvents
+        v-if="pastEvents"
+        :information="pastEvents"
+        :subtitle="'A list of past events.'"
+        :textalign="'text-center'"
+        :textcolor="'text-blue-600'"
+      />
+    </ErrorHandler>
+
     <ErrorHandler :model="upcomingEvents">
       <UpcomingEvents
         v-if="upcomingEvents"
@@ -26,16 +36,6 @@
         :textalign="'text-center'"
       />
     </ErrorHandler> -->
-
-    <ErrorHandler :model="pastEvents">
-      <PastEvents
-        v-if="pastEvents"
-        :information="pastEvents"
-        :subtitle="'A list of past events.'"
-        :textalign="'text-center'"
-        :textcolor="'text-blue-600'"
-      />
-    </ErrorHandler>
   </div>
 </template>
 
@@ -43,6 +43,7 @@
 import Announcements from '~/components/Announcements.vue'
 import HomeHero from '~/components/HomeHero.vue'
 import UpcomingEvents from '~/components/UpcomingEvents.vue'
+import RecentEvents from '~/components/RecentEvents.vue'
 // import FeaturedPublications from '~/components/FeaturedPublications.vue'
 import PastEvents from '~/components/PastEvents.vue'
 import BreakingNews from '~/components/BreakingNews.vue'
@@ -60,6 +61,7 @@ export default {
     HomeHero,
     Announcements,
     UpcomingEvents,
+    RecentEvents,
     // FeaturedPublications,
     PastEvents,
     ErrorHandler
@@ -92,9 +94,12 @@ export default {
 
     let pastEvents = await $axios
       .$get(
-        'event?filter[from][lt]=now&filter[status]=published&limit=5&fields=*.*'
+        'event?filter[from][lt]=now&filter[status]=published&limit=5&fields=*.*.*'
       )
-      .then(res => res)
+      .then(res => {
+        console.log(res)
+        return res
+      })
       .catch(err => err)
 
     return {

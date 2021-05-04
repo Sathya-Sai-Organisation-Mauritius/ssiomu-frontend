@@ -142,6 +142,10 @@ export default {
             { name: 'Upcoming Events', url: '/events' },
             { name: 'Activities & Community Service', url: '/page/about' }
           ]
+        },
+        {
+          url: '/contact',
+          name: 'Contact Us'
         }
       ]
     }
