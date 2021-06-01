@@ -2,9 +2,9 @@
   <div>
     <HomeHero />
 
-    <ErrorHandler :model="announcements">
+    <!-- <ErrorHandler :model="announcements">
       <Announcements :information="announcements" />
-    </ErrorHandler>
+    </ErrorHandler> -->
 
     <ErrorHandler :model="breakingNews">
       <BreakingNews v-if="breakingNews" :information="breakingNews" />
@@ -68,10 +68,10 @@ export default {
   },
   methods: {},
   async asyncData({ store, $axios }) {
-    let announcements = await $axios
-      .$get('annoucement?filter[status]=published&fields=*.*,region.*')
-      .then(res => res)
-      .catch(err => err)
+    // let announcements = await $axios
+    //   .$get('annoucement?filter[status]=published&fields=*.*,region.*')
+    //   .then(res => res)
+    //   .catch(err => err)
 
     let breakingNews = await $axios
       .$get('breaking_news?filter[status]=published')
@@ -80,7 +80,7 @@ export default {
 
     let upcomingEvents = await $axios
       .$get(
-        'event?filter[from][gt]=now&filter[status]=published&limit=5&fields=*.*,region.name,region.number'
+        'event?filter[from][gt]=now&filter[status]=published&limit=6&fields=*.*,region.name,region.number'
       )
       .then(res => res)
       .catch(err => err)
@@ -94,7 +94,7 @@ export default {
 
     let pastEvents = await $axios
       .$get(
-        'event?filter[from][lt]=now&filter[status]=published&limit=5&fields=*.*.*'
+        'event?filter[from][lt]=now&filter[status]=published&limit=6&fields=*.*.*'
       )
       .then(res => {
         console.log(res)
@@ -103,7 +103,7 @@ export default {
       .catch(err => err)
 
     return {
-      announcements: announcements.data,
+      // announcements: announcements.data,
       breakingNews: breakingNews.data,
       upcomingEvents: upcomingEvents.data,
       // featuredPublications: featuredPublications.data,

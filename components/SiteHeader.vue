@@ -56,7 +56,15 @@
                     class="dropdown-menu absolute block left-0 hidden block text-white-700 pt-xl"
                   >
                     <li class v-for="item in menu.children" :key="item.url">
+                      <a
+                        v-if="item.url.includes('https')"
+                        :href="item.url"
+                        target="_blank"
+                        class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
+                        >{{ item.name }}</a
+                      >
                       <nuxt-link
+                        v-else
                         class="bg-orange-600 hover:bg-orange-500 py-3 flex whitespace-no-wrap mb-0 px-3"
                         :to="{
                           path: item.url
@@ -129,10 +137,19 @@ export default {
           url: '/page/resources',
           name: 'Resources',
           children: [
-            { name: 'E-Books', url: '/page/ebooks' },
-            { name: 'Guidelines', url: '/page/guidelines' },
-            { name: 'Devotional Songs', url: '/page/devotional-songs' },
-            { name: 'Discourses', url: '/page/discourses' }
+            { name: 'E-Books', url: 'https://www.sathyasai.org/media/ebooks' },
+            {
+              name: 'Guidelines',
+              url: 'https://www.sathyasai.org/about-us/organisation/guidelines'
+            },
+            {
+              name: 'Devotional Songs',
+              url: 'https://sairhythms.sathyasai.org/songs'
+            },
+            {
+              name: 'Discourses',
+              url: 'https://www.sathyasai.org/discourses-and-writingss'
+            }
           ]
         },
         {
