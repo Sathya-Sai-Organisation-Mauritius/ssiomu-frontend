@@ -45,7 +45,12 @@
               class="font-light text-md md:text-sm lg:text-sm"
               v-if="myvalues.region"
             >
-              Region {{ myvalues.region.number }} - {{ myvalues.region.name }}
+              {{
+                myvalues.region.number === 0
+                  ? ''
+                  : `Region ${myvalues.region.number} -`
+              }}
+              {{ myvalues.region.name }}
             </div>
           </div>
         </div>
