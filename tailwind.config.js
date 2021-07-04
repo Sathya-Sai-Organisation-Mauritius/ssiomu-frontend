@@ -36,10 +36,11 @@ module.exports = {
         css: {
           color: '#383838',
           maxWidth: '90ch',
-          h1: { color: theme('colors.blue.800') },
-          h2: { color: theme('colors.blue.800') },
-          h3: { color: theme('colors.blue.800') },
-          h4: { color: theme('colors.blue.800') },
+          h1: { color: theme('colors.blue.800'), fontWeight: 700 },
+          h2: { color: theme('colors.blue.800'), fontWeight: 600 },
+          h3: { color: theme('colors.blue.800'), fontWeight: 500 },
+          h4: { color: theme('colors.blue.800'), fontWeight: 400 },
+          strong: { color: theme('colors.blue.800') },
           a: {
             color: theme('colors.blue.800'),
             '&:hover': {
