@@ -6,6 +6,10 @@
       <Announcements :information="announcements" />
     </ErrorHandler> -->
 
+    <ErrorHandler :model="homeRelatedLinks">
+      <HomeRelatedLinks :information="homeRelatedLinks" />
+    </ErrorHandler>
+
     <ErrorHandler :model="breakingNews">
       <BreakingNews v-if="breakingNews" :information="breakingNews" />
     </ErrorHandler>
@@ -41,6 +45,7 @@
 
 <script>
 import Announcements from '~/components/Announcements.vue'
+import HomeRelatedLinks from '~/components/HomeRelatedLinks.vue'
 import HomeHero from '~/components/HomeHero.vue'
 import UpcomingEvents from '~/components/UpcomingEvents.vue'
 import RecentEvents from '~/components/RecentEvents.vue'
@@ -62,6 +67,7 @@ export default {
     Announcements,
     UpcomingEvents,
     RecentEvents,
+    HomeRelatedLinks,
     // FeaturedPublications,
     PastEvents,
     ErrorHandler
@@ -72,6 +78,11 @@ export default {
     //   .$get('annoucement?filter[status]=published&fields=*.*,region.*')
     //   .then(res => res)
     //   .catch(err => err)
+
+    let homeRelatedLinks = await $axios
+      .$get('homerelatedlinks?filter[status]=published&fields=*.*')
+      .then(res => res)
+      .catch(err => err)
 
     let breakingNews = await $axios
       .$get('breaking_news?filter[status]=published')
@@ -105,6 +116,7 @@ export default {
     return {
       // announcements: announcements.data,
       breakingNews: breakingNews.data,
+      homeRelatedLinks: homeRelatedLinks.data,
       upcomingEvents: upcomingEvents.data,
       // featuredPublications: featuredPublications.data,
       pastEvents: pastEvents.data
