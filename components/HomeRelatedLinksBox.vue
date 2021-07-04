@@ -7,8 +7,8 @@
         <div class="mt-2 sm:flex sm:justify-between" v-if="relatedlink">
           <a class="sm:flex" :href="relatedlink.link" target="_blank">
             <div class="flex text-md leading-5 ">
-              <div class="text-xl flex items-center justify-center w-1/6">
-                <div v-if="relatedlink.photo">
+              <div class="text-xl flex justify-center w-1/6">
+                <div v-if="relatedlink.photo" class="px-4">
                   <img :src="relatedlink.photo.data.full_url" alt="" />
                 </div>
                 <svg

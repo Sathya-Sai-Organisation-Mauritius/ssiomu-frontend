@@ -2,7 +2,7 @@
   <div class="announcement-details bg-orange-100 border-t-4 border-orange-500">
     <div v-if="homelrelatedlinks.length > 0">
       <div
-        class="container mx-auto px-4 md:px-0 py-10 flex flex-col justify-center text-blue-500"
+        class="container mx-auto px-4 md:px-0 py-10 flex flex-col justify-center text-blue-700"
       >
         <div class="lg:flex mb-4 items-center mx-6 md:mx-0 md:space-x-10">
           <div class="w-0 lg:w-1/2 hidden -ml-2 lg:block lg:overflow-hidden">
