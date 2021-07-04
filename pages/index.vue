@@ -108,7 +108,7 @@ export default {
         'event?filter[from][lt]=now&filter[status]=published&limit=6&fields=*.*.*'
       )
       .then(res => {
-        console.log(res)
+        // console.log(res)
         return res
       })
       .catch(err => err)

@@ -6,7 +6,11 @@
     >
       <div class="w-full h-48 overflow-hidden">
         <img
-          v-if="myvalues.thumb !== null"
+          v-if="
+            myvalues.thumb !== null &&
+              myvalues.thumb.data &&
+              myvalues.thumb.data.full_url
+          "
           :src="myvalues.thumb.data.full_url"
           class="block object-cover object-center"
           alt=""

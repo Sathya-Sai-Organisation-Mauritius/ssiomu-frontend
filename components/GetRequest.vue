@@ -36,10 +36,9 @@ export default {
     fetchData() {
       // this.helloWorld()
       // Simple GET request using fetch
-      fetch('http://localhost:4444event')
-        .then(this.getJson)
-
-        .then(this.displayData)
+      // fetch('http://localhost:4444/event')
+      //   .then(this.getJson)
+      //   .then(this.displayData)
     }
   },
   mounted() {
